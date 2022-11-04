@@ -11,7 +11,7 @@ redirect_from:
 # About me
 
 I am a senior student from the Department of Physics, Tsinghua University. 
-I am a member of THUNLP supervised by Zhiyuan Liu. In the summer of 2022, I conducted research under Professor [Xin Wang](https://eric-xw.github.io/) at UCSC.
+I am a member of [THUNLP](http://nlp.csai.tsinghua.edu.cn/) supervised by [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/). In the summer of 2022, I conducted research under Professor [Xin Wang](https://eric-xw.github.io/) at UCSC.
 
 
 My email: zhen-zha19@mails.tsinghua.edu.cn
