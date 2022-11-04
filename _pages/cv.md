@@ -6,7 +6,7 @@ author_profile: true
 redirect_from:
   - /resume
 ---
-Here is my [CV]().
+Here is my [CV](files/cv.pdf).
 
 
 
