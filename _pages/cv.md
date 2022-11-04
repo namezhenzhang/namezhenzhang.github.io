@@ -6,11 +6,11 @@ author_profile: true
 redirect_from:
   - /resume
 ---
-Here is my [CV](files/cv.pdf).
+Here is my [CV](files/CV- Zhen Zhang.pdf).
 
 
 
-
+<!-- 
 {% include base_path %}
 
 Education
@@ -61,3 +61,4 @@ Teaching
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+-->
