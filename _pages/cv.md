@@ -6,7 +6,7 @@ author_profile: true
 redirect_from:
   - /resume
 ---
-Here is my [CV](https://github.com/namezhenzhang/namezhenzhang.github.io/blob/0cbeb9d778e538827f90f7fe62b95862c787010b/files/cv.pdf).
+Here is my [CV](https://namezhenzhang.github.io/files/cv.pdf).
 
 
 
