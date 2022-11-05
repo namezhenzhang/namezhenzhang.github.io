@@ -4,7 +4,12 @@ title: ""
 permalink: /publications_/
 author_profile: true
 ---
-gfjhxh
+(* indicates equal contribution)
+
+**[Sparse Structure Search for Parameter-Efficient Tuning](https://openreview.net/forum?id=oOte_397Q4P&referrer=%5Bthe%20profile%20of%20Zhiyuan%20Liu%5D(%2Fprofile%3Fid%3D~Zhiyuan_Liu1))** \
+Shengding Hu*, **Zhen Zhang**\*, Ning Ding, Yadao Wang, Yasheng Wang, Zhiyuan Liu, Maosong Sun \
+NeurIPS 2022
+
 
 <!-- 
 {% if author.googlescholar %}
