@@ -12,7 +12,7 @@ NeurIPS 2022 \
 [[github](https://github.com/thunlp/S3Delta)]
 
 **[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning]()** \
-Paper is being written， you can check out our [github](https://github.com/thunlp/OpenDelta). \
+Paper is being written， you can check out our [github](https://github.com/thunlp/OpenDelta). 
 
 
 <!-- 
