@@ -11,8 +11,8 @@ Shengding Hu*, **Zhen Zhang**\*, Ning Ding, Yadao Wang, Yasheng Wang, Zhiyuan Li
 NeurIPS 2022
 [[github](https://github.com/thunlp/S3Delta)]
 
-**[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning]()**
-paper is being written， you can check out our [github](https://github.com/thunlp/OpenDelta).
+**[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning]()** \
+Paper is being written， you can check out our [github](https://github.com/thunlp/OpenDelta).
 
 
 <!-- 
