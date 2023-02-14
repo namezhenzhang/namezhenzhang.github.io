@@ -12,7 +12,13 @@ NeurIPS 2022 \
 [[github](https://github.com/thunlp/S3Delta)]
 
 **[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning]()** \
-Paper is being written, you can check out our [github](https://github.com/thunlp/OpenDelta). 
+Paper is being written, you may check out our [github](https://github.com/thunlp/OpenDelta). 
+
+**Parameter-Efficient Cross-lingual Transfer Learning of Vision and Language Models via Translation-based Alignment** \
+**Zhen Zhang**, Jialu Wang and Xin Eric Wang \
+ACL 2023 (Under review) \
+
+
 
 
 <!-- 
