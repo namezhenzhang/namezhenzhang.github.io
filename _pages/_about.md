@@ -8,12 +8,12 @@ redirect_from:
   - /about.html
 ---
 # About me
+I am now a 1st-year Ph.D. student of Department of Computer Science, UC Santa Barbara. My advisor is Prof. Shiyu Chang and I also work closely with Prof. Yang Zhang. My research interest mainly lies in natural language processing and machine learning.
 
-I am a senior student from the Department of Physics, Tsinghua University. 
-I am a member of THUNLP supervised by Zhiyuan Liu. In the summer of 2022, I conducted research under Professor [Xin Wang](https://eric-xw.github.io/) at UCSC.
+Previously, I was a member of THUNLP supervised by Zhiyuan Liu. In the summer of 2022, I conducted research under Professor [Xin Wang](https://eric-xw.github.io/) at UCSC.
 
 
-My email: zhen-zha19@mails.tsinghua.edu.cn
+My email: zhen_zhang@ucsb.edu
 
 # Research
 My research interests lie within the pre-trained language models, parameter-efficient tuning, vision and language, etc. 
