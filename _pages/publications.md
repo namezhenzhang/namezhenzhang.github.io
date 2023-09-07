@@ -16,8 +16,10 @@ Shengding Hu*, **Zhen Zhang**\*, Ning Ding, Yadao Wang, Yasheng Wang, Zhiyuan Li
 NeurIPS 2022 \
 [[github](https://github.com/thunlp/S3Delta)]
 
-**[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning]()** \
-Paper is being written, you may check out our [github](https://github.com/thunlp/OpenDelta). 
+**[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning](https://arxiv.org/abs/2307.03084)** \
+Shengding Hu, Ning Ding, Weilin Zhao, Xingtai Lv, Zhen Zhang, Zhiyuan Liu, Maosong Sun \
+ACL 2023 Demo track \
+[[github](https://github.com/thunlp/OpenDelta)]  
 
 **[Parameter-Efficient Cross-lingual Transfer Learning of Vision and Language Models via Translation-based Alignment](https://namezhenzhang.github.io/files/Parameter_Efficient_Cross_Lingual_Transfer_of_Vision_and_Language_Models_via_Translation_based_Alignment.pdf)** \
 **Zhen Zhang**, Jialu Wang and Xin Eric Wang \
