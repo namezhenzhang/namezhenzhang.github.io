@@ -8,7 +8,7 @@ author_profile: true
 
 **[Certified Robustness for Large Language Models with Self-Denoising
 ](https://arxiv.org/abs/2307.07171)** \
-Zhen Zhang, Guanhua Zhang, Bairu Hou, Wenqi Fan, Qing Li, Sijia Liu, Yang Zhang, Shiyu Chang \
+**Zhen Zhang**, Guanhua Zhang, Bairu Hou, Wenqi Fan, Qing Li, Sijia Liu, Yang Zhang, Shiyu Chang \
 [[github](https://github.com/UCSB-NLP-Chang/SelfDenoise)]
 
 **[Sparse Structure Search for Delta Tuning](https://openreview.net/forum?id=oOte_397Q4P&referrer=%5Bthe%20profile%20of%20Zhiyuan%20Liu%5D(%2Fprofile%3Fid%3D~Zhiyuan_Liu1))** \
@@ -17,7 +17,7 @@ NeurIPS 2022 \
 [[github](https://github.com/thunlp/S3Delta)]
 
 **[OpenDelta: An Open-Source Framework for Paramter-Efficient Tuning](https://arxiv.org/abs/2307.03084)** \
-Shengding Hu, Ning Ding, Weilin Zhao, Xingtai Lv, Zhen Zhang, Zhiyuan Liu, Maosong Sun \
+Shengding Hu, Ning Ding, Weilin Zhao, Xingtai Lv, **Zhen Zhang**, Zhiyuan Liu, Maosong Sun \
 ACL 2023 Demo track \
 [[github](https://github.com/thunlp/OpenDelta)]  
 
