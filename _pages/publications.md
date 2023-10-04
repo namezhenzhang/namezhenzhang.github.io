@@ -23,7 +23,7 @@ ACL 2023 Demo track \
 
 **[Parameter-Efficient Cross-lingual Transfer Learning of Vision and Language Models via Translation-based Alignment](https://namezhenzhang.github.io/files/Parameter_Efficient_Cross_Lingual_Transfer_of_Vision_and_Language_Models_via_Translation_based_Alignment.pdf)** \
 **Zhen Zhang**, Jialu Wang and Xin Eric Wang \
-ACL 2023 (Under review) 
+EMNLP 2023 (Under review) 
 
 
 
