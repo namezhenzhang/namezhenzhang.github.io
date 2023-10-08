@@ -9,6 +9,7 @@ author_profile: true
 **[Certified Robustness for Large Language Models with Self-Denoising
 ](https://arxiv.org/abs/2307.07171)** \
 **Zhen Zhang**, Guanhua Zhang, Bairu Hou, Wenqi Fan, Qing Li, Sijia Liu, Yang Zhang, Shiyu Chang \
+Arxiv \
 [[github](https://github.com/UCSB-NLP-Chang/SelfDenoise)]
 
 **[Parameter-Efficient Cross-lingual Transfer Learning of Vision and Language Models via Translation-based Alignment](https://namezhenzhang.github.io/files/Parameter_Efficient_Cross_Lingual_Transfer_of_Vision_and_Language_Models_via_Translation_based_Alignment.pdf)** \
