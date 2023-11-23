@@ -18,5 +18,5 @@ Previously, I was a member of [THUNLP](http://nlp.csai.tsinghua.edu.cn/) supervi
 My email: zhen_zhang@ucsb.edu
 
 # Research
-My research interests lie within the pre-trained language models, parameter-efficient tuning, machine learning, robustness, etc. 
+My research interests lie within the pre-trained language models, parameter-efficient tuning, multimodality, machine learning, robustness, etc. 
 
