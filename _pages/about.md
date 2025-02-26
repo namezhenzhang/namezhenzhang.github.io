@@ -10,7 +10,7 @@ redirect_from:
 
 # About me
 
-I am a 1st-year Ph.D. student in the Department of Computer Science, UC Santa Barbara.
+I am a 2nd-year Ph.D. student in the Department of Computer Science, UC Santa Barbara.
 
 Previously, I was a member of [THUNLP](http://nlp.csai.tsinghua.edu.cn/) supervised by [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/). In the summer of 2022, I conducted research under Professor [Xin Eric Wang](https://eric-xw.github.io/) at UCSC.
 
@@ -18,5 +18,5 @@ Previously, I was a member of [THUNLP](http://nlp.csai.tsinghua.edu.cn/) supervi
 My email: zhen_zhang@ucsb.edu
 
 # Research
-My research interests lie within the pre-trained language models, parameter-efficient tuning, multimodality, machine learning, robustness, etc. 
+My research interests lie within the LLMs, reasoning, RL, parameter-efficient fine-tuning, multimodality, etc. 
 
