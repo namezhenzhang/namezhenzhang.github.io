@@ -1,14 +1,16 @@
 # Academic Website Template
 
-A clean, modern academic website template based on Sixun Dong's homepage design.
+A clean, modern academic website template with a powerful **config-driven system** for easy content management.
 
 ## 🎯 Features
 
+- **Config-Driven Content**: Update your entire website by editing one JSON file
+- **Automatic Generation**: Generate HTML files with a single command
 - **Minimal & Clean Design**: Focus on content with modern typography
 - **Responsive Layout**: Works perfectly on desktop, tablet, and mobile
 - **Academic-Focused**: Optimized for researchers and academics
 - **Blog Support**: Integrated blog with cover images, tags, and categories
-- **Fast Loading**: Pure HTML/CSS/JS, no heavy frameworks
+- **Easy Updates**: Add publications, experience, news without writing HTML
 
 ## 🏗️ Structure
 
@@ -29,26 +31,84 @@ A clean, modern academic website template based on Sixun Dong's homepage design.
 
 ## 🚀 Quick Start
 
-### 1. Local Preview
+### Method 1: Config-Driven (Recommended) 🚀
 
-Simply open `index.html` in your browser to preview the site locally.
-
-**Or use a simple HTTP server:**
-
+**Step 1: Configure Your Content**
 ```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2  
-python -m SimpleHTTPServer 8000
-
-# Node.js (if you have http-server installed)
-npx http-server
-
-# Then open http://localhost:8000
+# Edit the configuration file with your information
+# All your content is managed in this single file!
+vim config.json  # or use any text editor
 ```
 
-### 2. Customize Content
+**Step 2: Commit & Push**
+```bash
+# Commit your changes
+git add config.json
+git commit -m "Update personal information"
+git push
+```
+
+**Step 3: Automatic Deployment**
+GitHub Actions will automatically:
+- Detect your config.json changes
+- Generate new HTML files
+- Deploy to GitHub Pages
+
+That's it! Your website will be updated within 1-2 minutes. To add new publications or update your bio, just edit `config.json` and push the changes.
+
+## 📝 Config-Driven Content Management
+
+The template includes a powerful configuration system that lets you manage all content through a single `config.json` file:
+
+### Adding Publications
+```json
+"publications": {
+  "2025": [
+    {
+      "title": "Your Amazing Research Paper",
+      "authors": ["Author 1", "Your Name", "Author 3"],
+      "venue": "CVPR 2025",
+      "venue_type": "conference",
+      "image": "teaser/your-paper.jpg",
+      "is_oral": true,
+      "links": [
+        {"name": "Paper", "url": "https://arxiv.org/...", "icon": "ai ai-arxiv"},
+        {"name": "Code", "url": "https://github.com/...", "icon": "fab fa-github"}
+      ]
+    }
+  ]
+}
+```
+
+### Updating Personal Information
+```json
+"personal": {
+  "name": "Your Name",
+  "title": "PhD Student in Computer Science", 
+  "affiliation": "Your University",
+  "bio": [
+    "First paragraph of your bio...",
+    "Second paragraph with research interests..."
+  ]
+}
+```
+
+### Adding News
+```json
+"news": [
+  {
+    "date": "Dec 2024",
+    "content": "Paper accepted to <strong>CVPR 2025</strong>!",
+    "category": "papers"
+  }
+]
+```
+
+📖 **Documentation:**
+- [TEMPLATE_SYSTEM.md](TEMPLATE_SYSTEM.md) - Complete configuration guide
+- [GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md) - GitHub Actions workflow guide
+
+### Method 2: Direct HTML Editing (Traditional)
 
 #### Profile Information
 Edit `index.html`:

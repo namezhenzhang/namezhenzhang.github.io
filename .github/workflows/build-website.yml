@@ -1,0 +1,44 @@
+name: Build Website from Config
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'config.json'
+      - '.github/workflows/build-website.yml'
+      - '.github/scripts/build-website.js'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'config.json'
+
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install
+        
+    - name: Build website from config
+      run: node .github/scripts/build-website.js
+      
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add index.html publications.html
+        git diff --staged --quiet || git commit -m "🚀 Auto-update website from config.json"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

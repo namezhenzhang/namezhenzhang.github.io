@@ -1,0 +1,384 @@
+{
+  "personal": {
+    "name": "Sixun Dong",
+    "title": "PhD Student in Computer Science",
+    "affiliation": "Arizona State University",
+    "email": "sdong46@asu.edu",
+    "profile_image": "images/logo.jpg",
+    "cv_link": "files/CV_Dong.pdf",
+    "bio": [
+      "I am a PhD student at Arizona State University, supervised by Professor <a href=\"https://faculty.engineering.asu.edu/yanjiefu/\" class=\"link\">Yanjie Fu</a>. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
+      "My research focuses on developing multimodal perception and generation systems that integrate <em class=\"research-keywords\">vision, motion, audio, 3D, and language</em>."
+    ],
+    "links": [
+      {
+        "name": "Email",
+        "url": "mailto:sdong46@asu.edu",
+        "icon": "fas fa-envelope",
+        "color": "#dc3545"
+      },
+      {
+        "name": "Scholar",
+        "url": "https://scholar.google.com/citations?user=j71Y2-4AAAAJ",
+        "icon": "fas fa-graduation-cap",
+        "color": "#4285f4"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Ironieser",
+        "icon": "fab fa-github",
+        "color": "#333"
+      },
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/ironieser",
+        "icon": "fab fa-twitter",
+        "color": "#1da1f2"
+      },
+      {
+        "name": "Zhihu",
+        "url": "https://zhihu.com/people/ironieser",
+        "icon": "fas fa-book",
+        "color": "#0084ff"
+      }
+    ]
+  },
+  "research": {
+    "description": "I develop <strong>multimodal perception and generation systems</strong> that integrate vision, motion, audio, 3D, and language. My research explores weakly supervised video understanding, efficient vision-language models, and agent-centric multimodal generation for embodied AI systems.",
+    "stats": [
+      "10+ publications",
+      "3 top-tier venues (CVPR, WACV, IJCAI)",
+      "1 oral presentation"
+    ]
+  },
+  "news": [
+    {
+      "date": "May 2025",
+      "content": "Started GenAI Research Internship at <strong>Zoom Inc.</strong> focusing on efficient vision-language modeling",
+      "category": "career"
+    },
+    {
+      "date": "Aug 2024",
+      "content": "Started PhD program at Arizona State University",
+      "category": "career"
+    },
+    {
+      "date": "Feb 2024",
+      "content": "Paper on <strong>MLLM-Tool</strong> accepted to WACV 2024",
+      "category": "papers"
+    },
+    {
+      "date": "Mar 2023",
+      "content": "Paper on <strong>WeakSVR</strong> accepted to CVPR 2023",
+      "category": "papers"
+    },
+    {
+      "date": "Mar 2022",
+      "content": "Paper on <strong>TransRAC</strong> accepted as <strong>🏆 oral presentation</strong> to CVPR 2022",
+      "category": "papers"
+    }
+  ],
+  "publications": {
+    "2025": [
+      {
+        "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
+        "authors": ["Sixun Dong", "Wei Fan", "Teresa Wu", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/underreview.jpg",
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper (Coming Soon)",
+            "url": "#",
+            "icon": "ai ai-arxiv",
+            "coming_soon": true
+          }
+        ]
+      },
+      {
+        "title": "TimesFrame: Multi-Variable Time Series is a Video of Numerical Data",
+        "authors": ["Sixun Dong", "Nanxu Gong", "Haoyue Bai", "Xinyuan Wang", "Wangyang Ying", "Wei Fan", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/underreview.jpg",
+        "links": [
+          {
+            "name": "Paper (Coming Soon)",
+            "url": "#",
+            "icon": "ai ai-arxiv",
+            "coming_soon": true
+          }
+        ]
+      },
+      {
+        "title": "Agentic Feature Augmentation: Unifying Selection and Generation with Teaming, Planning, and Memories",
+        "authors": ["Nanxu Gong*", "Sixun Dong*", "Haoyue Bai", "Xinyuan Wang", "Wangyang Ying", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/agentic.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2505.15076",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
+        "authors": ["Nanxu Gong", "Zijun Li", "Sixun Dong", "Haoyue Bai", "Wangyang Ying", "Xinyuan Wang", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/sculp.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2505.15152",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
+        "authors": ["Nanxu Gong", "Sixun Dong", "Haoyue Bai", "Wangyang Ying", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/underreview.jpg",
+        "links": [
+          {
+            "name": "Paper (Coming Soon)",
+            "url": "#",
+            "icon": "ai ai-arxiv",
+            "coming_soon": true
+          }
+        ]
+      },
+      {
+        "title": "Unsupervised feature transformation via in-context generation, generator-critic llm agents, and duet-play teaming",
+        "authors": ["Nanxu Gong", "Xinyuan Wang", "Wangyang Ying", "Haoyue Bai", "Sixun Dong", "Haifeng Chen", "Yanjie Fu"],
+        "venue": "IJCAI 2025",
+        "venue_type": "conference",
+        "image": "teaser/agentFt.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2504.21304",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/NanxuGong/LPFG",
+            "icon": "fab fa-github"
+          }
+        ]
+      }
+    ],
+    "2024": [
+      {
+        "title": "MLLM-Tool: A Multimodal Large Language Model For Tool Agent Learning",
+        "authors": ["Chenyu Wang", "Weixin Luo", "Sixun Dong", "Xiaohua Xuan", "Zhengxin Li", "Lin Ma", "Shenghua Gao"],
+        "venue": "WACV 2024",
+        "venue_type": "conference",
+        "image": "teaser/mmtool.jpg",
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2401.10727",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/MLLM-Tool/MLLM-Tool",
+            "icon": "fab fa-github"
+          }
+        ]
+      },
+      {
+        "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
+        "authors": ["Yiqun Zhao", "Zibo Zhao", "Jing Li", "Sixun Dong", "Shenghua Gao"],
+        "venue": "3DV 2024",
+        "venue_type": "conference",
+        "image": "teaser/room.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2310.10027",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/zhao-yiqun/RoomDesigner",
+            "icon": "fab fa-github"
+          }
+        ]
+      }
+    ],
+    "2023": [
+      {
+        "title": "Weakly Supervised Video Representation Learning with Unaligned Text for Sequential Videos",
+        "authors": ["Sixun Dong*", "Huazhang Hu*", "Dongze Lian", "Weixin Luo", "Yicheng Qian", "Shenghua Gao"],
+        "venue": "CVPR 2023",
+        "venue_type": "conference",
+        "image": "teaser/weaksvr.jpg",
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2303.12370",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/svip-lab/WeakSVR",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/watch?v=AqozSRYP7Pc",
+            "icon": "fab fa-youtube"
+          },
+          {
+            "name": "Bilibili",
+            "url": "https://www.bilibili.com/video/BV1AW4y1R7um",
+            "icon": "fas fa-tv"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/617926257",
+            "icon": "fas fa-book-open"
+          }
+        ]
+      }
+    ],
+    "2022": [
+      {
+        "title": "TransRAC: Encoding Multi-scale Temporal Correlation with Transformers for Repetitive Action Counting",
+        "authors": ["Huazhang Hu*", "Sixun Dong*", "Yiqun Zhao", "Dongze Lian", "Zhengxin Li", "Shenghua Gao"],
+        "venue": "CVPR 2022",
+        "venue_type": "conference",
+        "image": "teaser/transrac.jpg",
+        "is_oral": true,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2204.01018",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/SvipRepetitionCounting/TransRAC",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Dataset",
+            "url": "https://svip-lab.github.io/dataset/RepCount_dataset.html",
+            "icon": "fas fa-database"
+          },
+          {
+            "name": "YouTube",
+            "url": "https://youtu.be/SFpUS9mHHpk",
+            "icon": "fab fa-youtube"
+          },
+          {
+            "name": "Bilibili",
+            "url": "https://www.bilibili.com/video/BV1B94y1S7oP",
+            "icon": "fas fa-tv"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/543376943",
+            "icon": "fas fa-book-open"
+          }
+        ]
+      }
+    ],
+    "survey": [
+      {
+        "title": "Towards Data-Centric AI: A Comprehensive Survey of Traditional, Reinforcement, and Generative Approaches for Tabular Data Transformation",
+        "authors": ["Dongjie Wang", "Yanyong Huang", "Wangyang Ying", "Haoyue Bai", "Nanxu Gong", "Xinyuan Wang", "Sixun Dong", "Tao Zhe", "Kunpeng Liu", "Meng Xiao", "et al."],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/underreview.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2501.10555",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
+        "authors": ["Wangyang Ying", "Cong Wei", "Nanxu Gong", "Xinyuan Wang", "Haoyue Bai", "Arun Vignesh Malarkkan", "Sixun Dong", "Dongjie Wang", "Denghui Zhang", "Yanjie Fu"],
+        "venue": "Under Review",
+        "venue_type": "under-review",
+        "image": "teaser/underreview.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2502.08828",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "position": "GenAI Research Intern",
+      "company": "Zoom Inc., GenAI Research Group",
+      "period": "May 2025 - Present",
+      "description": "Working on VLM and LLM Agent.",
+      "logo": "images/zoom.jpg"
+    },
+    {
+      "position": "Research Intern (Team Leader)",
+      "company": "DGene, Digital Human Algorithm Department",
+      "period": "Aug 2023 - Jan 2024",
+      "description": "Led digital human projects: co-speech gesture generation and 3D human body reconstruction with <7% measurement error.",
+      "logo": "images/dgene.jpeg"
+    },
+    {
+      "position": "Research Intern (Team Leader)",
+      "company": "Transsion Holdings, Audio-Video Generation Department",
+      "period": "Apr 2023 - Aug 2023",
+      "description": "Led audio-driven talking head video generation research, achieving SoTA performance in commercial and academic benchmarks.",
+      "logo": "images/transsion.jpeg"
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD in Computer Science",
+      "institution": "Arizona State University, USA",
+      "period": "2024 - Present",
+      "details": "Focus: Multimodal Learning, Computer Vision, LLM Agent"
+    },
+    {
+      "degree": "M.S. in Computer Science",
+      "institution": "ShanghaiTech University, China",
+      "period": "2021 - 2024",
+      "details": "SVIP-Lab, Advisor: Prof. Shenghua Gao"
+    },
+    {
+      "degree": "B.E. in Computer Science (Dual Degree)",
+      "institution": "Dalian University of Technology, China",
+      "period": "2016 - 2020",
+      "details": ""
+    },
+    {
+      "degree": "B.E. in Process Equipment and Control Engineering",
+      "institution": "Dalian University of Technology, China",
+      "period": "2016 - 2020",
+      "details": ""
+    }
+  ],
+  "service": {
+    "reviewer": {
+      "conferences": "CVPR 2023-2025, ICCV 2023-2025, NeurIPS 2025, ECCV 2024, ACCV 2024, ACM MM 2023-2025, KDD 2024",
+      "journals": "TMM, Neural Networks, TKDD"
+    }
+  }
+} 
