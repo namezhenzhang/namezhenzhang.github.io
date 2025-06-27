@@ -34,3 +34,6 @@ backup_originals/
 
 # Python cache
 __pycache__/
+
+# Local build temp files
+temp_build.js

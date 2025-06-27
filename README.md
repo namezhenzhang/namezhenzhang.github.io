@@ -254,12 +254,29 @@ Make sure to add these images:
 
 Feel free to fork this template and make it your own! If you make improvements, consider sharing them back.
 
+## 👨‍💻 Author
+
+This template was created by **Sixun Dong** ([@ironieser](https://github.com/Ironieser)), a PhD student at Arizona State University.
+
+- **Portfolio**: [ironieser.github.io](https://ironieser.github.io)
+- **Email**: sdong46@asu.edu
+- **Research**: Multimodal AI, Computer Vision, LLM Agents
+
 ## 📄 License
 
-This template is free to use for academic purposes. Attribution appreciated but not required.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
+
+**Free to use, modify, and distribute!** ✨ Attribution appreciated but not required.
+
+## 🙏 Acknowledgments
+
+Built with love for the academic community. Special thanks to:
+- GitHub Actions for automation infrastructure
+- The open-source community for inspiration
+- All researchers who provided feedback
 
 ---
 
-**Happy coding!** 🚀
+**Ready to build your amazing academic website?** 🚀
 
-For questions or issues, feel free to open an issue on GitHub.
+For questions, suggestions, or issues, feel free to [open an issue](https://github.com/Ironieser/ironieser.github.io/issues) on GitHub.

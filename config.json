@@ -1,4 +1,12 @@
 {
+  "_template_info": {
+    "name": "Config-Driven Academic Website Template",
+    "version": "1.0.0",
+    "author": "Sixun Dong (ironieser)",
+    "repository": "https://github.com/Ironieser/ironieser.github.io",
+    "license": "MIT",
+    "description": "A GitHub Actions-powered template for easy academic website management"
+  },
   "personal": {
     "name": "Sixun Dong",
     "title": "PhD Student in Computer Science",
@@ -102,6 +110,7 @@
         "venue": "Under Review",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
+        "featured": true,
         "links": [
           {
             "name": "Paper (Coming Soon)",
