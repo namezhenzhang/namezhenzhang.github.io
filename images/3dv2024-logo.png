@@ -1,0 +1,5 @@
+<svg width="120" height="110" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="110" fill="#7c3aed" stroke="#6d28d9" stroke-width="1"/>
+  <text x="60" y="45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold">3DV</text>
+  <text x="60" y="65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="white">2024</text>
+</svg> 
