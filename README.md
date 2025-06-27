@@ -15,18 +15,46 @@ A clean, modern academic website template with a powerful **config-driven system
 ## 🏗️ Structure
 
 ```
-.
-├── index.html          # Main homepage (Bio)
-├── publications.html   # Publications page  
-├── blog.html          # Blog listing page
-├── styles.css         # Main stylesheet
-├── blog.css           # Blog-specific styles
-├── images/            # Profile and blog images
-│   ├── profile.jpg    # Your profile photo
-│   └── blog/          # Blog cover images
-├── files/             # CV and other files
-├── posts/             # Individual blog posts
-└── README.md          # This file
+📦 ironieser.github.io/
+├── 🔧 Core Files
+│   ├── config.json                 # 🎯 Main configuration (edit this!)
+│   ├── build_local.py             # 🐍 Local build script (Python)
+│   ├── build_local.js             # 🟨 Local build script (JavaScript)
+│   ├── local_server.py            # 🌐 Local development server
+│   └── .gitignore                 # 📋 Git ignore configuration
+│
+├── 🏗️ Auto-Generated (not tracked in git)
+│   ├── index.html                 # 🏠 Homepage (auto-built)
+│   ├── publications.html          # 📚 Publications page (auto-built)
+│   └── blog.html                  # ✍️ Blog page (auto-built)
+│
+├── 🎨 Styles & Scripts
+│   ├── styles.css                 # 💅 Main stylesheet
+│   ├── blog.css                   # 📝 Blog-specific styles
+│   ├── script.js                  # ⚡ JavaScript functionality
+│   └── blog-data.js               # 📊 Blog data
+│
+├── 🖼️ Media Assets
+│   ├── images/                    # 📸 Images directory
+│   │   ├── logo.jpg              # 🎭 Site logo/avatar
+│   │   ├── profile.jpg           # 👤 Profile photo
+│   │   └── blog/                 # 📖 Blog cover images
+│   ├── teaser/                   # 🔬 Paper teaser images
+│   └── files/                    # 📄 Download files (CV, papers)
+│
+├── ✍️ Content
+│   └── blog/                     # 📚 Blog posts (Markdown format)
+│
+├── ⚙️ Automation
+│   └── .github/
+│       ├── workflows/            # 🔄 GitHub Actions workflows
+│       └── scripts/              # 📜 Build scripts
+│
+└── 📚 Documentation
+    ├── README.md                 # 📖 This file
+    ├── TEMPLATE_SYSTEM.md        # 🏗️ Template system guide
+    ├── BLOG_SYSTEM.md           # ✍️ Blog system guide
+    └── GITHUB_ACTIONS_GUIDE.md   # 🚀 GitHub Actions guide
 ```
 
 ## 🚀 Quick Start
@@ -107,25 +135,53 @@ The template includes a powerful configuration system that lets you manage all c
 📖 **Documentation:**
 - [TEMPLATE_SYSTEM.md](TEMPLATE_SYSTEM.md) - Complete configuration guide
 - [GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md) - GitHub Actions workflow guide
+- [BLOG_SYSTEM.md](BLOG_SYSTEM.md) - Blog system documentation
+
+## 🛠️ Local Development
+
+### Option 1: Python Build Script (Recommended)
+```bash
+# Build website from config.json
+python build_local.py
+
+# Start local development server
+python local_server.py
+# Visit http://localhost:8000
+```
+
+### Option 2: JavaScript Build Script
+```bash
+# Install dependencies (first time only)
+npm init -y
+npm install
+
+# Build website from config.json
+node build_local.js
+```
+
+### Building Components
+- **Website**: `python build_local.py` generates `index.html` and `publications.html`
+- **Blog**: Blog system is integrated into the main build process
+- **Local Preview**: Use `python local_server.py` to preview changes locally
 
 ### Method 2: Direct HTML Editing (Traditional)
 
 #### Profile Information
-Edit `index.html`:
-- Replace profile photo: `images/profile.jpg`
-- Update name, title, affiliation
+Edit `config.json` (recommended) or `index.html`:
+- Replace profile photo: `images/logo.jpg` or `images/profile.jpg`
+- Update personal information in config.json
 - Modify the bio and research interests
 - Update contact links
 
 #### Publications
-Edit `publications.html`:
-- Add your papers in the appropriate sections
+Edit `config.json` (recommended) or `publications.html`:
+- Add your papers in the publications section of config.json
 - Update publication venues and links
 - Modify the statistics section
 
 #### Blog
-- Add blog posts in the `blog.html` grid
-- Create individual post files in `posts/` directory
+- Add blog posts in the `blog.html` grid (auto-generated from config)
+- Create individual post files in `blog/` directory (Markdown format)
 - Add cover images to `images/blog/`
 
 ### 3. Deploy to GitHub Pages
@@ -159,10 +215,10 @@ Each publication should include:
 ### Writing Blog Posts
 
 For each blog post:
-1. Add an entry in `blog.html`
-2. Create the actual post file in `posts/`
+1. Create a Markdown file in `blog/` directory
+2. Configure the blog data in `blog-data.js` or use config system
 3. Add a cover image to `images/blog/`
-4. Include appropriate tags and metadata
+4. Include appropriate tags and metadata in frontmatter
 
 Example blog post structure:
 ```html
@@ -247,8 +303,11 @@ The template includes responsive breakpoints:
 ## 📋 Required Images
 
 Make sure to add these images:
-- `images/profile.jpg` - Your profile photo (240x240px recommended)
+- `images/logo.jpg` - Your main profile photo/logo (240x240px recommended)
+- `images/profile.jpg` - Alternative profile photo (if needed)
 - `images/blog/*.jpg` - Blog cover images (400x200px recommended)
+- `teaser/*.jpg` - Paper teaser images for publications
+- `files/CV_*.pdf` - Your CV and other downloadable files
 
 ## 🤝 Contributing
 
