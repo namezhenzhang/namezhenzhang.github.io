@@ -37,3 +37,9 @@ __pycache__/
 
 # Local build temp files
 temp_build.js
+
+# Generated HTML files (auto-built by GitHub Actions)
+index.html
+publications.html
+blog.html
+    
