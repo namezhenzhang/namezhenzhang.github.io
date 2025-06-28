@@ -123,7 +123,7 @@
       {
         "title": "Agentic Feature Augmentation: Unifying Selection and Generation with Teaming, Planning, and Memories",
         "authors": ["Nanxu Gong*", "Sixun Dong*", "Haoyue Bai", "Xinyuan Wang", "Wangyang Ying", "Yanjie Fu"],
-        "venue": "Under Review",
+        "venue": "Arxiv'2505",
         "venue_type": "under-review",
         "image": "teaser/agentic.jpg",
         "links": [
@@ -137,7 +137,7 @@
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
         "authors": ["Nanxu Gong", "Zijun Li", "Sixun Dong", "Haoyue Bai", "Wangyang Ying", "Xinyuan Wang", "Yanjie Fu"],
-        "venue": "Under Review",
+        "venue": "Arxiv'2505",
         "venue_type": "under-review",
         "image": "teaser/sculp.jpg",
         "links": [
