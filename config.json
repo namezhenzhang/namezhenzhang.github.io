@@ -308,7 +308,7 @@
       {
         "title": "Towards Data-Centric AI: A Comprehensive Survey of Traditional, Reinforcement, and Generative Approaches for Tabular Data Transformation",
         "authors": ["Dongjie Wang", "Yanyong Huang", "Wangyang Ying", "Haoyue Bai", "Nanxu Gong", "Xinyuan Wang", "Sixun Dong", "Tao Zhe", "Kunpeng Liu", "Meng Xiao", "et al."],
-        "venue": "Under Review",
+        "venue": "Arxiv'2501",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
         "links": [
@@ -322,7 +322,7 @@
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
         "authors": ["Wangyang Ying", "Cong Wei", "Nanxu Gong", "Xinyuan Wang", "Haoyue Bai", "Arun Vignesh Malarkkan", "Sixun Dong", "Dongjie Wang", "Denghui Zhang", "Yanjie Fu"],
-        "venue": "Under Review",
+        "venue": "Arxiv'2502",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
         "links": [
