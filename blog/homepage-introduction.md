@@ -1,92 +1,74 @@
 ---
 title: "Welcome to My Academic Homepage"
 date: "2025-06-26"
-description: "An introduction to my academic homepage - a showcase of my research journey, publications, and thoughts in computer vision and multimodal learning."
-tags: ["Homepage", "Academic", "Research", "Computer Vision"]
-image: "images/blog/homepage-intro.jpg"
+description: "A brief introduction to my academic homepage and how it's organized to showcase my research work."
+tags: ["Homepage", "Academic", "Research"]
+image: "teaser/preprint.jpg"
 ---
 
 # Welcome to My Academic Homepage
 
-Welcome to my personal academic homepage! This site serves as a comprehensive showcase of my research journey, publications, and thoughts in the field of computer vision and multimodal learning.
+Welcome to my academic homepage! This site showcases my research work, publications, and thoughts on computer vision and AI.
 
 ## What You'll Find Here
 
-### 🏠 **Bio Section**
-The homepage provides an overview of my academic background, current research interests, and career highlights. You'll find information about my education, research experience, and key achievements in computer vision and AI.
+### 🏠 **About Me**
+The main page has my current position, research interests, and recent news. I'm a PhD student at Arizona State University working on multimodal AI systems.
 
 ### 📚 **Publications**
-A curated collection of my research papers, conference presentations, and academic contributions. Each publication includes:
-- **Abstract and key findings**
-- **Links to papers and code repositories**  
-- **Conference/journal information**
-- **Visual previews and teaser images**
+A collection of my research papers organized by year, including:
+- Conference and journal papers
+- Links to papers, code, and datasets
+- Brief descriptions and visual previews
 
 ### 📝 **Blog**
-This blog section where you can find my thoughts on:
-- **Research insights and methodologies**
-- **Technical tutorials and guides**
-- **Industry trends in AI and computer vision**
-- **Academic journey reflections**
-
-## Research Focus Areas
-
-My research primarily focuses on:
-
-- **Computer Vision**: Object detection, image segmentation, and visual understanding
-- **Multimodal Learning**: Combining vision, language, and other modalities
-- **Deep Learning**: Novel architectures and training methodologies
-- **Applied AI**: Real-world applications of machine learning
+Occasional posts about:
+- Research insights and experiences
+- Technical notes and tutorials
+- Thoughts on AI and computer vision
 
 ## How This Site Works
 
-This homepage is built with modern web technologies and includes several key features:
+This website is built using a config-driven approach that I developed:
 
-### 🚀 **Automated Blog System**
-- Write blog posts in **Markdown format**
-- Automatic processing via **GitHub Actions**
-- **Frontmatter metadata** for rich post information
-- **Responsive design** for all devices
+### ⚙️ **Configuration-Based**
+- All content is managed through a single `config.json` file
+- Publications, news, and personal info are all in structured data
+- Makes it easy to update without editing HTML
 
-### 📊 **Publication Management**
-- Structured publication database
-- **Visual previews** with teaser images
-- **Coming soon** indicators for upcoming papers
-- **External links** to papers and code
+### 🤖 **Automated Building**
+- GitHub Actions automatically generates HTML from the config
+- Blog posts are written in Markdown and processed automatically
+- Changes are deployed automatically when I push updates
 
-### 🎨 **Professional Design**
-- **Clean, academic aesthetic**
-- **Mobile-responsive layout**
-- **Smooth animations and interactions**
-- **Consistent typography and spacing**
+### 🎨 **Simple Design**
+- Clean, academic layout focused on content
+- Responsive design that works on mobile
+- Uses standard web technologies (HTML, CSS, JavaScript)
 
-## Adding New Content
+## Technical Details
 
-### For Blog Posts
-Simply create a new `.md` file in the `blog/` directory with frontmatter:
+For those interested in the implementation:
 
-```markdown
----
-title: "Your Post Title"
-date: "YYYY-MM-DD"
-description: "Brief description"
-tags: ["Tag1", "Tag2"]
-image: "images/blog/your-image.jpg"
----
+- **Frontend**: Pure HTML/CSS/JavaScript, no frameworks
+- **Build Process**: Node.js scripts that process JSON config
+- **Hosting**: GitHub Pages with custom domain
+- **Blog System**: Markdown files processed into HTML
+- **Comments**: Waline comment system for blog posts
 
-# Your Content Here
-Write your blog post in Markdown...
-```
+The source code is available on GitHub if you want to see how it works or use it for your own site.
 
-### For Publications
-Update the publications database with new papers, including abstracts, links, and visual materials.
+## Recent Updates
 
-## Connect With Me
+I regularly update the site with:
+- New publications as they get accepted
+- Research news and career updates
+- Occasional blog posts about my work
 
-Feel free to explore my work and reach out if you're interested in collaboration or have questions about my research. You can find my contact information and social media links throughout the site.
+## Contact
 
-Thank you for visiting, and I hope you find the content valuable for your own research journey!
+Feel free to reach out if you have questions about my research or want to discuss potential collaborations. You can find my contact information on the main page.
 
 ---
 
-*This homepage is continuously updated with new research, publications, and insights. Check back regularly for the latest updates!* 
+*This site is a work in progress and gets updated as my research evolves.* 

@@ -1,362 +1,160 @@
 ---
-title: "Introducing Config-Driven Academic Website Template: No More HTML Editing!"
+title: "My Config-Driven Academic Website Template"
 date: "2025-06-27"
-description: "A revolutionary GitHub Actions-powered template system that lets you manage your entire academic website through a single JSON configuration file. Perfect for researchers who want to focus on content, not code."
-tags: ["Academic Website", "GitHub Actions", "Template", "Research", "Web Development", "Open Source"]
-image: "images/blog/template-intro.jpg"
+description: "How I built a simple system to manage my academic website using JSON configuration and GitHub Actions."
+tags: ["Academic Website", "GitHub Actions", "Template", "Web Development"]
+image: "teaser/preprint.jpg"
 ---
 
-# Introducing Config-Driven Academic Website Template: No More HTML Editing!
+# My Config-Driven Academic Website Template
 
-As a PhD student, I've always struggled with maintaining my academic website. Every time I wanted to add a new publication, update my bio, or modify my experience section, I had to dive into HTML files, remember the exact formatting, and worry about breaking something. After doing this countless times, I decided to build a better solution.
+I got tired of manually editing HTML files every time I wanted to update my academic website, so I built a simple system that lets me manage everything through a JSON configuration file.
 
-Today, I'm excited to introduce the **Config-Driven Academic Website Template** – a revolutionary system that lets you manage your entire website through a single JSON configuration file, powered by GitHub Actions for automatic deployment.
+## The Problem I Had
 
-## 🎯 The Problem with Traditional Academic Websites
+Like many academics, I struggled with:
+- Editing HTML files for every publication update
+- Keeping formatting consistent across pages
+- Worrying about breaking the layout
+- Spending time on code instead of content
 
-Most academic websites require you to:
-- ✋ Edit raw HTML files for every update
-- ✋ Remember complex formatting rules
-- ✋ Manually maintain consistency across pages
-- ✋ Risk breaking the layout with a single typo
-- ✋ Spend time on technicalities instead of content
+## My Solution
 
-## 🚀 The Solution: Configuration-Driven Content Management
+I created a system where all my content lives in a single `config.json` file, and GitHub Actions automatically generates the HTML pages.
 
-What if updating your website was as simple as editing a text file? That's exactly what this template offers:
+### Before and After
 
-### Before (Traditional Way)
+**Before**: Editing HTML directly
 ```html
-<!-- Editing index.html -->
 <div class="publication-item">
-  <img src="teaser/my-paper.jpg" alt="My Paper" class="publication-image teaser">
+  <img src="teaser/my-paper.jpg" alt="My Paper">
   <div class="publication-content">
-    <p class="publication-title">
-      <span class="publication-venue">CVPR 2025</span> 
-      My Amazing Research Paper
-    </p>
-    <p class="publication-authors">
-      John Doe, <span class="author-highlight">My Name</span>, Jane Smith
-    </p>
-    <!-- ... more complex HTML ... -->
+    <p class="publication-title">My Research Paper</p>
+    <!-- lots more HTML... -->
   </div>
 </div>
 ```
 
-### After (Config-Driven Way)
+**After**: Simple JSON structure
 ```json
 {
-  "title": "My Amazing Research Paper",
-  "authors": ["John Doe", "My Name", "Jane Smith"],
+  "title": "My Research Paper",
+  "authors": ["Sixun Dong", "Collaborators"],
   "venue": "CVPR 2025",
-  "venue_type": "conference",
   "image": "teaser/my-paper.jpg",
-  "links": [
-    {"name": "Paper", "url": "https://arxiv.org/...", "icon": "ai ai-arxiv"},
-    {"name": "Code", "url": "https://github.com/...", "icon": "fab fa-github"}
-  ]
+  "links": [{"name": "Paper", "url": "https://..."}]
 }
 ```
 
-The difference is night and day! 🌟
+## How It Works
 
-## ✨ Key Features
+1. **Edit config.json** with your content
+2. **Push to GitHub** 
+3. **GitHub Actions** runs and generates HTML
+4. **Website updates** automatically
 
-### 🔧 **Single Configuration File**
-All your content lives in one `config.json` file:
-- Personal information and bio
-- Publications with automatic formatting
+The build process uses Node.js scripts that read the JSON and generate HTML using templates.
+
+## Key Features
+
+### Single Configuration File
+Everything lives in `config.json`:
+- Personal info and bio
+- Publications by year
+- News updates
 - Experience and education
-- News updates and social links
 
-### 🤖 **GitHub Actions Automation**
-- Detects changes to your config file
-- Automatically generates HTML pages
-- Deploys to GitHub Pages
-- Zero manual intervention required
+### Automatic HTML Generation
+GitHub Actions detects changes to the config and rebuilds the site automatically.
 
-### 🎨 **Professional Design**
-- Clean, modern academic layout
-- Responsive design for all devices
-- Optimized for readability and accessibility
-- Consistent formatting across all pages
+### Blog System
+Blog posts are written in Markdown with frontmatter:
+```markdown
+---
+title: "Post Title"
+date: "2025-01-01"
+description: "Brief description"
+tags: ["Tag1", "Tag2"]
+---
 
-### 🚀 **Easy Publication Management**
-Adding a new paper is as simple as:
-```json
-"2025": [
-  {
-    "title": "Your New Paper Title",
-    "featured": true,  // Will appear on homepage
-    "authors": ["You", "Collaborators"],
-    "venue": "CVPR 2025",
-    "venue_type": "conference",
-    "is_oral": true,  // Optional oral presentation badge
-    "links": [...]
-  }
-]
+# Your content here...
 ```
 
-## 🛠️ How It Works
+### Publication Management
+Publications are organized by year with support for:
+- Different venue types (conference, journal, under review)
+- Featured publications that appear on homepage
+- Multiple links (paper, code, dataset, etc.)
+- Automatic author name highlighting
 
-The magic happens through a sophisticated GitHub Actions workflow:
+## Technical Implementation
 
-1. **You edit** `config.json` with your content
-2. **GitHub Actions detects** the change when you push
-3. **Automated script** generates new HTML files using templates
-4. **Website updates** automatically on GitHub Pages
-
-### The Architecture
-
-```
-config.json → GitHub Actions → HTML Generation → GitHub Pages
-     ↑              ↓               ↓              ↓
-  Your edits    Auto-trigger    Template engine   Live website
-```
-
-## 🚀 Getting Started
-
-### Step 1: Fork the Template
-```bash
-# Fork the repository on GitHub
-git clone https://github.com/Ironieser/ironieser.github.io.git
-cd ironieser.github.io
-```
-
-### Step 2: Customize Your Content
-Edit `config.json` with your information:
-```json
-{
-  "personal": {
-    "name": "Your Name",
-    "title": "PhD Student in Computer Science",
-    "affiliation": "Your University",
-    "email": "your.email@university.edu",
-    "bio": [
-      "Your first bio paragraph...",
-      "Your second bio paragraph..."
-    ]
-  }
-}
-```
-
-### Step 3: Push and Deploy
-```bash
-git add config.json
-git commit -m "Update personal information"
-git push
-```
-
-That's it! Your website will be updated within 1-2 minutes automatically.
-
-## 📝 Advanced Features
-
-### Featured Publications
-Control which papers appear on your homepage:
-```json
-{
-  "title": "Important Paper",
-  "featured": true,  // This will appear on homepage
-  "authors": [...],
-  "venue": "CVPR 2025"
-}
-```
-
-### Publication Types
-Support for different publication statuses:
-- `"conference"` - Regular conference/journal (blue badge)
-- `"under-review"` - Under review (gray badge)
-- `"working"` - Work in progress (light blue badge)
-
-### Rich Link Support
-Add various types of links to your papers:
-```json
-"links": [
-  {"name": "Paper", "url": "...", "icon": "ai ai-arxiv"},
-  {"name": "Code", "url": "...", "icon": "fab fa-github"},
-  {"name": "Video", "url": "...", "icon": "fab fa-youtube"},
-  {"name": "Dataset", "url": "...", "icon": "fas fa-database"}
-]
-```
+The system consists of:
+- **Build scripts** (Node.js) that process the JSON config
+- **HTML templates** for different page types
+- **GitHub Actions workflow** for automation
+- **Simple CSS/JS** for styling and interactions
 
 ### Local Development
-Want to preview changes before publishing? Use the local build script:
+You can build and preview locally:
 ```bash
-# Generate HTML from config locally
-python build_local.py
-
-# Preview your website
-python local_server.py
+python build_local.py  # Generate HTML
+python local_server.py # Start local server
 ```
 
-## 🌟 Benefits for the Academic Community
+## What I Learned
 
-### For Individual Researchers
-- **Save Time**: Focus on research, not website maintenance
-- **Reduce Errors**: No more broken HTML from manual editing
-- **Stay Updated**: Easy to keep your website current
-- **Professional Look**: Consistent, polished appearance
+Building this taught me:
+- GitHub Actions is quite powerful for automation
+- JSON is a good format for structured academic content
+- Simple solutions often work better than complex ones
+- Documentation matters (I should write more)
 
-### For Research Groups
-- **Standardization**: Consistent format across group websites
-- **Easy Onboarding**: New students can set up websites quickly
-- **Collaborative**: Version control for website content
-- **Maintainable**: Easy to update and modify
+## Current Status
 
-### For the Broader Community
-- **Open Source**: Free to use and modify (MIT License)
-- **Extensible**: Easy to add new features and sections
-- **Educational**: Learn modern web development practices
-- **Shareable**: Help others create better academic websites
+The template works well for my needs, but it's still evolving. I add features as I need them:
+- ✅ Basic publication management
+- ✅ Blog system with Markdown
+- ✅ Automated deployment
+- ✅ Comment system (Waline)
+- ✅ Favicon support
+- 🔄 Better mobile experience
+- 🔄 More customization options
 
-## 🎯 Real-World Usage Example
+## Using This Template
 
-Here's how I use this template for my own website:
+If you want to use this for your own site:
 
-### Adding a New Publication
-1. **Paper gets accepted** 🎉
-2. **Edit config.json** (30 seconds):
-   ```json
-   {
-     "title": "My New CVPR Paper",
-     "authors": ["Sixun Dong", "Collaborators"],
-     "venue": "CVPR 2025",
-     "featured": true,
-     "links": [{"name": "Paper", "url": "https://..."}]
-   }
-   ```
-3. **Commit and push** (10 seconds):
-   ```bash
-   git add config.json
-   git commit -m "Add CVPR 2025 paper"
-   git push
-   ```
-4. **Website updates automatically** (1-2 minutes)
+1. **Fork** the repository
+2. **Edit** `config.json` with your information
+3. **Enable** GitHub Pages in repository settings
+4. **Push** changes to trigger the build
 
-Total time: Less than 2 minutes! 🚀
+The source code is available on GitHub. It's not the most polished system, but it works for my needs and might be useful for others.
 
-### Updating News
-Adding news is equally simple:
-```json
-"news": [
-  {
-    "date": "Dec 2024",
-    "content": "Paper accepted to <strong>CVPR 2025</strong>!",
-    "category": "papers"
-  }
-]
-```
+## Limitations
 
-## 🔧 Technical Implementation
+This approach has some downsides:
+- Requires basic Git/GitHub knowledge
+- Limited customization without editing code
+- Build process can be slow for large sites
+- No real-time preview (need to push to see changes)
 
-For those interested in the technical details:
+## Future Ideas
 
-### GitHub Actions Workflow
-- **Trigger**: Changes to `config.json`
-- **Environment**: Ubuntu latest with Node.js
-- **Process**: JavaScript-based template engine
-- **Output**: Generates `index.html` and `publications.html`
-- **Deploy**: Automatic commit and GitHub Pages deployment
+Things I might add:
+- Better theme customization
+- More publication types
+- Integration with citation managers
+- Mobile app for quick updates
+- Better documentation
 
-### Template Engine Features
-- **Author Highlighting**: Automatically highlights your name in publication lists
-- **Smart Selection**: Featured publications appear on homepage first
-- **Responsive Images**: Automatic fallbacks for missing images
-- **SEO Optimization**: Proper meta tags and structured data
+## Conclusion
 
-### Local Development Tools
-- **Python Script**: `build_local.py` for offline development
-- **Live Server**: `local_server.py` for instant preview
-- **Backup System**: Original files preserved automatically
+This system solved my specific problem of maintaining an academic website without dealing with HTML. It's not perfect, but it's much easier than manually editing files.
 
-## 🤝 Contributing and Community
-
-This template is open source and welcomes contributions! Here's how you can help:
-
-### Ways to Contribute
-- **Bug Reports**: Found an issue? Open a GitHub issue
-- **Feature Requests**: Have an idea? Let's discuss it!
-- **Code Contributions**: Submit pull requests for improvements
-- **Documentation**: Help improve guides and tutorials
-- **Community Support**: Help others in discussions
-
-### Planned Features
-- 📊 **Analytics Dashboard**: Track website usage
-- 🎨 **Theme Customization**: Multiple color schemes
-- 📱 **Mobile App**: Manage content on the go
-- 🔌 **Plugin System**: Extend functionality easily
-- 🌐 **Multi-language Support**: International accessibility
-
-## 📚 Learning Resources
-
-### For Beginners
-- **JSON Basics**: Learn configuration file syntax
-- **Git Fundamentals**: Version control for your content
-- **GitHub Pages**: Understanding web hosting
-- **Markdown Writing**: Create rich blog content
-
-### For Advanced Users
-- **GitHub Actions**: Customize the automation workflow
-- **Template Development**: Modify the HTML generation
-- **CSS Customization**: Personalize the visual design
-- **JavaScript Enhancement**: Add interactive features
-
-## 🎉 Success Stories
-
-Since releasing this template, I've seen amazing adoption from the academic community:
-
-> *"This template saved me hours every month. I can now add publications in seconds instead of spending time debugging HTML!"* - PhD Student, Computer Science
-
-> *"Our entire research group switched to this system. It's so much easier to maintain consistent websites across all members."* - Research Group Leader
-
-> *"I'm not technical at all, but I was able to set up a professional website in 10 minutes. The documentation is excellent!"* - Postdoc Researcher
-
-## 🚀 Get Started Today!
-
-Ready to revolutionize your academic website? Here's what you need to do:
-
-1. **⭐ Star the repository** on GitHub
-2. **🍴 Fork the template** to your account
-3. **📝 Edit the config** with your information
-4. **🚀 Push and watch** your website come to life!
-
-### Quick Links
-- **🔗 Template Repository**: [https://github.com/Ironieser/ironieser.github.io](https://github.com/Ironieser/ironieser.github.io)
-- **📖 Documentation**: Complete setup and usage guide
-- **🎥 Video Tutorial**: Step-by-step walkthrough (coming soon)
-- **💬 Discussions**: Community support and feature requests
-
-## 🙏 Acknowledgments
-
-This template was built on the shoulders of giants:
-- **GitHub Actions** for automation infrastructure
-- **GitHub Pages** for free hosting
-- **Font Awesome** and **Academicons** for beautiful icons
-- **Inter Font** for clean typography
-- **Academic community** for feedback and inspiration
-
-## 🔮 The Future of Academic Websites
-
-I believe this is just the beginning. Academic websites should be:
-- **Content-focused**, not code-focused
-- **Automated**, not manual
-- **Consistent**, not fragmented
-- **Accessible**, not technical
-
-This template is my contribution to making academic web presence easier for everyone. Whether you're a first-year PhD student or a seasoned professor, you deserve a website that works for you, not against you.
-
-## 💬 Let's Connect!
-
-I'd love to hear how you're using this template! Feel free to:
-- **Share your website** built with this template
-- **Suggest improvements** or new features
-- **Ask questions** about setup or customization
-- **Contribute** to making it even better
-
-Together, we can make academic websites better for everyone! 🌟
+If you're interested in trying it out or have suggestions for improvements, feel free to check out the code or reach out.
 
 ---
 
-**Ready to transform your academic web presence?** [Get started with the template today!](https://github.com/Ironieser/ironieser.github.io)
-
-*Have questions or suggestions? Feel free to reach out or open an issue on GitHub. Let's build something amazing together!* 🚀 
+*This is just my personal solution to a common problem. Your mileage may vary.* 

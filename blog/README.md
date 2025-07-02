@@ -1,83 +1,70 @@
-# Blog Directory
+# Blog Posts
 
-This directory contains Markdown blog posts that are automatically processed by GitHub Actions and displayed on your blog page.
+This directory contains Markdown blog posts that are automatically processed and displayed on the website.
 
-## How to Add a New Blog Post
+## Adding a Blog Post
 
 1. Create a new `.md` file in this directory
-2. Add frontmatter metadata at the top
-3. Write your content in Markdown format
-4. Commit and push to GitHub
-5. GitHub Actions will automatically build and deploy your blog!
+2. Add frontmatter at the top
+3. Write your content in Markdown
+4. Push to GitHub (automatic build and deploy)
 
-## Frontmatter Format
+## File Format
 
-Each Markdown file should start with YAML frontmatter:
+Each post needs frontmatter metadata:
 
 ```yaml
 ---
-title: "Your Blog Post Title"
-date: "2024-03-15"
-description: "A brief description of your post"
-tags: ["Tag1", "Tag2", "Tag3"]
-image: "images/blog/your-image.jpg"
+title: "Your Post Title"
+date: "2025-01-01"
+description: "Brief description"
+tags: ["Research", "AI"]
+image: "teaser/preprint.jpg"
 ---
+
+# Your Content
+
+Write your post content here in Markdown...
 ```
 
 ## Required Fields
 
-- **title**: The title of your blog post
-- **date**: Publication date in YYYY-MM-DD format
-- **description**: Brief description shown in the blog list
+- `title`: Post title
+- `date`: Date in YYYY-MM-DD format
+- `description`: Brief description for the blog list
 
 ## Optional Fields
 
-- **tags**: Array of tags for categorization
-- **image**: Path to header image (defaults to placeholder if not provided)
-
-## Markdown Content
-
-After the frontmatter, write your content using standard Markdown syntax:
-
-- Headers: `# ## ###`
-- Bold: `**text**`
-- Italic: `*text*`
-- Links: `[text](url)`
-- Images: `![alt](src)`
-- Code: `` `code` `` or ``` code blocks ```
-- Lists: `- item` or `1. item`
-
-## GitHub Actions Workflow
-
-The blog system uses GitHub Actions to automatically:
-
-1. **Detect Changes**: Triggers when files in `blog/` directory are modified
-2. **Process Markdown**: Parses frontmatter and converts Markdown to HTML
-3. **Generate Data**: Creates `blog-data.js` with all blog post data
-4. **Auto-Deploy**: Commits the generated file back to the repository
-
-## Workflow File
-
-The GitHub Actions workflow is defined in `.github/workflows/build-blog.yml`
-
-## Local Development
-
-To test locally (requires Node.js):
-
-```bash
-npm install marked js-yaml
-node .github/scripts/build-blog.js
-```
+- `tags`: Array of tags
+- `image`: Header image path (defaults to placeholder)
 
 ## File Naming
 
-- Use descriptive filenames (they become the post ID)
-- Use lowercase with hyphens: `my-research-journey.md`
-- Avoid spaces and special characters
+Use descriptive names with hyphens:
+- ✅ `my-research-experience.md`
+- ❌ `My Research Experience.md`
 
 ## Images
 
-- Store blog images in `images/blog/` directory
-- Use web-friendly formats (JPG, PNG, WebP)
-- Optimize for web (reasonable file sizes)
-- Reference in frontmatter: `image: "images/blog/my-image.jpg"` 
+Store images in `images/blog/` or use existing teaser images:
+- `teaser/preprint.jpg` (default)
+- `images/blog/your-image.jpg`
+
+## External Posts
+
+For external blog posts (like Zhihu), the build system will automatically detect and handle them based on the blog data configuration.
+
+## How It Works
+
+GitHub Actions automatically:
+1. Processes Markdown files when you push changes
+2. Generates `blog-data.js` with all post data
+3. Updates the blog page to show new posts
+
+## Local Testing
+
+To build locally:
+```bash
+python build_local.py  # Generates blog page
+python local_server.py # Preview at localhost:8000
+``` 
