@@ -91,8 +91,15 @@ function generateNavigation(personal, activePage) {
   return navItems.join('\n                ');
 }
 
-function generateFooter(personal) {
+function generateFooter(personal, templateInfo = null) {
   const currentYear = new Date().getFullYear();
+  
+  // Generate template credit if enabled
+  const templateCredit = templateInfo && templateInfo.show_template_credit ? `
+            <div class="template-credit">
+                <p>Built with <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.name}</a> by <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.author}</a></p>
+            </div>` : '';
+  
   return `
     <footer class="footer">
         <div class="container">
@@ -114,9 +121,10 @@ function generateFooter(personal) {
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Last updated: <span id="last-updated"></span>
+                    Website last loaded: <span id="last-updated"></span>
                 </div>
             </div>
+            ${templateCredit}
             <p>&copy; ${currentYear} ${personal.name}. All rights reserved.</p>
         </div>
     </footer>`;
@@ -159,7 +167,7 @@ function generateCommonScripts() {
 function generateIndexPage(config) {
   console.log('Generating index.html...');
   
-  const { personal, research, news, experience, education, service, publications } = config;
+  const { personal, research, news, experience, education, service, publications, _template_info } = config;
   
   // Get selected publications (featured first, then recent)
   const selectedPubs = [];
@@ -381,7 +389,7 @@ function generateIndexPage(config) {
         </section>
     </main>
 
-    ${generateFooter(personal)}
+    ${generateFooter(personal, _template_info)}
     
     <script>
         // News filter functionality
@@ -432,7 +440,7 @@ function generateIndexPage(config) {
 function generatePublicationsPage(config) {
   console.log('Generating publications.html...');
   
-  const { personal, research, publications } = config;
+  const { personal, research, publications, _template_info } = config;
   const targetName = personal.name.split(' ')[0];
   
   // Separate auto-synced and manual publications
@@ -610,7 +618,7 @@ function generatePublicationsPage(config) {
         </section>
     </main>
 
-    ${generateFooter(personal)}
+    ${generateFooter(personal, _template_info)}
     
     ${generateCommonScripts()}
 </body>

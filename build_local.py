@@ -90,9 +90,18 @@ def generate_navigation(personal, active_page):
     return '\n                '.join(nav_items)
 
 
-def generate_footer(personal):
+def generate_footer(personal, template_info=None):
     """Generate footer HTML"""
     current_year = datetime.now().year
+    
+    # Generate template credit if enabled
+    template_credit = ""
+    if template_info and template_info.get('show_template_credit'):
+        template_credit = f'''
+            <div class="template-credit">
+                <p>Built with <a href="{template_info['repository']}" target="_blank" rel="noopener">{template_info['name']}</a> by <a href="{template_info['repository']}" target="_blank" rel="noopener">{template_info['author']}</a></p>
+            </div>'''
+    
     return f'''
     <footer class="footer">
         <div class="container">
@@ -114,9 +123,10 @@ def generate_footer(personal):
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Last updated: <span id="last-updated"></span>
+                    Website last loaded: <span id="last-updated"></span>
                 </div>
             </div>
+            {template_credit}
             <p>&copy; {current_year} {personal['name']}. All rights reserved.</p>
         </div>
     </footer>'''
@@ -166,6 +176,7 @@ def generate_index_page(config):
     education = config['education']
     service = config['service']
     publications = config['publications']
+    template_info = config.get('_template_info')
     
     # Get selected publications (featured first, then recent)
     selected_pubs = []
@@ -385,7 +396,7 @@ def generate_index_page(config):
         </section>
     </main>
 
-    {generate_footer(personal)}
+    {generate_footer(personal, template_info)}
     
     <script>
         // News filter functionality
@@ -438,6 +449,7 @@ def generate_publications_page(config):
     personal = config['personal']
     research = config['research']
     publications = config['publications']
+    template_info = config.get('_template_info')
     
     # Separate auto-synced and manual publications
     manual_pubs = {}
@@ -602,7 +614,7 @@ def generate_publications_page(config):
         </section>
     </main>
 
-    {generate_footer(personal)}
+    {generate_footer(personal, template_info)}
     
     {generate_common_scripts()}
 </body>
@@ -612,6 +624,7 @@ def generate_publications_page(config):
 def generate_blog_page(config):
     """Generate complete blog.html page"""
     personal = config['personal']
+    template_info = config.get('_template_info')
     
     return f'''<!DOCTYPE html>
 <!-- 
@@ -707,7 +720,7 @@ def generate_blog_page(config):
         </div>
     </main>
 
-    {generate_footer(personal)}
+    {generate_footer(personal, template_info)}
     
     <script>
         // Blog functionality

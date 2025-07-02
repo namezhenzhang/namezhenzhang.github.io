@@ -1223,6 +1223,31 @@ body {
     text-align: center;
 }
 
+/* Template Credit */
+.template-credit {
+    margin-bottom: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.template-credit p {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--color-secondary);
+    opacity: 0.8;
+}
+
+.template-credit a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.template-credit a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-content {

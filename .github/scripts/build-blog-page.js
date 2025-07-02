@@ -46,8 +46,15 @@ function generateNavigation(personal, activePage) {
   return navItems.join('\n                ');
 }
 
-function generateFooter(personal) {
+function generateFooter(personal, templateInfo = null) {
   const currentYear = new Date().getFullYear();
+  
+  // Generate template credit if enabled
+  const templateCredit = templateInfo && templateInfo.show_template_credit ? `
+            <div class="template-credit">
+                <p>Built with <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.name}</a> by <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.author}</a></p>
+            </div>` : '';
+  
   return `
     <footer class="footer">
         <div class="container">
@@ -69,9 +76,10 @@ function generateFooter(personal) {
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Last updated: <span id="last-updated"></span>
+                    Website last loaded: <span id="last-updated"></span>
                 </div>
             </div>
+            ${templateCredit}
             <p>&copy; ${currentYear} ${personal.name}. All rights reserved.</p>
         </div>
     </footer>`;
@@ -114,7 +122,7 @@ function generateCommonScripts() {
 function generateBlogPage(config) {
   console.log('Generating blog.html...');
   
-  const { personal } = config;
+  const { personal, _template_info } = config;
   
   return `<!DOCTYPE html>
 <!-- 
@@ -217,7 +225,7 @@ function generateBlogPage(config) {
         </div>
     </main>
 
-    ${generateFooter(personal)}
+    ${generateFooter(personal, _template_info)}
     
     <script>
         // Blog functionality

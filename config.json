@@ -5,7 +5,8 @@
     "author": "Sixun Dong (ironieser)",
     "repository": "https://github.com/Ironieser/ironieser.github.io",
     "license": "MIT",
-    "description": "A GitHub Actions-powered template for easy academic website management"
+    "description": "A GitHub Actions-powered template for easy academic website management",
+    "show_template_credit": true
   },
   "personal": {
     "name": "Sixun Dong",
