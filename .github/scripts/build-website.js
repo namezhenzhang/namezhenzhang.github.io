@@ -133,7 +133,11 @@ function generateFooter(personal, templateInfo = null) {
 
 function generateCommonScripts() {
   // Get current build time (when GitHub Actions runs)
-  const buildTime = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+  // Use local date to avoid timezone issues
+  const now = new Date();
+  const buildTime = now.getFullYear() + '-' + 
+                   String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                   String(now.getDate()).padStart(2, '0');
   
   return `
     <script>
@@ -160,7 +164,7 @@ function generateCommonScripts() {
                     data = await response.json();
                     
                     if (data.city && data.country) {
-                        const location = \`\${data.city}, \${data.country}\`;
+                        const location = \`\${data.city}, \${data.country}\`
                         document.getElementById('owner-location').textContent = location;
                         return;
                     }
@@ -179,7 +183,7 @@ function generateCommonScripts() {
         // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
             const buildDate = '${buildTime}';
-            const date = new Date(buildDate);
+            const date = new Date(buildDate + 'T12:00:00'); // Add noon time to avoid timezone issues
             const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
