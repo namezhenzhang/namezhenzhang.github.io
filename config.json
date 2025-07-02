@@ -90,23 +90,35 @@
     "2025": [
       {
         "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
-        "authors": ["Sixun Dong", "Wei Fan", "Teresa Wu", "Yanjie Fu"],
+        "authors": [
+          "Sixun Dong",
+          "Wei Fan",
+          "Teresa Wu",
+          "Yanjie Fu"
+        ],
         "venue": "Under Review",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
         "featured": true,
         "links": [
           {
-            "name": "Paper (Coming Soon)",
-            "url": "#",
-            "icon": "ai ai-arxiv",
-            "coming_soon": true
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2506.24124",
+            "icon": "ai ai-arxiv"
           }
         ]
       },
       {
         "title": "TimesFrame: Multi-Variable Time Series is a Video of Numerical Data",
-        "authors": ["Sixun Dong", "Nanxu Gong", "Haoyue Bai", "Xinyuan Wang", "Wangyang Ying", "Wei Fan", "Yanjie Fu"],
+        "authors": [
+          "Sixun Dong",
+          "Nanxu Gong",
+          "Haoyue Bai",
+          "Xinyuan Wang",
+          "Wangyang Ying",
+          "Wei Fan",
+          "Yanjie Fu"
+        ],
         "venue": "Under Review",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
@@ -122,8 +134,15 @@
       },
       {
         "title": "Agentic Feature Augmentation: Unifying Selection and Generation with Teaming, Planning, and Memories",
-        "authors": ["Nanxu Gong*", "Sixun Dong*", "Haoyue Bai", "Xinyuan Wang", "Wangyang Ying", "Yanjie Fu"],
-        "venue": "Arxiv'2505",
+        "authors": [
+          "Nanxu Gong*",
+          "Sixun Dong*",
+          "Haoyue Bai",
+          "Xinyuan Wang",
+          "Wangyang Ying",
+          "Yanjie Fu"
+        ],
+        "venue": "arXiv'2505",
         "venue_type": "under-review",
         "image": "teaser/agentic.jpg",
         "links": [
@@ -136,8 +155,16 @@
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
-        "authors": ["Nanxu Gong", "Zijun Li", "Sixun Dong", "Haoyue Bai", "Wangyang Ying", "Xinyuan Wang", "Yanjie Fu"],
-        "venue": "Arxiv'2505",
+        "authors": [
+          "Nanxu Gong",
+          "Zijun Li",
+          "Sixun Dong",
+          "Haoyue Bai",
+          "Wangyang Ying",
+          "Xinyuan Wang",
+          "Yanjie Fu"
+        ],
+        "venue": "arXiv'2505",
         "venue_type": "under-review",
         "image": "teaser/sculp.jpg",
         "links": [
@@ -150,7 +177,13 @@
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
-        "authors": ["Nanxu Gong", "Sixun Dong", "Haoyue Bai", "Wangyang Ying", "Yanjie Fu"],
+        "authors": [
+          "Nanxu Gong",
+          "Sixun Dong",
+          "Haoyue Bai",
+          "Wangyang Ying",
+          "Yanjie Fu"
+        ],
         "venue": "Under Review",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
@@ -165,7 +198,15 @@
       },
       {
         "title": "Unsupervised feature transformation via in-context generation, generator-critic llm agents, and duet-play teaming",
-        "authors": ["Nanxu Gong", "Xinyuan Wang", "Wangyang Ying", "Haoyue Bai", "Sixun Dong", "Haifeng Chen", "Yanjie Fu"],
+        "authors": [
+          "Nanxu Gong",
+          "Xinyuan Wang",
+          "Wangyang Ying",
+          "Haoyue Bai",
+          "Sixun Dong",
+          "Haifeng Chen",
+          "Yanjie Fu"
+        ],
         "venue": "IJCAI 2025",
         "venue_type": "conference",
         "image": "teaser/agentFt.jpg",
@@ -181,13 +222,116 @@
             "icon": "fab fa-github"
           }
         ]
+      },
+      {
+        "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
+        "authors": [
+          "X Wang",
+          "H Bai",
+          "N Gong",
+          "W Ying",
+          "S Dong",
+          "X Cui",
+          "Y Fu"
+        ],
+        "venue": "arXiv'2506",
+        "venue_type": "preprint",
+        "image": "teaser/preprint.jpg",
+        "auto_sync": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:_FxGoFyzp5QC",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "Efficient Post-Training Refinement of Latent Reasoning in Large Language Models",
+        "authors": [
+          "X Wang",
+          "D Wang",
+          "W Ying",
+          "H Bai",
+          "N Gong",
+          "S Dong",
+          "K Liu",
+          "Y Fu"
+        ],
+        "venue": "arXiv'2506",
+        "venue_type": "preprint",
+        "image": "teaser/preprint.jpg",
+        "auto_sync": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:ufrVoPGSRksC",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO Storage",
+        "authors": [
+          "H Bai",
+          "G Chen",
+          "W Ying",
+          "X Wang",
+          "N Gong",
+          "S Dong",
+          "G Pedrielli",
+          "H Wang",
+          "..."
+        ],
+        "venue": "arXiv'2505",
+        "venue_type": "preprint",
+        "image": "teaser/preprint.jpg",
+        "auto_sync": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:WF5omc3nYNoC",
+            "icon": "ai ai-arxiv"
+          }
+        ]
+      },
+      {
+        "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
+        "authors": [
+          "W Ying",
+          "H Bai",
+          "N Gong",
+          "X Wang",
+          "S Dong",
+          "H Chen",
+          "Y Fu"
+        ],
+        "venue": "arXiv'2505",
+        "venue_type": "preprint",
+        "image": "teaser/preprint.jpg",
+        "auto_sync": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:eQOLeE2rZwMC",
+            "icon": "ai ai-arxiv"
+          }
+        ]
       }
     ],
     "2024": [
       {
         "title": "MLLM-Tool: A Multimodal Large Language Model For Tool Agent Learning",
-        "authors": ["Chenyu Wang", "Weixin Luo", "Sixun Dong", "Xiaohua Xuan", "Zhengxin Li", "Lin Ma", "Shenghua Gao"],
-        "venue": "WACV 2024",
+        "authors": [
+          "Chenyu Wang",
+          "Weixin Luo",
+          "Sixun Dong",
+          "Xiaohua Xuan",
+          "Zhengxin Li",
+          "Lin Ma",
+          "Shenghua Gao"
+        ],
+        "venue": "WACV",
         "venue_type": "conference",
         "image": "teaser/mmtool.jpg",
         "featured": true,
@@ -206,8 +350,14 @@
       },
       {
         "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
-        "authors": ["Yiqun Zhao", "Zibo Zhao", "Jing Li", "Sixun Dong", "Shenghua Gao"],
-        "venue": "3DV 2024",
+        "authors": [
+          "Yiqun Zhao",
+          "Zibo Zhao",
+          "Jing Li",
+          "Sixun Dong",
+          "Shenghua Gao"
+        ],
+        "venue": "3DV",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
         "links": [
@@ -227,7 +377,14 @@
     "2023": [
       {
         "title": "Weakly Supervised Video Representation Learning with Unaligned Text for Sequential Videos",
-        "authors": ["Sixun Dong*", "Huazhang Hu*", "Dongze Lian", "Weixin Luo", "Yicheng Qian", "Shenghua Gao"],
+        "authors": [
+          "Sixun Dong*",
+          "Huazhang Hu*",
+          "Dongze Lian",
+          "Weixin Luo",
+          "Yicheng Qian",
+          "Shenghua Gao"
+        ],
         "venue": "CVPR 2023",
         "venue_type": "conference",
         "image": "teaser/weaksvr.jpg",
@@ -264,7 +421,14 @@
     "2022": [
       {
         "title": "TransRAC: Encoding Multi-scale Temporal Correlation with Transformers for Repetitive Action Counting",
-        "authors": ["Huazhang Hu*", "Sixun Dong*", "Yiqun Zhao", "Dongze Lian", "Zhengxin Li", "Shenghua Gao"],
+        "authors": [
+          "Huazhang Hu*",
+          "Sixun Dong*",
+          "Yiqun Zhao",
+          "Dongze Lian",
+          "Zhengxin Li",
+          "Shenghua Gao"
+        ],
         "venue": "CVPR 2022",
         "venue_type": "conference",
         "image": "teaser/transrac.jpg",
@@ -307,8 +471,20 @@
     "survey": [
       {
         "title": "Towards Data-Centric AI: A Comprehensive Survey of Traditional, Reinforcement, and Generative Approaches for Tabular Data Transformation",
-        "authors": ["Dongjie Wang", "Yanyong Huang", "Wangyang Ying", "Haoyue Bai", "Nanxu Gong", "Xinyuan Wang", "Sixun Dong", "Tao Zhe", "Kunpeng Liu", "Meng Xiao", "et al."],
-        "venue": "Arxiv'2501",
+        "authors": [
+          "Dongjie Wang",
+          "Yanyong Huang",
+          "Wangyang Ying",
+          "Haoyue Bai",
+          "Nanxu Gong",
+          "Xinyuan Wang",
+          "Sixun Dong",
+          "Tao Zhe",
+          "Kunpeng Liu",
+          "Meng Xiao",
+          "et al."
+        ],
+        "venue": "arXiv'2501",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
         "links": [
@@ -321,8 +497,19 @@
       },
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
-        "authors": ["Wangyang Ying", "Cong Wei", "Nanxu Gong", "Xinyuan Wang", "Haoyue Bai", "Arun Vignesh Malarkkan", "Sixun Dong", "Dongjie Wang", "Denghui Zhang", "Yanjie Fu"],
-        "venue": "Arxiv'2502",
+        "authors": [
+          "Wangyang Ying",
+          "Cong Wei",
+          "Nanxu Gong",
+          "Xinyuan Wang",
+          "Haoyue Bai",
+          "Arun Vignesh Malarkkan",
+          "Sixun Dong",
+          "Dongjie Wang",
+          "Denghui Zhang",
+          "Yanjie Fu"
+        ],
+        "venue": "arXiv'2502",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
         "links": [
@@ -390,4 +577,4 @@
       "journals": "TMM, Neural Networks, TKDD"
     }
   }
-} 
+}

@@ -44,6 +44,8 @@ def format_publication_venue(venue_type, venue, is_oral=False):
     """Format publication venue badge"""
     if venue_type == "under-review":
         badge = f'<span class="publication-venue-under-review">{venue}</span>'
+    elif venue_type == "preprint":
+        badge = f'<span class="publication-venue-preprint">{venue}</span>'
     elif venue_type == "working":
         badge = f'<span class="publication-venue-working">{venue}</span>'
     else:

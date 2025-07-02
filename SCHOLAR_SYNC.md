@@ -1,167 +1,160 @@
-# 📚 Google Scholar 自动同步功能
+# Google Scholar Auto-Sync System
 
-这个功能可以自动从你的Google Scholar个人页面同步出版物信息到网站的`config.json`中。
+## 概述
 
-## 🚀 功能特点
+这是一个自动同步Google Scholar出版物到学术网站的系统，支持智能重复检测、年份识别和手动编辑保护。
 
-- ✅ **自动获取**：从Google Scholar抓取最新出版物
-- ✅ **智能合并**：避免重复，只添加新出版物
-- ✅ **会议识别**：自动识别CVPR、ICCV、NeurIPS等顶级会议
-- ✅ **引用统计**：高引用论文自动标记为featured
-- ✅ **定时运行**：每周一自动检查更新
-- ✅ **手动触发**：可以随时手动运行同步
+## 核心特性
 
-## 📋 设置步骤
+### 🧠 智能重复检测
+多策略重复检测系统，避免添加已存在的论文：
 
-### 1. 配置Scholar用户ID
+1. **精确标题匹配**：完全相同的标题
+2. **相似标题匹配**：去除标点符号后的匹配
+3. **核心词汇匹配**：85%以上重要词汇相同
+4. **作者+关键词匹配**：共同作者+标题重叠检测
+5. **Survey论文特殊处理**：更严格的70%重叠阈值，避免不同survey被误判为重复
 
-在GitHub仓库中设置Secret：
+### 📅 智能年份检测
+多源年份信息，确保论文被正确分类到年份章节：
 
-1. 进入仓库 → Settings → Secrets and variables → Actions
-2. 点击 "New repository secret"
-3. Name: `SCHOLAR_USER_ID`
-4. Value: 你的Google Scholar用户ID（例如：`j71Y2-4AAAAJ`）
+**优先级顺序：**
+1. **arXiv URL年份**（最准确）：从 `arxiv.org/abs/YYMM.NNNNN` 提取
+2. **Venue年份**：从会议/期刊名称中提取
+3. **Scholar年份**：Google Scholar提供的年份
+4. **当前年份**：作为最后的备选
 
-**如何获取Scholar用户ID？**
-- 访问你的Google Scholar个人页面
-- URL中的`user=`后面的字符串就是你的用户ID
-- 例如：`https://scholar.google.com/citations?user=j71Y2-4AAAAJ` 中的 `j71Y2-4AAAAJ`
+**arXiv年份提取规则：**
+- 新格式 (2007年4月后): `YYMM.NNNNN` → `20YY`年
+- 旧格式 (2007年4月前): `subject-class/YYMM` → `19YY`或`20YY`年
 
-### 2. 启用工作流
+### 🔒 手动编辑保护
+保护用户的手动修改，只在必要时更新：
 
-工作流已经创建在 `.github/workflows/sync-scholar.yml`，会自动：
-- 每周一早上8点运行
-- 当你修改同步脚本时运行
-- 可以手动触发
+1. **`auto_sync: false`**：完全保护，不进行任何自动更新
+2. **Featured状态**：基于引用数自动设置（>10引用）
+3. **Venue信息**：只在明显是默认值时更新
+4. **论文链接**：只在是占位符时更新
+5. **Teaser图片**：手动维护的论文保持自定义图片，自动同步的使用`teaser/preprint.jpg`
 
-## 🔧 本地测试
+### 🎯 智能Venue识别
+自动识别顶级会议和期刊：
 
-在推送到GitHub之前，你可以本地测试：
+**顶级会议：** CVPR, ICCV, ECCV, NeurIPS, ICML, ICLR, AAAI, IJCAI, ACL, EMNLP, NAACL, ICASSP, INTERSPEECH, CHI, UIST, SIGGRAPH, SIGIR, KDD, WWW, WSDM, CIKM, SIGMOD, VLDB, ICDE, OSDI, SOSP, NSDI, ATC, EuroSys, PLDI, POPL, OOPSLA, ICSE, FSE, ASE, ISSTA, CCS, USENIX Security, NDSS, Oakland, CRYPTO, EUROCRYPT, ASIACRYPT
 
-### Python版本（推荐）
+**顶级期刊：** Nature, Science, Cell, PAMI, IJCV, TIP, TMM, TNNLS, JMLR, MLJ, AIJ, CACM, TOCS, TODS, TKDE, VLDBJ, TISSEC, TIFS, TC, TPDS, TSE, TOSEM, TOPLAS
+
+## 文件结构
+
+```
+.github/
+├── workflows/
+│   └── sync-scholar.yml          # GitHub Actions自动同步工作流
+└── scripts/
+    └── sync-scholar.js           # JavaScript同步脚本
+test_scholar_sync.py              # Python测试脚本
+SCHOLAR_SYNC.md                   # 本文档
+```
+
+## 使用方法
+
+### 自动同步（推荐）
+GitHub Actions每周日自动运行同步，无需手动操作。
+
+### 手动测试
 ```bash
 # 安装依赖
-pip install requests beautifulsoup4
+pip install beautifulsoup4 requests
 
-# 运行同步
+# 运行测试同步
 python test_scholar_sync.py
 ```
 
-### Node.js版本
-```bash
-# 安装依赖
-npm install puppeteer cheerio
+## 配置说明
 
-# 设置环境变量
-export SCHOLAR_USER_ID="j71Y2-4AAAAJ"
-
-# 运行同步
-node .github/scripts/sync-scholar.js
-```
-
-## 📖 工作流程
-
-1. **检测新出版物**：从Scholar获取最新出版物列表
-2. **智能解析**：识别会议/期刊类型、年份、作者等
-3. **避免重复**：与现有publications比较，只添加新的
-4. **更新配置**：将新出版物添加到`config.json`
-5. **触发构建**：自动触发网站重新生成
-
-## 🎯 支持的会议/期刊
-
-自动识别的顶级会议：
-- **CV**: CVPR, ICCV, ECCV, WACV, 3DV
-- **ML**: NeurIPS, ICML, ICLR
-- **AI**: AAAI, IJCAI
-- **Preprint**: arXiv
-
-其他会议会标记为`conference`类型。
-
-## 🔄 手动触发同步
-
-### 通过GitHub界面
-1. 进入仓库 → Actions
-2. 选择 "Sync Google Scholar Publications"
-3. 点击 "Run workflow"
-
-### 通过推送触发
-修改并推送 `.github/workflows/sync-scholar.yml` 或 `.github/scripts/sync-scholar.js`
-
-## 📝 注意事项
-
-### 1. Scholar访问限制
-- Google Scholar可能有反爬虫机制
-- 如果频繁访问可能被暂时限制
-- 建议不要过于频繁运行
-
-### 2. 数据质量
-- Scholar上的信息可能不完整或有误
-- 同步后建议检查并手动完善：
-  - 添加论文链接
-  - 上传teaser图片
-  - 调整会议/期刊名称
-  - 标记oral/spotlight等
-
-### 3. 现有数据
-- 同步不会覆盖现有出版物
-- 只会添加Scholar上有但config.json中没有的论文
-- 现有论文的手动修改不会被覆盖
-
-## 🛠️ 自定义配置
-
-### 修改同步频率
-编辑 `.github/workflows/sync-scholar.yml` 中的cron表达式：
-```yaml
-schedule:
-  - cron: '0 8 * * 1'  # 每周一8点
-  # - cron: '0 8 1 * *'  # 每月1号8点
-  # - cron: '0 8 * * *'  # 每天8点
-```
-
-### 添加新会议识别
-编辑 `.github/scripts/sync-scholar.js` 中的 `venueMap`：
-```javascript
-const venueMap = {
-  'CVPR': { type: 'conference', fullName: 'CVPR' },
-  'YOUR_VENUE': { type: 'conference', fullName: 'Your Venue' },
-  // ...
-};
-```
-
-### 调整featured标准
-修改引用数阈值：
-```javascript
-// 如果引用数较高，标记为featured
-if (pub.citations > 20) {  // 改为20
-  configPub.featured = true;
+### 自动同步的论文格式
+```json
+{
+  "title": "Paper Title",
+  "authors": ["Author 1", "Author 2"],
+  "venue": "Conference/Journal Name",
+  "venue_type": "conference/journal/preprint",
+  "image": "teaser/preprint.jpg",
+  "auto_sync": true,
+  "links": [
+    {
+      "name": "Paper",
+      "url": "#",
+      "icon": "ai ai-arxiv"
+    }
+  ]
 }
 ```
 
-## 🐛 故障排除
+### 手动维护的论文
+- 移除或设置 `"auto_sync": false`
+- 使用自定义teaser图片路径
+- 添加完整的链接信息
 
-### 同步失败
-1. 检查GitHub Actions日志
-2. 验证Scholar用户ID是否正确
-3. 检查Scholar页面是否可正常访问
+## 工作流程
 
-### 数据不完整
-1. Scholar页面可能加载不完整
-2. 可以手动触发重新同步
-3. 必要时手动补充missing信息
+1. **获取Scholar数据**：爬取Google Scholar个人页面
+2. **智能年份检测**：多源年份信息确定正确年份
+3. **解析Venue信息**：识别会议/期刊类型和名称
+4. **跨年份重复检测**：防止重复添加已存在论文
+5. **保护手动编辑**：只更新明确的默认值
+6. **生成配置更新**：添加新论文到对应年份
 
-### 重复添加
-- 脚本会根据标题判断重复
-- 如果标题略有不同可能被认为是不同论文
-- 可以手动删除重复项
+## 重复检测日志示例
 
-## 📈 未来改进
+```
+🔍 Found exact title match: "Paper Title"
+📝 Survey papers with similar authors but different topics: "Survey A..." vs "Survey B..." (overlap ratio: 0.31)
+🔍 Found author+title match: "Paper A" vs "Paper B" (common authors: 4, title overlap: 6)
+```
 
-- [ ] 支持更多Scholar字段（abstract、keywords等）
-- [ ] 自动获取论文PDF链接
-- [ ] 支持其他学术数据库（DBLP、Semantic Scholar等）
-- [ ] 更智能的重复检测
-- [ ] 自动生成teaser图片
+## 年份检测日志示例
 
----
+```
+📅 Using arXiv year 2024 for 'Paper from arXiv...'
+📅 Using venue year 2023 for 'Conference paper...'
+📅 Using Scholar year 2022 for 'Journal paper...'
+⚠️  No reliable year found for 'Old paper...', using current year 2025
+```
 
-🎉 **享受自动化的学术网站管理！** 
+## 注意事项
+
+1. **Scholar访问限制**：频繁访问可能被限制，建议使用自动化工作流
+2. **手动验证**：自动同步后建议检查新添加的论文信息
+3. **链接更新**：自动同步只提供占位符链接，需要手动添加真实链接
+4. **图片管理**：自动同步使用统一的preprint图片，重要论文建议使用自定义图片
+
+## 故障排除
+
+### 常见问题
+1. **论文被错误识别为重复**：检查标题相似度和作者重叠
+2. **年份分类错误**：检查arXiv链接格式和venue信息
+3. **手动编辑被覆盖**：确保设置了`"auto_sync": false`
+
+### 调试方法
+运行测试脚本查看详细日志：
+```bash
+python test_scholar_sync.py
+```
+
+## 更新日志
+
+### v3.0 (2025-01-27)
+- ✨ 新增智能年份检测（arXiv URL优先）
+- 🔧 改进Survey论文重复检测（70%重叠阈值）
+- 📝 增强日志输出，显示检测过程
+
+### v2.0 (2025-01-26)
+- 🔒 添加手动编辑保护机制
+- 🎯 智能Venue识别和分类
+- 🖼️ 智能teaser图片管理
+
+### v1.0 (2025-01-25)
+- 🚀 基础Google Scholar同步功能
+- 🔍 多策略重复检测系统
+- ⚙️ GitHub Actions自动化工作流 

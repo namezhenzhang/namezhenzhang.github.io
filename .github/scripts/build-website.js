@@ -45,6 +45,8 @@ function formatPublicationVenue(venueType, venue, isOral = false) {
   let badge;
   if (venueType === 'under-review') {
     badge = `<span class="publication-venue-under-review">${venue}</span>`;
+  } else if (venueType === 'preprint') {
+    badge = `<span class="publication-venue-preprint">${venue}</span>`;
   } else if (venueType === 'working') {
     badge = `<span class="publication-venue-working">${venue}</span>`;
   } else {
