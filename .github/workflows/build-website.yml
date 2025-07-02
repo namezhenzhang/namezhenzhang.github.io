@@ -11,6 +11,11 @@ on:
     branches: [ main, master ]
     paths:
       - 'config.json'
+  repository_dispatch:
+    types: [rebuild-website]
+
+permissions:
+  contents: write
 
 jobs:
   build-website:
@@ -33,11 +38,14 @@ jobs:
     - name: Build website from config
       run: node .github/scripts/build-website.js
       
+    - name: Build blog page
+      run: node .github/scripts/build-blog-page.js
+      
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add index.html publications.html
+        git add index.html publications.html blog.html
         git diff --staged --quiet || git commit -m "🚀 Auto-update website from config.json"
         git push
       env:

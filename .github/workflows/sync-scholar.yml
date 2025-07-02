@@ -1,0 +1,64 @@
+name: Sync Google Scholar Publications
+
+on:
+  schedule:
+    # 每周一早上8点运行 (UTC时间)
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # 允许手动触发
+  push:
+    paths:
+      - '.github/workflows/sync-scholar.yml'
+      - '.github/scripts/sync-scholar.js'
+
+jobs:
+  sync-publications:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install puppeteer cheerio axios
+        
+    - name: Sync Google Scholar publications
+      run: node .github/scripts/sync-scholar.js
+      env:
+        SCHOLAR_USER_ID: ${{ secrets.SCHOLAR_USER_ID }}
+        
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if git diff --quiet config.json; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add config.json
+        git commit -m "🔄 Auto-sync publications from Google Scholar"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Trigger website rebuild
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        # 触发网站重新构建
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/dispatches \
+          -d '{"event_type":"rebuild-website"}' 
