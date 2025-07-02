@@ -10,6 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Sixun Dong</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="blog-comments.css">
@@ -179,6 +186,22 @@
                 `<span class="blog-tag">${tag}</span>`
             ).join('');
             
+            let externalLinkSection = '';
+            if (post.isExternal) {
+                externalLinkSection = `
+                    <div class="external-link-section">
+                        <div class="external-link-notice">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>This article was originally published on ${post.platform}</span>
+                        </div>
+                        <a href="${post.externalUrl}" target="_blank" class="external-link-button">
+                            <i class="fab fa-${post.platform.toLowerCase()}"></i>
+                            Read Full Article on ${post.platform}
+                        </a>
+                    </div>
+                `;
+            }
+            
             container.innerHTML = `
                 <header class="blog-post-header">
                     <h1 class="blog-post-title">${post.title}</h1>
@@ -186,10 +209,12 @@
                         <span class="blog-post-date">
                             <i class="fas fa-calendar"></i> ${post.formattedDate}
                         </span>
+                        ${post.isExternal ? `<span class="blog-post-platform"><i class="fas fa-external-link-alt"></i> ${post.platform}</span>` : ''}
                     </div>
                     <div class="blog-post-tags">
                         ${tagsHtml}
                     </div>
+                    ${externalLinkSection}
                 </header>
                 
                 <div class="blog-post-body">
@@ -248,12 +273,12 @@
                     if (post.isExternal) {
                         // External blog post (e.g., Zhihu)
                         return `
-                            <div class="blog-item external-post">
+                            <div class="blog-item external-post" data-post-id="${post.id}">
                                 <img src="${post.image}" alt="${post.title}" class="blog-image" onerror="this.src='images/default-paper.png'">
                                 <div class="blog-content">
                                     <div class="blog-type-badge external">External</div>
                                     <h3 class="blog-title">
-                                        <a href="${post.externalUrl}" target="_blank" class="blog-link">${post.title}</a>
+                                        <a href="#" class="blog-link external-link" data-post-id="${post.id}">${post.title}</a>
                                     </h3>
                                     <p class="blog-description">${post.description}</p>
                                     <div class="blog-meta">
@@ -302,8 +327,23 @@
                         showBlogPost(postId);
                     });
                 });
-                
+
+                document.querySelectorAll('.external-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const postId = this.getAttribute('data-post-id');
+                        showBlogPost(postId);
+                    });
+                });
+
                 document.querySelectorAll('.blog-item.internal-post').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const postId = this.getAttribute('data-post-id');
+                        showBlogPost(postId);
+                    });
+                });
+
+                document.querySelectorAll('.blog-item.external-post').forEach(item => {
                     item.addEventListener('click', function() {
                         const postId = this.getAttribute('data-post-id');
                         showBlogPost(postId);
@@ -396,7 +436,8 @@
                             admin: 'Admin',
                             sticky: 'Sticky',
                             word: 'Words',
-                            wordHint: 'Please input $0 to $1 words\n Current word number: $2',
+                            wordHint: 'Please input $0 to $1 words
+ Current word number: $2',
                             anonymous: 'Anonymous',
                             level0: 'Dwarves',
                             level1: 'Hobbits', 
@@ -491,19 +532,19 @@
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                document.getElementById('owner-location').textContent = 'Remote Server';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
-                // For local builds, show a more appropriate message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                // For GitHub Actions builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
             }
         }
         
-        // Set last updated time (when site was built)
+        // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
             const buildDate = '2025-07-02';
-            const date = new Date(buildDate);
+            const date = new Date(buildDate + 'T12:00:00'); // Add noon time to avoid timezone issues
             const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
