@@ -16,6 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
     <!-- Navigation -->
@@ -180,7 +186,7 @@
                 </div>
             </div>
             <div class="year-group">
-                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar</span></h3>
+                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar (Last synced: Jan 02, 2025)</span></h3>
                 <div class="publications-list">
                     
                 <div class="publication-item">
@@ -238,16 +244,17 @@
             <div class="footer-stats">
                 <div class="stats-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="visitor-location">Loading...</span>
+                    Last updated from: <span id="owner-location">Loading...</span>
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Website last loaded: <span id="last-updated"></span>
+                    Content last updated: <span id="last-updated"></span>
                 </div>
             </div>
             
             <div class="template-credit">
                 <p>Built with <a href="https://github.com/Ironieser/ironieser.github.io" target="_blank" rel="noopener">Config-Driven Academic Website Template</a> by <a href="https://github.com/Ironieser/ironieser.github.io" target="_blank" rel="noopener">Sixun Dong (ironieser)</a></p>
+                <p class="template-acknowledgments">Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools</p>
             </div>
             <p>&copy; 2025 Sixun Dong. All rights reserved.</p>
         </div>
@@ -255,22 +262,50 @@
     
     
     <script>
-        // Get visitor location using IP API
-        async function getVisitorLocation() {
+        // Get website owner's location during build (not visitor's location)
+        async function getOwnerLocation() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                const location = `${data.city}, ${data.country_name}`;
-                document.getElementById('visitor-location').textContent = location;
+                // Try primary API first
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+                
+                if (data.city && data.country_name) {
+                    const location = `${data.city}, ${data.country_name}`;
+                    document.getElementById('owner-location').textContent = location;
+                    return;
+                }
+                
+                // If primary API fails, try backup API
+                response = await fetch('https://api.ipify.org?format=json');
+                const ipData = await response.json();
+                
+                if (ipData.ip) {
+                    // Use a different geolocation service
+                    response = await fetch(`https://ip-api.com/json/${ipData.ip}`);
+                    data = await response.json();
+                    
+                    if (data.city && data.country) {
+                        const location = `${data.city}, ${data.country}`;
+                        document.getElementById('owner-location').textContent = location;
+                        return;
+                    }
+                }
+                
+                // If all APIs fail, show a default message
+                document.getElementById('owner-location').textContent = 'Local Build';
+                
             } catch (error) {
-                document.getElementById('visitor-location').textContent = 'Unknown';
+                console.log('Location detection failed:', error);
+                // For local builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'Local Build';
             }
         }
         
-        // Set last updated time
+        // Set last updated time (when site was built)
         function setLastUpdated() {
-            const now = new Date();
-            const formatted = now.toLocaleDateString('en-US', { 
+            const buildDate = '2025-07-02';
+            const date = new Date(buildDate);
+            const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
                 day: 'numeric' 
@@ -280,7 +315,7 @@
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            getVisitorLocation();
+            getOwnerLocation();
             setLastUpdated();
         });
     </script>
