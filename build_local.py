@@ -18,6 +18,8 @@ Usage: python build_local.py
 import json
 import os
 from datetime import datetime
+import re
+import yaml
 
 
 def load_config():
@@ -27,6 +29,192 @@ def load_config():
     
     with open('config.json', 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def parse_frontmatter(content):
+    """Parse frontmatter from markdown content"""
+    frontmatter_regex = r'^---\s*\n(.*?)\n---\s*\n(.*)$'
+    match = re.match(frontmatter_regex, content, re.DOTALL)
+    
+    if not match:
+        return {}, content
+    
+    try:
+        metadata = yaml.safe_load(match.group(1))
+        markdown_content = match.group(2)
+        return metadata or {}, markdown_content
+    except yaml.YAMLError:
+        return {}, content
+
+
+def markdown_to_html(markdown_text):
+    """Simple markdown to HTML conversion for basic formatting"""
+    # This is a basic implementation. For full markdown support, consider using a library like markdown
+    html = markdown_text
+    
+    # Headers
+    html = re.sub(r'^# (.*$)', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+    html = re.sub(r'^## (.*$)', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+    html = re.sub(r'^### (.*$)', r'<h3>\1</h3>', html, flags=re.MULTILINE)
+    html = re.sub(r'^#### (.*$)', r'<h4>\1</h4>', html, flags=re.MULTILINE)
+    
+    # Bold and italic
+    html = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html)
+    html = re.sub(r'\*(.*?)\*', r'<em>\1</em>', html)
+    
+    # Code blocks
+    html = re.sub(r'```(\w*)\n(.*?)\n```', r'<pre><code class="language-\1">\2</code></pre>', html, flags=re.DOTALL)
+    html = re.sub(r'`(.*?)`', r'<code>\1</code>', html)
+    
+    # Links
+    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
+    
+    # Lists
+    lines = html.split('\n')
+    in_ul = False
+    in_ol = False
+    result_lines = []
+    
+    for line in lines:
+        if re.match(r'^\s*[-*+]\s', line):
+            if not in_ul:
+                result_lines.append('<ul>')
+                in_ul = True
+            if in_ol:
+                result_lines.append('</ol>')
+                in_ol = False
+            item = re.sub(r'^\s*[-*+]\s', '', line)
+            result_lines.append(f'<li>{item}</li>')
+        elif re.match(r'^\s*\d+\.\s', line):
+            if not in_ol:
+                result_lines.append('<ol>')
+                in_ol = True
+            if in_ul:
+                result_lines.append('</ul>')
+                in_ul = False
+            item = re.sub(r'^\s*\d+\.\s', '', line)
+            result_lines.append(f'<li>{item}</li>')
+        else:
+            if in_ul:
+                result_lines.append('</ul>')
+                in_ul = False
+            if in_ol:
+                result_lines.append('</ol>')
+                in_ol = False
+            if line.strip():
+                result_lines.append(f'<p>{line}</p>')
+            else:
+                result_lines.append('')
+    
+    if in_ul:
+        result_lines.append('</ul>')
+    if in_ol:
+        result_lines.append('</ol>')
+    
+    return '\n'.join(result_lines)
+
+
+def format_date(date_string):
+    """Format date string to readable format"""
+    if not date_string:
+        return 'No date'
+    try:
+        date = datetime.strptime(date_string, '%Y-%m-%d')
+        return date.strftime('%B %d, %Y')
+    except ValueError:
+        return date_string
+
+
+def generate_post_id(filename):
+    """Generate post ID from filename"""
+    return filename.replace('.md', '').lower().replace(' ', '-').replace('_', '-')
+
+
+def build_blog_data():
+    """Build blog data from markdown files"""
+    print('📝 Building blog data...')
+    
+    blog_dir = 'blog'
+    if not os.path.exists(blog_dir):
+        print('Blog directory does not exist, creating empty blog data.')
+        blog_data_js = 'window.BLOG_DATA = [];'
+        with open('blog-data.js', 'w', encoding='utf-8') as f:
+            f.write(blog_data_js)
+        return
+    
+    blog_posts = []
+    md_files = [f for f in os.listdir(blog_dir) if f.endswith('.md') and f != 'README.md']
+    
+    print(f'Found {len(md_files)} markdown files')
+    
+    for filename in md_files:
+        print(f'Processing: {filename}')
+        
+        try:
+            filepath = os.path.join(blog_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            metadata, markdown_content = parse_frontmatter(content)
+            
+            # Generate post ID
+            post_id = generate_post_id(filename)
+            
+            # Convert markdown to HTML
+            html_content = markdown_to_html(markdown_content)
+            
+            # Create blog post object
+            blog_post = {
+                'id': post_id,
+                'filename': filename,
+                'title': metadata.get('title', 'Untitled Post'),
+                'date': metadata.get('date', ''),
+                'formattedDate': format_date(metadata.get('date')),
+                'description': metadata.get('description', 'No description available.'),
+                'tags': metadata.get('tags', []) if isinstance(metadata.get('tags'), list) else [],
+                'image': metadata.get('image', 'images/default-paper.png'),
+                'content': html_content,
+                'metadata': metadata
+            }
+            
+            blog_posts.append(blog_post)
+            
+        except Exception as e:
+            print(f'Error processing {filename}: {e}')
+    
+    # Sort by date (newest first)
+    blog_posts.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d').timestamp() if x['date'] else 0, reverse=True)
+    
+    # Generate JavaScript file
+    js_content = f'''// Auto-generated blog data
+// This file is automatically updated by build scripts
+// Do not edit manually
+
+window.BLOG_DATA = {json.dumps(blog_posts, indent=2, ensure_ascii=False)};
+
+// Helper function to get blog post by ID
+window.getBlogPost = function(id) {{
+  return window.BLOG_DATA.find(post => post.id === id);
+}};
+
+// Helper function to get all blog posts
+window.getAllBlogPosts = function() {{
+  return window.BLOG_DATA;
+}};
+
+console.log('Blog data loaded: ' + window.BLOG_DATA.length + ' posts');
+'''
+    
+    with open('blog-data.js', 'w', encoding='utf-8') as f:
+        f.write(js_content)
+    
+    print(f'Generated blog data with {len(blog_posts)} posts')
+    
+    # Log post titles for verification
+    for post in blog_posts:
+        print(f'- {post["title"]} ({post["formattedDate"]})')
+    
+    print('✓ blog-data.js generated successfully')
 
 
 def highlight_author_name(authors, target_name):
@@ -1108,6 +1296,9 @@ def main():
         # Load configuration
         config = load_config()
         print('✓ Configuration loaded successfully')
+        
+        # Build blog data first
+        build_blog_data()
         
         # Generate HTML files
         print('📝 Generating index.html...')

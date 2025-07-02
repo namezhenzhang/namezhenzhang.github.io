@@ -14,7 +14,14 @@ async function fetchScholarPublications() {
   
   const browser = await puppeteer.launch({
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: [
+      '--no-sandbox', 
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--disable-gpu',
+      '--window-size=1920x1080'
+    ]
   });
   
   try {
@@ -27,10 +34,16 @@ async function fetchScholarPublications() {
     const scholarUrl = `https://scholar.google.com/citations?user=${SCHOLAR_USER_ID}&hl=en&sortby=pubdate`;
     console.log(`📖 Fetching from: ${scholarUrl}`);
     
-    await page.goto(scholarUrl, { waitUntil: 'networkidle2' });
+    await page.goto(scholarUrl, { waitUntil: 'networkidle2', timeout: 30000 });
     
-    // 等待页面加载
-    await page.waitForSelector('#gsc_a_t', { timeout: 10000 });
+    // 等待页面加载，增加超时时间并添加重试机制
+    try {
+      await page.waitForSelector('#gsc_a_t', { timeout: 20000 });
+    } catch (error) {
+      console.log('⏳ First attempt failed, retrying...');
+      await page.reload({ waitUntil: 'networkidle2' });
+      await page.waitForSelector('#gsc_a_t', { timeout: 15000 });
+    }
     
     // 提取出版物信息
     const publications = await page.evaluate(() => {
