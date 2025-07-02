@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm init -y
-        npm install
+        npm install marked js-yaml
         
     - name: Build website from config
       run: node .github/scripts/build-website.js
