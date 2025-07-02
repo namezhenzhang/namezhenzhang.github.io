@@ -4,6 +4,9 @@
     margin-top: var(--spacing-3xl);
     padding-top: var(--spacing-2xl);
     border-top: 2px solid var(--color-border);
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .comments-header {

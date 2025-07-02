@@ -679,7 +679,7 @@
 }
 
 .blog-post-container {
-    max-width: 800px;
+    max-width: var(--content-width);
     margin: 0 auto;
 }
 
@@ -1054,7 +1054,7 @@
 
 /* Full Page Blog Styles */
 .blog-post-header {
-    max-width: 800px;
+    max-width: var(--content-width);
     margin: 0 auto var(--spacing-xl) auto;
     padding-bottom: var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
@@ -1089,7 +1089,7 @@
 }
 
 .blog-post-full-content {
-    max-width: 800px;
+    max-width: var(--content-width);
     margin: 0 auto;
     font-size: 16px;
     line-height: 1.7;
