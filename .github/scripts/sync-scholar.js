@@ -492,6 +492,9 @@ async function updateConfig() {
     console.log('🔄 Merging with existing publications...');
     const newPubs = convertToConfigFormat(scholarPubs, configData);
     
+    let addedCount = 0;
+    let updatedCount = 0;
+    
     // 合并新出版物到现有配置
     for (const [year, pubs] of Object.entries(newPubs)) {
       if (!configData.publications[year]) {
@@ -506,14 +509,28 @@ async function updateConfig() {
         if (!exists) {
           configData.publications[year].push(newPub);
           console.log(`✅ Added: ${newPub.title} (${year})`);
+          addedCount++;
+        } else {
+          updatedCount++;
         }
       });
     }
+    
+    // 更新Scholar同步信息
+    if (!configData._scholar_sync) {
+      configData._scholar_sync = {};
+    }
+    
+    configData._scholar_sync.last_sync_date = new Date().toISOString().split('T')[0];
+    configData._scholar_sync.last_sync_status = addedCount > 0 ? 
+      `Added ${addedCount} new publications` : 
+      `No new publications found (${updatedCount} existing checked)`;
     
     console.log('💾 Saving updated config.json...');
     fs.writeFileSync(configPath, JSON.stringify(configData, null, 2), 'utf8');
     
     console.log('🎉 Google Scholar sync completed successfully!');
+    console.log(`📊 Summary: ${addedCount} added, ${updatedCount} checked`);
     
   } catch (error) {
     console.error('❌ Error updating config:', error);

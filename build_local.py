@@ -97,9 +97,11 @@ def generate_footer(personal, template_info=None):
     # Generate template credit if enabled
     template_credit = ""
     if template_info and template_info.get('show_template_credit'):
+        acknowledgments = f'<p class="template-acknowledgments">{template_info["acknowledgments"]}</p>' if template_info.get('acknowledgments') else ''
         template_credit = f'''
             <div class="template-credit">
                 <p>Built with <a href="{template_info['repository']}" target="_blank" rel="noopener">{template_info['name']}</a> by <a href="{template_info['repository']}" target="_blank" rel="noopener">{template_info['author']}</a></p>
+                {acknowledgments}
             </div>'''
     
     return f'''
@@ -119,11 +121,11 @@ def generate_footer(personal, template_info=None):
             <div class="footer-stats">
                 <div class="stats-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="visitor-location">Loading...</span>
+                    Last updated from: <span id="owner-location">Loading...</span>
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Website last loaded: <span id="last-updated"></span>
+                    Content last updated: <span id="last-updated"></span>
                 </div>
             </div>
             {template_credit}
@@ -134,36 +136,67 @@ def generate_footer(personal, template_info=None):
 
 def generate_common_scripts():
     """Generate common JavaScript"""
-    return '''
+    # Get current build time
+    build_time = datetime.now().strftime('%Y-%m-%d')
+    
+    return f'''
     <script>
-        // Get visitor location using IP API
-        async function getVisitorLocation() {
-            try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                const location = `${data.city}, ${data.country_name}`;
-                document.getElementById('visitor-location').textContent = location;
-            } catch (error) {
-                document.getElementById('visitor-location').textContent = 'Unknown';
-            }
-        }
+        // Get website owner's location during build (not visitor's location)
+        async function getOwnerLocation() {{
+            try {{
+                // Try primary API first
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+                
+                if (data.city && data.country_name) {{
+                    const location = `${{data.city}}, ${{data.country_name}}`;
+                    document.getElementById('owner-location').textContent = location;
+                    return;
+                }}
+                
+                // If primary API fails, try backup API
+                response = await fetch('https://api.ipify.org?format=json');
+                const ipData = await response.json();
+                
+                if (ipData.ip) {{
+                    // Use a different geolocation service
+                    response = await fetch(`https://ip-api.com/json/${{ipData.ip}}`);
+                    data = await response.json();
+                    
+                    if (data.city && data.country) {{
+                        const location = `${{data.city}}, ${{data.country}}`;
+                        document.getElementById('owner-location').textContent = location;
+                        return;
+                    }}
+                }}
+                
+                // If all APIs fail, show a default message
+                document.getElementById('owner-location').textContent = 'Local Build';
+                
+            }} catch (error) {{
+                console.log('Location detection failed:', error);
+                // For local builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'Local Build';
+            }}
+        }}
         
-        // Set last updated time
-        function setLastUpdated() {
-            const now = new Date();
-            const formatted = now.toLocaleDateString('en-US', { 
+        // Set last updated time (when site was built)
+        function setLastUpdated() {{
+            const buildDate = '{build_time}';
+            const date = new Date(buildDate);
+            const formatted = date.toLocaleDateString('en-US', {{ 
                 year: 'numeric', 
                 month: 'short', 
                 day: 'numeric' 
-            });
+            }});
             document.getElementById('last-updated').textContent = formatted;
-        }
+        }}
         
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            getVisitorLocation();
+        document.addEventListener('DOMContentLoaded', function() {{
+            getOwnerLocation();
             setLastUpdated();
-        });
+        }});
     </script>'''
 
 
@@ -450,6 +483,7 @@ def generate_publications_page(config):
     research = config['research']
     publications = config['publications']
     template_info = config.get('_template_info')
+    scholar_sync = config.get('_scholar_sync', {})
     
     # Separate auto-synced and manual publications
     manual_pubs = {}
@@ -547,9 +581,17 @@ def generate_publications_page(config):
                     </div>
                 </div>''')
         
+        # Generate Scholar sync info
+        scholar_sync_info = ''
+        if scholar_sync.get('last_sync_date'):
+            from datetime import datetime
+            sync_date = datetime.strptime(scholar_sync['last_sync_date'], '%Y-%m-%d')
+            formatted_date = sync_date.strftime('%b %d, %Y')
+            scholar_sync_info = f' (Last synced: {formatted_date})'
+        
         year_sections.append(f'''
             <div class="year-group">
-                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar</span></h3>
+                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar{scholar_sync_info}</span></h3>
                 <div class="publications-list">
                     {''.join(auto_sync_items)}
                 </div>

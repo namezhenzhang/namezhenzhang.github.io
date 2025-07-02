@@ -98,6 +98,7 @@ function generateFooter(personal, templateInfo = null) {
   const templateCredit = templateInfo && templateInfo.show_template_credit ? `
             <div class="template-credit">
                 <p>Built with <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.name}</a> by <a href="${templateInfo.repository}" target="_blank" rel="noopener">${templateInfo.author}</a></p>
+                ${templateInfo.acknowledgments ? `<p class="template-acknowledgments">${templateInfo.acknowledgments}</p>` : ''}
             </div>` : '';
   
   return `
@@ -117,11 +118,11 @@ function generateFooter(personal, templateInfo = null) {
             <div class="footer-stats">
                 <div class="stats-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="visitor-location">Loading...</span>
+                    Last updated from: <span id="owner-location">Loading...</span>
                 </div>
                 <div class="stats-item">
                     <i class="fas fa-clock"></i>
-                    Website last loaded: <span id="last-updated"></span>
+                    Content last updated: <span id="last-updated"></span>
                 </div>
             </div>
             ${templateCredit}
@@ -131,24 +132,55 @@ function generateFooter(personal, templateInfo = null) {
 }
 
 function generateCommonScripts() {
+  // Get current build time (when GitHub Actions runs)
+  const buildTime = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+  
   return `
     <script>
-        // Get visitor location using IP API
-        async function getVisitorLocation() {
+        // Get website owner's location during build (not visitor's location)
+        async function getOwnerLocation() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                const location = \`\${data.city}, \${data.country_name}\`;
-                document.getElementById('visitor-location').textContent = location;
+                // Try primary API first
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+                
+                if (data.city && data.country_name) {
+                    const location = \`\${data.city}, \${data.country_name}\`;
+                    document.getElementById('owner-location').textContent = location;
+                    return;
+                }
+                
+                // If primary API fails, try backup API
+                response = await fetch('https://api.ipify.org?format=json');
+                const ipData = await response.json();
+                
+                if (ipData.ip) {
+                    // Use a different geolocation service
+                    response = await fetch(\`https://ip-api.com/json/\${ipData.ip}\`);
+                    data = await response.json();
+                    
+                    if (data.city && data.country) {
+                        const location = \`\${data.city}, \${data.country}\`;
+                        document.getElementById('owner-location').textContent = location;
+                        return;
+                    }
+                }
+                
+                // If all APIs fail, show a default message
+                document.getElementById('owner-location').textContent = 'Remote Server';
+                
             } catch (error) {
-                document.getElementById('visitor-location').textContent = 'Unknown';
+                console.log('Location detection failed:', error);
+                // For GitHub Actions builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
             }
         }
         
-        // Set last updated time
+        // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
-            const now = new Date();
-            const formatted = now.toLocaleDateString('en-US', { 
+            const buildDate = '${buildTime}';
+            const date = new Date(buildDate);
+            const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
                 day: 'numeric' 
@@ -158,7 +190,7 @@ function generateCommonScripts() {
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            getVisitorLocation();
+            getOwnerLocation();
             setLastUpdated();
         });
     </script>`;
@@ -440,7 +472,7 @@ function generateIndexPage(config) {
 function generatePublicationsPage(config) {
   console.log('Generating publications.html...');
   
-  const { personal, research, publications, _template_info } = config;
+  const { personal, research, publications, _template_info, _scholar_sync } = config;
   const targetName = personal.name.split(' ')[0];
   
   // Separate auto-synced and manual publications
@@ -543,9 +575,21 @@ function generatePublicationsPage(config) {
                 </div>`;
     }).join('');
     
+    // Generate Scholar sync info
+    let scholarSyncInfo = '';
+    if (_scholar_sync && _scholar_sync.last_sync_date) {
+      const syncDate = new Date(_scholar_sync.last_sync_date);
+      const formattedDate = syncDate.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+      scholarSyncInfo = ` (Last synced: ${formattedDate})`;
+    }
+    
     yearSections.push(`
             <div class="year-group">
-                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar</span></h3>
+                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar${scholarSyncInfo}</span></h3>
                 <div class="publications-list">
                     ${autoSyncItems}
                 </div>

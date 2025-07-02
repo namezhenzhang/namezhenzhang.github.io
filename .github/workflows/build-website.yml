@@ -3,14 +3,8 @@ name: Build Website from Config
 on:
   push:
     branches: [ main, master ]
-    paths:
-      - 'config.json'
-      - '.github/workflows/build-website.yml'
-      - '.github/scripts/build-website.js'
   pull_request:
     branches: [ main, master ]
-    paths:
-      - 'config.json'
   repository_dispatch:
     types: [rebuild-website]
 

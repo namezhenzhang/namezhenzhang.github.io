@@ -6,7 +6,12 @@
     "repository": "https://github.com/Ironieser/ironieser.github.io",
     "license": "MIT",
     "description": "A GitHub Actions-powered template for easy academic website management",
-    "show_template_credit": true
+    "show_template_credit": true,
+    "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
+  },
+  "_scholar_sync": {
+    "last_sync_date": "2025-01-02",
+    "last_sync_status": "No auto-sync publications found"
   },
   "personal": {
     "name": "Sixun Dong",
