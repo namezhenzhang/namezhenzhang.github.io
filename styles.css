@@ -717,6 +717,14 @@ body {
     background: rgba(55, 65, 81, 0.3);
 }
 
+.auto-sync-note {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--color-secondary);
+    font-style: italic;
+    margin-left: var(--spacing-sm);
+}
+
         .publication-image {
             flex-shrink: 0;
             width: 160px;

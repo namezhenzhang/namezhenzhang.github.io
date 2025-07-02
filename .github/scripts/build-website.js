@@ -428,12 +428,36 @@ function generatePublicationsPage(config) {
   const { personal, research, publications } = config;
   const targetName = personal.name.split(' ')[0];
   
-  // Generate publications by year
-  const yearSections = [];
+  // Separate auto-synced and manual publications
+  const manualPubs = {};
+  const autoSyncedPubs = [];
+  
+  // Process publications by year, separating auto-synced ones
   const sortedYears = Object.keys(publications).filter(year => year !== 'survey').sort().reverse();
   
   for (const year of sortedYears) {
     const yearPubs = publications[year];
+    const manualYearPubs = [];
+    
+    yearPubs.forEach(pub => {
+      if (pub.auto_sync === true) {
+        autoSyncedPubs.push(pub);
+      } else {
+        manualYearPubs.push(pub);
+      }
+    });
+    
+    if (manualYearPubs.length > 0) {
+      manualPubs[year] = manualYearPubs;
+    }
+  }
+  
+  // Generate manual publications by year
+  const yearSections = [];
+  const manualYears = Object.keys(manualPubs).sort().reverse();
+  
+  for (const year of manualYears) {
+    const yearPubs = manualPubs[year];
     const pubItems = yearPubs.map(pub => {
       const venueBadge = formatPublicationVenue(pub.venue_type, pub.venue, pub.is_oral);
       const authorsFormatted = highlightAuthorName(pub.authors, targetName);
@@ -482,6 +506,33 @@ function generatePublicationsPage(config) {
                 <h3 class="year-title">Survey Papers</h3>
                 <div class="publications-list">
                     ${surveyItems}
+                </div>
+            </div>`);
+  }
+  
+  // Generate auto-synced publications section
+  if (autoSyncedPubs.length > 0) {
+    const autoSyncItems = autoSyncedPubs.map(pub => {
+      const venueBadge = formatPublicationVenue(pub.venue_type, pub.venue, pub.is_oral);
+      const authorsFormatted = highlightAuthorName(pub.authors, targetName);
+      const linksFormatted = formatPublicationLinks(pub.links);
+      
+      return `
+                <div class="publication-item">
+                    <img src="${pub.image}" alt="${pub.title}" class="publication-image teaser" onerror="this.src='images/default-paper.png'">
+                    <div class="publication-content">
+                        <p class="publication-title">${venueBadge} ${pub.title}</p>
+                        <p class="publication-authors">${authorsFormatted}</p>
+                        <p class="publication-links">${linksFormatted}</p>
+                    </div>
+                </div>`;
+    }).join('');
+    
+    yearSections.push(`
+            <div class="year-group">
+                <h3 class="year-title">Other Publications <span class="auto-sync-note">Auto-updated based on Google Scholar</span></h3>
+                <div class="publications-list">
+                    ${autoSyncItems}
                 </div>
             </div>`);
   }
