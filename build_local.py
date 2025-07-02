@@ -76,6 +76,8 @@ def markdown_to_html(markdown_text):
     result_lines = []
     
     for line in lines:
+        stripped_line = line.strip()
+        
         if re.match(r'^\s*[-*+]\s', line):
             if not in_ul:
                 result_lines.append('<ul>')
@@ -101,8 +103,16 @@ def markdown_to_html(markdown_text):
             if in_ol:
                 result_lines.append('</ol>')
                 in_ol = False
-            if line.strip():
-                result_lines.append(f'<p>{line}</p>')
+            
+            # Don't wrap HTML tags, empty lines, or horizontal rules in <p> tags
+            if stripped_line:
+                # Check if line is already an HTML tag, horizontal rule, or other special content
+                if (stripped_line.startswith('<') and stripped_line.endswith('>')) or \
+                   stripped_line.startswith('---') or \
+                   stripped_line.startswith('***'):
+                    result_lines.append(line)
+                else:
+                    result_lines.append(f'<p>{line}</p>')
             else:
                 result_lines.append('')
     
@@ -160,22 +170,46 @@ def build_blog_data():
             # Generate post ID
             post_id = generate_post_id(filename)
             
-            # Convert markdown to HTML
-            html_content = markdown_to_html(markdown_content)
+            # Check if this is an external post
+            is_external = metadata.get('external', False)
             
-            # Create blog post object
-            blog_post = {
-                'id': post_id,
-                'filename': filename,
-                'title': metadata.get('title', 'Untitled Post'),
-                'date': metadata.get('date', ''),
-                'formattedDate': format_date(metadata.get('date')),
-                'description': metadata.get('description', 'No description available.'),
-                'tags': metadata.get('tags', []) if isinstance(metadata.get('tags'), list) else [],
-                'image': metadata.get('image', 'images/default-paper.png'),
-                'content': html_content,
-                'metadata': metadata
-            }
+            if is_external:
+                # External blog post (e.g., Zhihu)
+                # Convert markdown to HTML for the description page
+                html_content = markdown_to_html(markdown_content)
+                
+                blog_post = {
+                    'id': post_id,
+                    'filename': filename,
+                    'title': metadata.get('title', 'Untitled Post'),
+                    'date': metadata.get('date', ''),
+                    'formattedDate': format_date(metadata.get('date')),
+                    'description': metadata.get('description', 'No description available.'),
+                    'tags': metadata.get('tags', []) if isinstance(metadata.get('tags'), list) else [],
+                    'image': metadata.get('image', 'images/default-paper.png'),
+                    'content': html_content,  # Include content for the blog post page
+                    'isExternal': True,
+                    'externalUrl': metadata.get('externalUrl', '#'),
+                    'platform': metadata.get('platform', 'External'),
+                    'metadata': metadata
+                }
+            else:
+                # Internal blog post
+                # Convert markdown to HTML
+                html_content = markdown_to_html(markdown_content)
+                
+                blog_post = {
+                    'id': post_id,
+                    'filename': filename,
+                    'title': metadata.get('title', 'Untitled Post'),
+                    'date': metadata.get('date', ''),
+                    'formattedDate': format_date(metadata.get('date')),
+                    'description': metadata.get('description', 'No description available.'),
+                    'tags': metadata.get('tags', []) if isinstance(metadata.get('tags'), list) else [],
+                    'image': metadata.get('image', 'images/default-paper.png'),
+                    'content': html_content,
+                    'metadata': metadata
+                }
             
             blog_posts.append(blog_post)
             
@@ -212,7 +246,8 @@ console.log('Blog data loaded: ' + window.BLOG_DATA.length + ' posts');
     
     # Log post titles for verification
     for post in blog_posts:
-        print(f'- {post["title"]} ({post["formattedDate"]})')
+        post_type = "External" if post.get('isExternal') else "Internal"
+        print(f'- [{post_type}] {post["title"]} ({post["formattedDate"]})')
     
     print('✓ blog-data.js generated successfully')
 

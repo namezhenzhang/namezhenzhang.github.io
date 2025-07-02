@@ -10,13 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Sixun Dong</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="blog-comments.css">
@@ -403,8 +396,7 @@
                             admin: 'Admin',
                             sticky: 'Sticky',
                             word: 'Words',
-                            wordHint: 'Please input $0 to $1 words
- Current word number: $2',
+                            wordHint: 'Please input $0 to $1 words\n Current word number: $2',
                             anonymous: 'Anonymous',
                             level0: 'Dwarves',
                             level1: 'Hobbits', 
@@ -499,16 +491,16 @@
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Remote Server';
+                document.getElementById('owner-location').textContent = 'Local Build';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
-                // For GitHub Actions builds, show a more appropriate message
-                document.getElementById('owner-location').textContent = 'GitHub Actions';
+                // For local builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'Local Build';
             }
         }
         
-        // Set last updated time (when GitHub Actions built the site)
+        // Set last updated time (when site was built)
         function setLastUpdated() {
             const buildDate = '2025-07-02';
             const date = new Date(buildDate);

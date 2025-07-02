@@ -73,22 +73,49 @@ function buildBlogData() {
       // Generate post ID
       const postId = generatePostId(filename);
       
-      // Parse markdown to HTML
-      const htmlContent = marked.parse(markdownContent);
+      // Check if this is an external post
+      const isExternal = metadata.external || false;
       
-      // Create blog post object
-      const blogPost = {
-        id: postId,
-        filename: filename,
-        title: metadata.title || 'Untitled Post',
-        date: metadata.date || '',
-        formattedDate: formatDate(metadata.date),
-        description: metadata.description || 'No description available.',
-        tags: Array.isArray(metadata.tags) ? metadata.tags : [],
-        image: metadata.image || 'images/default-paper.png',
-        content: htmlContent,
-        metadata: metadata
-      };
+      let blogPost;
+      
+      if (isExternal) {
+        // External blog post (e.g., Zhihu)
+        // Parse markdown to HTML for the description page
+        const htmlContent = marked.parse(markdownContent);
+        
+        blogPost = {
+          id: postId,
+          filename: filename,
+          title: metadata.title || 'Untitled Post',
+          date: metadata.date || '',
+          formattedDate: formatDate(metadata.date),
+          description: metadata.description || 'No description available.',
+          tags: Array.isArray(metadata.tags) ? metadata.tags : [],
+          image: metadata.image || 'images/default-paper.png',
+          content: htmlContent,  // Include content for the blog post page
+          isExternal: true,
+          externalUrl: metadata.externalUrl || '#',
+          platform: metadata.platform || 'External',
+          metadata: metadata
+        };
+      } else {
+        // Internal blog post
+        // Parse markdown to HTML
+        const htmlContent = marked.parse(markdownContent);
+        
+        blogPost = {
+          id: postId,
+          filename: filename,
+          title: metadata.title || 'Untitled Post',
+          date: metadata.date || '',
+          formattedDate: formatDate(metadata.date),
+          description: metadata.description || 'No description available.',
+          tags: Array.isArray(metadata.tags) ? metadata.tags : [],
+          image: metadata.image || 'images/default-paper.png',
+          content: htmlContent,
+          metadata: metadata
+        };
+      }
       
       blogPosts.push(blogPost);
       
@@ -130,7 +157,8 @@ console.log('Blog data loaded: ' + window.BLOG_DATA.length + ' posts');
   
   // Log post titles for verification
   blogPosts.forEach(post => {
-    console.log(`- ${post.title} (${post.formattedDate})`);
+    const postType = post.isExternal ? "External" : "Internal";
+    console.log(`- [${postType}] ${post.title} (${post.formattedDate})`);
   });
 }
 
