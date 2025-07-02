@@ -627,11 +627,13 @@ def generate_blog_page(config):
     <title>Blog - {personal['name']}</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="blog-comments.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
     <script src="blog-data.js"></script>
 </head>
 <body>
@@ -660,10 +662,10 @@ def generate_blog_page(config):
                 </div>
             </section>
 
-            <!-- Blog Posts Grid -->
+            <!-- Blog Posts List -->
             <section class="section">
                 <div class="container">
-                    <div id="blog-posts-container" class="blog-posts-grid">
+                    <div id="blog-posts-container" class="blog-list">
                         <!-- Blog posts will be loaded here by JavaScript -->
                     </div>
                     
@@ -744,6 +746,11 @@ def generate_blog_page(config):
             
             // Load post content
             loadPostContent(post);
+            
+            // Initialize comments after content is loaded
+            setTimeout(() => {{
+                initWalineComments(post.title);
+            }}, 500);
         }}
         
         function loadPostContent(post) {{
@@ -769,6 +776,33 @@ def generate_blog_page(config):
                 <div class="blog-post-body">
                     ${{post.content}}
                 </div>
+                
+                <!-- Comments Section -->
+                <section class="blog-comments-section">
+                    <div class="comments-header">
+                        <h3 class="comments-title">
+                            <i class="fas fa-comments"></i>
+                            Comments & Discussions
+                        </h3>
+                        <p class="comments-subtitle">
+                            Join the discussion! Comments are powered by 
+                            <a href="https://waline.js.org" target="_blank" rel="noopener">Waline</a>.
+                            You can comment anonymously or sign in with email.
+                        </p>
+                        <div class="comments-info">
+                            <h4>How to comment:</h4>
+                            <ul>
+                                <li>💬 Comment anonymously or sign in with email</li>
+                                <li>📝 Support Markdown formatting</li>
+                                <li>👍 Like and reply to comments</li>
+                                <li>🔔 Get email notifications for replies (optional)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="waline" class="waline-container">
+                        <!-- Waline comments will be loaded here -->
+                    </div>
+                </section>
             `;
         }}
         
@@ -792,40 +826,66 @@ def generate_blog_page(config):
                         `<span class="blog-tag">${{tag}}</span>`
                     ).join('');
                     
-                    return `
-                        <article class="blog-post-card" data-post-id="${{post.id}}">
-                            <div class="blog-post-image">
-                                <img src="${{post.image}}" alt="${{post.title}}" onerror="this.src='images/default-paper.png'">
-                            </div>
-                            <div class="blog-post-card-content">
-                                <h3 class="blog-post-card-title">${{post.title}}</h3>
-                                <p class="blog-post-card-description">${{post.description}}</p>
-                                <div class="blog-post-card-meta">
-                                    <span class="blog-post-card-date">${{post.formattedDate}}</span>
-                                    <div class="blog-post-card-tags">
-                                        ${{tagsHtml}}
+                    if (post.isExternal) {{
+                        // External blog post (e.g., Zhihu)
+                        return `
+                            <div class="blog-item external-post">
+                                <img src="${{post.image}}" alt="${{post.title}}" class="blog-image" onerror="this.src='images/default-paper.png'">
+                                <div class="blog-content">
+                                    <div class="blog-type-badge external">External</div>
+                                    <h3 class="blog-title">
+                                        <a href="${{post.externalUrl}}" target="_blank" class="blog-link">${{post.title}}</a>
+                                    </h3>
+                                    <p class="blog-description">${{post.description}}</p>
+                                    <div class="blog-meta">
+                                        <span class="blog-date">${{post.formattedDate}}</span>
+                                        <div class="blog-links">
+                                            <i class="fab fa-zhihu"></i> 
+                                            <a href="${{post.externalUrl}}" target="_blank">Read on ${{post.platform}}</a>
+                                        </div>
+                                        <span class="blog-tags">
+                                            ${{tagsHtml}}
+                                        </span>
                                     </div>
                                 </div>
-                                <button class="blog-read-more" data-post-id="${{post.id}}">
-                                    Read More <i class="fas fa-arrow-right"></i>
-                                </button>
                             </div>
-                        </article>
-                    `;
+                        `;
+                    }} else {{
+                        // Internal blog post
+                        return `
+                            <div class="blog-item internal-post" data-post-id="${{post.id}}">
+                                <img src="${{post.image}}" alt="${{post.title}}" class="blog-image" onerror="this.src='images/default-paper.png'">
+                                <div class="blog-content">
+                                    <div class="blog-type-badge internal">Blog</div>
+                                    <h3 class="blog-title">
+                                        <a href="#" class="blog-link internal-link" data-post-id="${{post.id}}">${{post.title}}</a>
+                                    </h3>
+                                    <p class="blog-description">${{post.description}}</p>
+                                    <div class="blog-meta">
+                                        <span class="blog-date">${{post.formattedDate}}</span>
+                                        <span class="blog-tags">
+                                            ${{tagsHtml}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }}
                 }}).join('');
                 
                 container.innerHTML = postsHtml;
                 
                 // Add click handlers
-                document.querySelectorAll('.blog-read-more').forEach(btn => {{
-                    btn.addEventListener('click', function() {{
+                document.querySelectorAll('.internal-link').forEach(link => {{
+                    link.addEventListener('click', function(e) {{
+                        e.preventDefault();
                         const postId = this.getAttribute('data-post-id');
                         showBlogPost(postId);
                     }});
                 }});
                 
-                document.querySelectorAll('.blog-post-card').forEach(card => {{
-                    card.addEventListener('click', function() {{
+                document.querySelectorAll('.blog-item.internal-post').forEach(item => {{
+                    item.addEventListener('click', function() {{
                         const postId = this.getAttribute('data-post-id');
                         showBlogPost(postId);
                     }});
@@ -876,6 +936,93 @@ def generate_blog_page(config):
                     loadBlogPosts();
                 }}
             }});
+        }}
+        
+        // Initialize Waline comments
+        function initWalineComments(postTitle) {{
+            // Clear any existing Waline instance
+            const walineContainer = document.getElementById('waline');
+            if (walineContainer) {{
+                walineContainer.innerHTML = '';
+            }}
+            
+            // Import and initialize Waline
+            import('https://unpkg.com/@waline/client@v3/dist/waline.js')
+                .then(({{ init }}) => {{
+                    init({{
+                        el: '#waline',
+                        serverURL: 'https://comments.ironieser.cc',
+                        path: window.location.pathname + window.location.search,
+                        lang: 'en-US',
+                        locale: {{
+                            placeholder: 'Hi, looking forward to your comments! Feel free to leave any suggestions!',
+                            sofa: 'No comments yet.',
+                            submit: 'Submit',
+                            reply: 'Reply',
+                            cancelReply: 'Cancel Reply',
+                            comment: 'Comments',
+                            refresh: 'Refresh',
+                            more: 'Load More...',
+                            preview: 'Preview',
+                            emoji: 'Emoji',
+                            uploadImage: 'Upload Image',
+                            seconds: 'seconds ago',
+                            minutes: 'minutes ago',
+                            hours: 'hours ago',
+                            days: 'days ago',
+                            now: 'just now',
+                            uploading: 'Uploading',
+                            login: 'Login',
+                            logout: 'Logout',
+                            admin: 'Admin',
+                            sticky: 'Sticky',
+                            word: 'Words',
+                            wordHint: 'Please input $0 to $1 words\\n Current word number: $2',
+                            anonymous: 'Anonymous',
+                            level0: 'Dwarves',
+                            level1: 'Hobbits', 
+                            level2: 'Ents',
+                            level3: 'Wizards',
+                            level4: 'Elves',
+                            level5: 'Maiar',
+                            gif: 'GIF',
+                            gifSearchPlaceholder: 'Search GIF',
+                            profile: 'Profile',
+                            approved: 'Approved',
+                            waiting: 'Waiting',
+                            spam: 'Spam',
+                            unsticky: 'Unsticky',
+                            oldest: 'Oldest',
+                            latest: 'Latest',
+                            hottest: 'Hottest',
+                            reactionTitle: 'What do you think?'
+                        }},
+                        emoji: [
+                            '//unpkg.com/@waline/client@v3/dist/emoji/weibo',
+                            '//unpkg.com/@waline/client@v3/dist/emoji/alus',
+                            '//unpkg.com/@waline/client@v3/dist/emoji/bilibili',
+                        ],
+                        dark: false,
+                        meta: ['nick', 'mail', 'link'],
+                        requiredMeta: [],
+                        login: 'enable',
+                        wordLimit: [0, 1000],
+                        pageSize: 10,
+                        region: 'us',
+                    }});
+                }})
+                .catch(error => {{
+                    console.error('Failed to load Waline:', error);
+                    const walineContainer = document.getElementById('waline');
+                    if (walineContainer) {{
+                        walineContainer.innerHTML = `
+                            <div class="waline-error">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>Failed to load comment system. Please try refreshing the page.</p>
+                            </div>
+                        `;
+                    }}
+                }});
         }}
         
         // Initialize when page loads
