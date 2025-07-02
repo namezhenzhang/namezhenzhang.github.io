@@ -1038,6 +1038,22 @@ def generate_blog_page(config):
                 `<span class="blog-tag">${{tag}}</span>`
             ).join('');
             
+            let externalLinkSection = '';
+            if (post.isExternal) {{
+                externalLinkSection = `
+                    <div class="external-link-section">
+                        <div class="external-link-notice">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>This article was originally published on ${{post.platform}}</span>
+                        </div>
+                        <a href="${{post.externalUrl}}" target="_blank" class="external-link-button">
+                            <i class="fab fa-${{post.platform.toLowerCase()}}"></i>
+                            Read Full Article on ${{post.platform}}
+                        </a>
+                    </div>
+                `;
+            }}
+            
             container.innerHTML = `
                 <header class="blog-post-header">
                     <h1 class="blog-post-title">${{post.title}}</h1>
@@ -1045,10 +1061,12 @@ def generate_blog_page(config):
                         <span class="blog-post-date">
                             <i class="fas fa-calendar"></i> ${{post.formattedDate}}
                         </span>
+                        ${{post.isExternal ? `<span class="blog-post-platform"><i class="fas fa-external-link-alt"></i> ${{post.platform}}</span>` : ''}}
                     </div>
                     <div class="blog-post-tags">
                         ${{tagsHtml}}
                     </div>
+                    ${{externalLinkSection}}
                 </header>
                 
                 <div class="blog-post-body">
@@ -1107,12 +1125,12 @@ def generate_blog_page(config):
                     if (post.isExternal) {{
                         // External blog post (e.g., Zhihu)
                         return `
-                            <div class="blog-item external-post">
+                            <div class="blog-item external-post" data-post-id="${{post.id}}">
                                 <img src="${{post.image}}" alt="${{post.title}}" class="blog-image" onerror="this.src='images/default-paper.png'">
                                 <div class="blog-content">
                                     <div class="blog-type-badge external">External</div>
                                     <h3 class="blog-title">
-                                        <a href="${{post.externalUrl}}" target="_blank" class="blog-link">${{post.title}}</a>
+                                        <a href="#" class="blog-link external-link" data-post-id="${{post.id}}">${{post.title}}</a>
                                     </h3>
                                     <p class="blog-description">${{post.description}}</p>
                                     <div class="blog-meta">
@@ -1161,8 +1179,23 @@ def generate_blog_page(config):
                         showBlogPost(postId);
                     }});
                 }});
+
+                document.querySelectorAll('.external-link').forEach(link => {{
+                    link.addEventListener('click', function(e) {{
+                        e.preventDefault();
+                        const postId = this.getAttribute('data-post-id');
+                        showBlogPost(postId);
+                    }});
+                }});
                 
                 document.querySelectorAll('.blog-item.internal-post').forEach(item => {{
+                    item.addEventListener('click', function() {{
+                        const postId = this.getAttribute('data-post-id');
+                        showBlogPost(postId);
+                    }});
+                }});
+
+                document.querySelectorAll('.blog-item.external-post').forEach(item => {{
                     item.addEventListener('click', function() {{
                         const postId = this.getAttribute('data-post-id');
                         showBlogPost(postId);
