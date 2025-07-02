@@ -16,7 +16,7 @@
     "cv_link": "files/CV_Dong.pdf",
     "bio": [
       "I am a PhD student at Arizona State University, supervised by Professor <a href=\"https://faculty.engineering.asu.edu/yanjiefu/\" class=\"link\">Yanjie Fu</a>. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
-      "My research focuses on developing multimodal perception and generation systems that integrate <em class=\"research-keywords\">vision, motion, audio, 3D, and language</em>."
+      "My research focuses on <em class=\"research-keywords\">multimodal AI systems</em> that bridge computer vision, natural language processing, and machine learning, with different applications."
     ],
     "links": [
       {
@@ -52,10 +52,10 @@
     ]
   },
   "research": {
-    "description": "I develop <strong>multimodal perception and generation systems</strong> that integrate vision, motion, audio, 3D, and language. My research explores weakly supervised video understanding, efficient vision-language models, and agent-centric multimodal generation for embodied AI systems.",
+    "description": "Currently, my research focuses on <strong>multimodal AI systems</strong> that bridge computer vision, natural language processing, and machine learning. I work on developing intelligent agents that can understand and generate content across multiple modalities, with applications in video analysis, time series forecasting, and feature transformation.",
     "stats": [
       "10+ publications",
-      "3 top-tier venues (CVPR, WACV, IJCAI)",
+      "4 top-tier venues (CVPR, WACV, IJCAI)",
       "1 oral presentation"
     ]
   },
