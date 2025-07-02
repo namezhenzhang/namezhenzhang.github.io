@@ -10,6 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Sixun Dong</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="blog-comments.css">
@@ -19,13 +26,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
     <script src="blog-data.js"></script>
 </head>
 <body>
@@ -403,7 +403,8 @@
                             admin: 'Admin',
                             sticky: 'Sticky',
                             word: 'Words',
-                            wordHint: 'Please input $0 to $1 words\n Current word number: $2',
+                            wordHint: 'Please input $0 to $1 words
+ Current word number: $2',
                             anonymous: 'Anonymous',
                             level0: 'Dwarves',
                             level1: 'Hobbits', 
@@ -498,16 +499,16 @@
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                document.getElementById('owner-location').textContent = 'Remote Server';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
-                // For local builds, show a more appropriate message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                // For GitHub Actions builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
             }
         }
         
-        // Set last updated time (when site was built)
+        // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
             const buildDate = '2025-07-02';
             const date = new Date(buildDate);
