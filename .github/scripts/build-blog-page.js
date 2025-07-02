@@ -126,7 +126,7 @@ function generateCommonScripts() {
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Remote Server';
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
@@ -564,7 +564,7 @@ function generateBlogPage(config) {
                             admin: 'Admin',
                             sticky: 'Sticky',
                             word: 'Words',
-                            wordHint: 'Please input $0 to $1 words\n Current word number: $2',
+                            wordHint: 'Please input $0 to $1 words\\n Current word number: $2',
                             anonymous: 'Anonymous',
                             level0: 'Dwarves',
                             level1: 'Hobbits', 
@@ -614,16 +614,39 @@ function generateBlogPage(config) {
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit for blog-data.js to load
-            setTimeout(function() {
+            // Check if blog data is already loaded
+            if (typeof window.BLOG_DATA !== 'undefined') {
+                console.log('Blog data already loaded, initializing...');
+                initializeBlog();
+                return;
+            }
+            
+            // Wait for blog-data.js to load with progressive timeout
+            let attempts = 0;
+            const maxAttempts = 50; // 5 seconds total
+            
+            function checkBlogData() {
+                attempts++;
+                
                 if (typeof window.BLOG_DATA !== 'undefined') {
+                    console.log('Blog data loaded after', attempts * 100, 'ms');
                     initializeBlog();
+                } else if (attempts < maxAttempts) {
+                    setTimeout(checkBlogData, 100);
                 } else {
-                    console.error('Blog data not loaded');
+                    console.error('Blog data failed to load after 5 seconds');
                     document.getElementById('blog-loading').style.display = 'none';
+                    document.getElementById('no-posts-message').innerHTML = \`
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Failed to Load Blog Data</h3>
+                        <p>The blog data could not be loaded. Please try refreshing the page.</p>
+                        <button onclick="location.reload()" class="btn btn-primary">Refresh Page</button>
+                    \`;
                     document.getElementById('no-posts-message').style.display = 'block';
                 }
-            }, 100);
+            }
+            
+            checkBlogData();
         });
     </script>
     
