@@ -10,8 +10,8 @@
     "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
   },
   "_scholar_sync": {
-    "last_sync_date": "2025-01-02",
-    "last_sync_status": "No auto-sync publications found"
+    "last_sync_date": "2025-07-21",
+    "last_sync_status": "No new publications found (0 existing checked)"
   },
   "personal": {
     "name": "Sixun Dong",
@@ -93,6 +93,163 @@
     }
   ],
   "publications": {
+    "2022": [
+      {
+        "title": "TransRAC: Encoding Multi-scale Temporal Correlation with Transformers for Repetitive Action Counting",
+        "authors": [
+          "Huazhang Hu*",
+          "Sixun Dong*",
+          "Yiqun Zhao",
+          "Dongze Lian",
+          "Zhengxin Li",
+          "Shenghua Gao"
+        ],
+        "venue": "CVPR",
+        "venue_type": "conference",
+        "image": "teaser/transrac.jpg",
+        "is_oral": true,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2204.01018",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/SvipRepetitionCounting/TransRAC",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Dataset",
+            "url": "https://svip-lab.github.io/dataset/RepCount_dataset.html",
+            "icon": "fas fa-database"
+          },
+          {
+            "name": "YouTube",
+            "url": "https://youtu.be/SFpUS9mHHpk",
+            "icon": "fab fa-youtube"
+          },
+          {
+            "name": "Bilibili",
+            "url": "https://www.bilibili.com/video/BV1B94y1S7oP",
+            "icon": "fas fa-tv"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/543376943",
+            "icon": "fas fa-book-open"
+          }
+        ],
+        "_scholar_citations": 77,
+        "_scholar_last_updated": "2025-07-21"
+      }
+    ],
+    "2023": [
+      {
+        "title": "Weakly Supervised Video Representation Learning with Unaligned Text for Sequential Videos",
+        "authors": [
+          "Sixun Dong*",
+          "Huazhang Hu*",
+          "Dongze Lian",
+          "Weixin Luo",
+          "Yicheng Qian",
+          "Shenghua Gao"
+        ],
+        "venue": "CVPR",
+        "venue_type": "conference",
+        "image": "teaser/weaksvr.jpg",
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2303.12370",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/svip-lab/WeakSVR",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/watch?v=AqozSRYP7Pc",
+            "icon": "fab fa-youtube"
+          },
+          {
+            "name": "Bilibili",
+            "url": "https://www.bilibili.com/video/BV1AW4y1R7um",
+            "icon": "fas fa-tv"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/617926257",
+            "icon": "fas fa-book-open"
+          }
+        ],
+        "_scholar_citations": 19,
+        "_scholar_last_updated": "2025-07-21"
+      }
+    ],
+    "2024": [
+      {
+        "title": "MLLM-Tool: A Multimodal Large Language Model For Tool Agent Learning",
+        "authors": [
+          "Chenyu Wang",
+          "Weixin Luo",
+          "Sixun Dong",
+          "Xiaohua Xuan",
+          "Zhengxin Li",
+          "Lin Ma",
+          "Shenghua Gao"
+        ],
+        "venue": "WACV",
+        "venue_type": "conference",
+        "image": "teaser/mmtool.jpg",
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2401.10727",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/MLLM-Tool/MLLM-Tool",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 31,
+        "_scholar_last_updated": "2025-07-21"
+      },
+      {
+        "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
+        "authors": [
+          "Yiqun Zhao",
+          "Zibo Zhao",
+          "Jing Li",
+          "Sixun Dong",
+          "Shenghua Gao"
+        ],
+        "venue": "3DV 2024, 2024",
+        "venue_type": "conference",
+        "image": "teaser/room.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2310.10027",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/zhao-yiqun/RoomDesigner",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 10,
+        "_scholar_last_updated": "2025-07-21"
+      }
+    ],
     "2025": [
       {
         "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
@@ -157,7 +314,9 @@
             "url": "https://arxiv.org/abs/2505.15076",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 3,
+        "_scholar_last_updated": "2025-07-21"
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
@@ -179,7 +338,9 @@
             "url": "https://arxiv.org/abs/2505.15152",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 3,
+        "_scholar_last_updated": "2025-07-21"
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
@@ -213,8 +374,8 @@
           "Haifeng Chen",
           "Yanjie Fu"
         ],
-        "venue": "IJCAI 2025",
-        "venue_type": "conference",
+        "venue": "arXiv",
+        "venue_type": "preprint",
         "image": "teaser/agentFt.jpg",
         "links": [
           {
@@ -227,18 +388,20 @@
             "url": "https://github.com/NanxuGong/LPFG",
             "icon": "fab fa-github"
           }
-        ]
+        ],
+        "_scholar_citations": 4,
+        "_scholar_last_updated": "2025-07-21"
       },
       {
         "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
         "authors": [
-          "X Wang",
-          "H Bai",
-          "N Gong",
-          "W Ying",
-          "S Dong",
+          "Xinyuan Wang",
+          "Haoyue Bai",
+          "Nanxu Gong",
+          "Wangyang Ying",
+          "Sixun Dong",
           "X Cui",
-          "Y Fu"
+          "Yanjie Fu"
         ],
         "venue": "arXiv'2506",
         "venue_type": "preprint",
@@ -255,14 +418,14 @@
       {
         "title": "Efficient Post-Training Refinement of Latent Reasoning in Large Language Models",
         "authors": [
-          "X Wang",
-          "D Wang",
-          "W Ying",
-          "H Bai",
-          "N Gong",
-          "S Dong",
-          "K Liu",
-          "Y Fu"
+          "Xinyuan Wang",
+          "Dongjie Wang",
+          "Wangyang Ying",
+          "Haoyue Bai",
+          "Nanxu Gong",
+          "Sixun Dong",
+          "Kunpeng Liu",
+          "Yanjie Fu"
         ],
         "venue": "arXiv'2506",
         "venue_type": "preprint",
@@ -279,12 +442,12 @@
       {
         "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO Storage",
         "authors": [
-          "H Bai",
+          "Haoyue Bai",
           "G Chen",
-          "W Ying",
-          "X Wang",
-          "N Gong",
-          "S Dong",
+          "Wangyang Ying",
+          "Xinyuan Wang",
+          "Nanxu Gong",
+          "Sixun Dong",
           "G Pedrielli",
           "H Wang",
           "..."
@@ -299,18 +462,20 @@
             "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:WF5omc3nYNoC",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 4,
+        "_scholar_last_updated": "2025-07-21"
       },
       {
         "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
         "authors": [
-          "W Ying",
-          "H Bai",
-          "N Gong",
-          "X Wang",
-          "S Dong",
+          "Wangyang Ying",
+          "Haoyue Bai",
+          "Nanxu Gong",
+          "Xinyuan Wang",
+          "Sixun Dong",
           "H Chen",
-          "Y Fu"
+          "Yanjie Fu"
         ],
         "venue": "arXiv'2505",
         "venue_type": "preprint",
@@ -322,156 +487,9 @@
             "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:eQOLeE2rZwMC",
             "icon": "ai ai-arxiv"
           }
-        ]
-      }
-    ],
-    "2024": [
-      {
-        "title": "MLLM-Tool: A Multimodal Large Language Model For Tool Agent Learning",
-        "authors": [
-          "Chenyu Wang",
-          "Weixin Luo",
-          "Sixun Dong",
-          "Xiaohua Xuan",
-          "Zhengxin Li",
-          "Lin Ma",
-          "Shenghua Gao"
         ],
-        "venue": "WACV",
-        "venue_type": "conference",
-        "image": "teaser/mmtool.jpg",
-        "featured": true,
-        "links": [
-          {
-            "name": "Paper",
-            "url": "https://arxiv.org/abs/2401.10727",
-            "icon": "ai ai-arxiv"
-          },
-          {
-            "name": "Code",
-            "url": "https://github.com/MLLM-Tool/MLLM-Tool",
-            "icon": "fab fa-github"
-          }
-        ]
-      },
-      {
-        "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
-        "authors": [
-          "Yiqun Zhao",
-          "Zibo Zhao",
-          "Jing Li",
-          "Sixun Dong",
-          "Shenghua Gao"
-        ],
-        "venue": "3DV",
-        "venue_type": "conference",
-        "image": "teaser/room.jpg",
-        "links": [
-          {
-            "name": "Paper",
-            "url": "https://arxiv.org/abs/2310.10027",
-            "icon": "ai ai-arxiv"
-          },
-          {
-            "name": "Code",
-            "url": "https://github.com/zhao-yiqun/RoomDesigner",
-            "icon": "fab fa-github"
-          }
-        ]
-      }
-    ],
-    "2023": [
-      {
-        "title": "Weakly Supervised Video Representation Learning with Unaligned Text for Sequential Videos",
-        "authors": [
-          "Sixun Dong*",
-          "Huazhang Hu*",
-          "Dongze Lian",
-          "Weixin Luo",
-          "Yicheng Qian",
-          "Shenghua Gao"
-        ],
-        "venue": "CVPR 2023",
-        "venue_type": "conference",
-        "image": "teaser/weaksvr.jpg",
-        "featured": true,
-        "links": [
-          {
-            "name": "Paper",
-            "url": "https://arxiv.org/abs/2303.12370",
-            "icon": "ai ai-arxiv"
-          },
-          {
-            "name": "Code",
-            "url": "https://github.com/svip-lab/WeakSVR",
-            "icon": "fab fa-github"
-          },
-          {
-            "name": "YouTube",
-            "url": "https://www.youtube.com/watch?v=AqozSRYP7Pc",
-            "icon": "fab fa-youtube"
-          },
-          {
-            "name": "Bilibili",
-            "url": "https://www.bilibili.com/video/BV1AW4y1R7um",
-            "icon": "fas fa-tv"
-          },
-          {
-            "name": "知乎",
-            "url": "https://zhuanlan.zhihu.com/p/617926257",
-            "icon": "fas fa-book-open"
-          }
-        ]
-      }
-    ],
-    "2022": [
-      {
-        "title": "TransRAC: Encoding Multi-scale Temporal Correlation with Transformers for Repetitive Action Counting",
-        "authors": [
-          "Huazhang Hu*",
-          "Sixun Dong*",
-          "Yiqun Zhao",
-          "Dongze Lian",
-          "Zhengxin Li",
-          "Shenghua Gao"
-        ],
-        "venue": "CVPR 2022",
-        "venue_type": "conference",
-        "image": "teaser/transrac.jpg",
-        "is_oral": true,
-        "featured": true,
-        "links": [
-          {
-            "name": "Paper",
-            "url": "https://arxiv.org/abs/2204.01018",
-            "icon": "ai ai-arxiv"
-          },
-          {
-            "name": "Code",
-            "url": "https://github.com/SvipRepetitionCounting/TransRAC",
-            "icon": "fab fa-github"
-          },
-          {
-            "name": "Dataset",
-            "url": "https://svip-lab.github.io/dataset/RepCount_dataset.html",
-            "icon": "fas fa-database"
-          },
-          {
-            "name": "YouTube",
-            "url": "https://youtu.be/SFpUS9mHHpk",
-            "icon": "fab fa-youtube"
-          },
-          {
-            "name": "Bilibili",
-            "url": "https://www.bilibili.com/video/BV1B94y1S7oP",
-            "icon": "fas fa-tv"
-          },
-          {
-            "name": "知乎",
-            "url": "https://zhuanlan.zhihu.com/p/543376943",
-            "icon": "fas fa-book-open"
-          }
-        ]
+        "_scholar_citations": 3,
+        "_scholar_last_updated": "2025-07-21"
       }
     ],
     "survey": [
@@ -499,7 +517,9 @@
             "url": "https://arxiv.org/abs/2501.10555",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 9,
+        "_scholar_last_updated": "2025-07-21"
       },
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
@@ -524,7 +544,9 @@
             "url": "https://arxiv.org/abs/2502.08828",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 8,
+        "_scholar_last_updated": "2025-07-21"
       }
     ]
   },
