@@ -21,7 +21,7 @@
     "profile_image": "images/logo.jpg",
     "cv_link": "files/CV_Dong.pdf",
     "bio": [
-      "I am a PhD student at Arizona State University, supervised by Professor <a href=\"https://faculty.engineering.asu.edu/yanjiefu/\" class=\"link\">Yanjie Fu</a>. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
+      "I am studying at Arizona State University. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
       "My research focuses on <em class=\"research-keywords\">multimodal AI systems</em> that bridge computer vision, natural language processing, and machine learning, with different applications."
     ],
     "links": [
