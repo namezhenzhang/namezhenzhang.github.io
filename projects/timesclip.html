@@ -507,6 +507,93 @@
             font-size: inherit;
         }
 
+        /* Acknowledgments Section */
+        .acknowledgment-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .acknowledgment-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Discussion Section */
+        .discussion {
+            background: var(--bg-secondary);
+        }
+
+        .discussion-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .discussion-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .discussion-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .discussion-icon {
+            background: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .discussion-text h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .discussion-text p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -771,6 +858,63 @@
   journal={arXiv preprint arXiv:2506.24124},
   year={2025}
 }</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acknowledgments Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Acknowledgments</h2>
+            <div class="acknowledgment-content fade-in">
+                <p>We thank the CLIP team at OpenAI for their foundational vision-language model that inspired this work. We also appreciate the time series forecasting community for providing comprehensive benchmarks and baseline implementations.</p>
+                
+                <p>Special thanks to our collaborators and reviewers for their valuable feedback and suggestions that helped improve this research.</p>
+                
+                <p>This work was supported by Arizona State University. We acknowledge the computational resources provided by our institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discussion Section -->
+    <section class="section discussion">
+        <div class="container">
+            <h2 class="section-title fade-in">Welcome Discussion</h2>
+            <div class="discussion-content fade-in">
+                <div class="discussion-card">
+                    <div class="discussion-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="discussion-text">
+                        <h3>Questions & Feedback</h3>
+                        <p>Have questions about our method or want to discuss the results? We welcome all questions, discussions, and constructive feedback!</p>
+                    </div>
+                </div>
+                
+                <div class="discussion-card">
+                    <div class="discussion-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <div class="discussion-text">
+                        <h3>Issues & Improvements</h3>
+                        <p>Found issues with our implementation or have suggestions for improvements? Please open an issue on our GitHub repository.</p>
+                    </div>
+                </div>
+                
+                <div class="discussion-card">
+                    <div class="discussion-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="discussion-text">
+                        <h3>Collaboration</h3>
+                        <p>Interested in collaborating or extending this work? We're always open to new research partnerships and joint projects.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-info fade-in">
+                <p><strong>Contact us:</strong> <a href="mailto:sdong46@asu.edu">sdong46@asu.edu</a></p>
+                <p><strong>GitHub Issues:</strong> <a href="https://github.com/Ironieser/TimesCLIP/issues" target="_blank">TimesCLIP Issues</a></p>
             </div>
         </div>
     </section>
