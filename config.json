@@ -236,9 +236,10 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV 2024, 2024",
+        "venue": "3DV",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
+        "featured": true,
         "links": [
           {
             "name": "Paper",
@@ -280,6 +281,11 @@
             "icon": "fab fa-github"
           },
           {
+            "name": "Homepage",
+            "url": "https://cv.ironieser.cc/projects/timesclip.html",
+            "icon": "fas fa-home"
+          },
+          {
             "name": "Blog",
             "url": "https://cv.ironieser.cc/blog.html#timesclip-time-series-forecasting",
             "icon": "fas fa-blog"
@@ -305,7 +311,7 @@
         "venue": "Under Review",
         "venue_type": "under-review",
         "image": "teaser/underreview.jpg",
-        "featured": true,
+        "featured": false,
         "links": [
           {
             "name": "Paper (Coming Soon)",
