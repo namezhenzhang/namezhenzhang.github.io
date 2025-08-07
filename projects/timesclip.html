@@ -142,10 +142,11 @@
         /* Pinned Tags Styles */
         .pinned-tags {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            max-width: 1000px;
+            justify-items: center;
         }
 
         .tag-item {
@@ -371,6 +372,61 @@
             color: var(--text-secondary);
         }
 
+        /* Analysis Section Styles */
+        .analysis-subsection {
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        .analysis-subsection:not(:last-child) {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .subsection-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .single-image-container {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .large-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .large-image:hover {
+            transform: scale(1.02);
+        }
+
+        .dual-image-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .dual-image-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .subsection-title {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Links Section */
         .links-grid {
             display: grid;
@@ -409,18 +465,34 @@
 
         /* Citation Section */
         .citation {
-            background: var(--bg-dark);
-            color: white;
+            background: var(--bg-secondary);
         }
 
         .citation-box {
-            background: rgba(255, 255, 255, 0.1);
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
             border-radius: 10px;
             padding: 2rem;
-            font-family: 'Courier New', monospace;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .citation-box pre {
+            margin: 0;
+            font-family: 'Courier New', Consolas, monospace;
             font-size: 0.9rem;
-            line-height: 1.4;
+            line-height: 1.6;
+            color: #333;
+            white-space: pre-wrap;
             overflow-x: auto;
+        }
+
+        .citation-box code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
         }
 
         /* Responsive Design */
@@ -475,26 +547,6 @@
             <h1>TimesCLIP</h1>
             <p class="subtitle">Teaching Time Series to See and Speak</p>
             <p class="tagline">🚀 CLIP is ALL you NEED for Time Series Forecasting</p>
-            
-            <!-- Pinned Tags -->
-            <div class="pinned-tags">
-                <div class="tag-item">
-                    <span class="tag-icon">🔥</span>
-                    <span class="tag-text">First CLIP-based Time Series Forecasting</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">⚡</span>
-                    <span class="tag-text">Zero Hyperparameter Tuning</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">📈</span>
-                    <span class="tag-text">+15% Average Performance Gain</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">🏆</span>
-                    <span class="tag-text">16/16 Short-term Benchmarks SoTA</span>
-                </div>
-            </div>
             
             <div class="hero-buttons">
                 <a href="https://arxiv.org/pdf/2506.24124" class="btn btn-primary" target="_blank">
@@ -559,6 +611,31 @@
         </div>
     </section>
 
+    <!-- Key Highlights Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Key Highlights</h2>
+            <div class="pinned-tags fade-in">
+                <div class="tag-item">
+                    <span class="tag-icon">🔥</span>
+                    <span class="tag-text">First CLIP-based Time Series Forecasting</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">⚡</span>
+                    <span class="tag-text">Zero Hyperparameter Tuning</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">📈</span>
+                    <span class="tag-text">+15% Average Performance Gain</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">🏆</span>
+                    <span class="tag-text">16/16 Short-term Benchmarks SoTA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Architecture Section -->
     <section class="section">
         <div class="container">
@@ -614,28 +691,41 @@
         </div>
     </section>
 
-    <!-- More Results -->
+    <!-- Detailed Analysis -->
     <section class="section">
         <div class="container">
             <h2 class="section-title fade-in">Detailed Analysis</h2>
-            <div class="image-gallery">
-                <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig4.png" alt="Time Series Visualization" />
+            
+            <!-- Method Visualization -->
+            <div class="analysis-subsection fade-in">
+                <h3 class="subsection-title">Method Visualization</h3>
+                <div class="single-image-container">
+                    <img src="../images/blog/timesclip/fig4.png" alt="Time Series Visualization" class="large-image" />
                     <p class="image-caption">Figure 4: Visualization of time series to image conversion with different colors for each variable</p>
                 </div>
-                <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig5.png" alt="Comparison Results" />
+            </div>
+            
+            <!-- Performance Comparison -->
+            <div class="analysis-subsection fade-in">
+                <h3 class="subsection-title">Performance Comparison</h3>
+                <div class="single-image-container">
+                    <img src="../images/blog/timesclip/fig5.png" alt="Comparison Results" class="large-image" />
                     <p class="image-caption">Figure 5: Comprehensive comparison with state-of-the-art methods</p>
                 </div>
             </div>
-            <div class="image-gallery">
-                <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig8.png" alt="Ablation Studies" />
-                    <p class="image-caption">Figure 6: Ablation study results showing the impact of different components</p>
-                </div>
-                <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig9.png" alt="Multimodal Backbone" />
-                    <p class="image-caption">Figure 7: Multimodal backbone ablation study</p>
+            
+            <!-- Ablation Studies -->
+            <div class="analysis-subsection fade-in">
+                <h3 class="subsection-title">Ablation Studies</h3>
+                <div class="dual-image-container">
+                    <div class="image-item">
+                        <img src="../images/blog/timesclip/fig8.png" alt="Ablation Studies" />
+                        <p class="image-caption">Figure 6: Ablation study results showing the impact of different components</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../images/blog/timesclip/fig9.png" alt="Multimodal Backbone" />
+                        <p class="image-caption">Figure 7: Multimodal backbone ablation study</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -675,12 +765,12 @@
         <div class="container">
             <h2 class="section-title fade-in">Citation</h2>
             <div class="citation-box fade-in">
-@article{liu2025timesclip,
+                <pre><code>@article{sixun2025teaching,
   title={Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives},
-  author={Liu, Zhenwei and Wang, Jiaqi and Bergmeir, Christoph},
+  author={Sixun, Dong and Wei, Fan and Wu, Teresa and Yanjie, Fu},
   journal={arXiv preprint arXiv:2506.24124},
   year={2025}
-}
+}</code></pre>
             </div>
         </div>
     </section>
