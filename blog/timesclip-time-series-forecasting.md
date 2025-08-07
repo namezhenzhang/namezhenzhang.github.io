@@ -1,6 +1,6 @@
 ---
 title: "Long-term/Short-term Time Series Forecasting: TimesCLIP — CLIP is ALL you NEED"
-date: "2025-01-02"
+date: "2025-08-07"
 description: "My first PhD work on applying vision-language contrastive learning (CLIP) to time series forecasting. As far as I know, this is the first work to bring multimodal contrastive learning to time series forecasting. The method is extremely simple but surprisingly effective."
 tags: ["Time Series", "CLIP", "Multimodal Learning", "Deep Learning", "PhD Research"]
 image: "images/blog/timesclip/fig3.png"
@@ -47,11 +47,13 @@ All existing forecasting is based *purely* on numerical input. In reality, profe
 1. **Find a suitable pretrained model as backbone, then don't touch the model structure → `CLIP is ALL you NEED`**
 2. **Explore how to apply visual priors to time series forecasting → `Multimodal Contrastive Learning is ALL you NEED`**
 
-![TimesCLIP Motivation](images/blog/timesclip/fig1.png)
+<img src="images/blog/timesclip/fig1.png" alt="TimesCLIP Motivation" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 1: Core motivation - existing transformer models suffer from hyperparameter over-tuning and single modality limitations*
 
-![Visual Pattern Recognition](images/blog/timesclip/fig2.png)
-*Figure 2: Visual patterns in time series that professionals rely on for forecasting*
+<img src="images/blog/timesclip/fig2.png" alt="Visual Pattern Recognition" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
+*Figure 2: Comparison of existing methods vs. our multimodal approach - bridging numerical and visual understanding*
 ---
 
 ## 2. The Proposed Model: TimesCLIP
@@ -69,7 +71,8 @@ But two issues still need to be resolved:
 - **Multivariate forecasting:** Dependencies exist between variables, or for univariate prediction, intra-variable dependencies are extremely strong. iTransformer only focuses on inter-variable relations, while PatchTST only focuses on intra-variable relations.
 - **How to better convert time series to images?** Numerical line plots? Spectrograms?
 
-![TimesCLIP Architecture](images/blog/timesclip/fig3.png)
+<img src="images/blog/timesclip/fig3.png" alt="TimesCLIP Architecture" style="width: 80%; max-width: 800px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 3: Our proposed TimesCLIP framework - multimodal contrastive learning for time series forecasting*
 
 ---
@@ -84,7 +87,8 @@ Experience easily shows that existing vision models' training data comes from th
 
 Furthermore, since numerical differences between different variables are large, we additionally use **z-score normalization (max-min normalize)** to separately adjust each variable to have reasonable numerical ranges. On the other hand, we use **different colors for each variable**, ensuring variables have the same shape while allowing the vision encoder to distinguish variables from different sources through color.
 
-![Time Series Visualization](images/blog/timesclip/fig4.png)
+<img src="images/blog/timesclip/fig4.png" alt="Time Series Visualization" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 4: Visualization of time series to image conversion with different colors for each variable*
 
 At this point, our method design is complete.
@@ -103,7 +107,8 @@ Additionally, our method has significantly better performance than Time-VLM[2] (
 ![Short-term Forecasting Results](images/blog/timesclip/fig5.png)
 *Figure 5: Short-term forecasting results - TimesCLIP achieves SoTA on 16 datasets*
 
-![Training Configuration](images/blog/timesclip/fig6.png)
+<img src="images/blog/timesclip/fig6.png" alt="Training Configuration" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 6: Training configuration details - EarlyStop and Train Epochs are casually set, LR uses empirical parameters, batch size is limited by GPU memory*
 
 
@@ -137,10 +142,12 @@ But **CLIP-Text is really useful!** Its feature space might be multimodal, simul
 
 Also, pure vision doesn't work, which should be easy to know from experience. But surprisingly, GPT-2 also doesn't work, perhaps aligning to some degree with the viewpoint in [Are Language Models Actually Useful for Time Series Forecasting?](https://arxiv.org/abs/2406.16964). Simple LMs might not work, but T5 performs okay - is it because of parameter count? This work only wants to explore multimodality, so deeper analysis is left for the future.
 
-![Ablation Study Results](images/blog/timesclip/fig8.png)
+<img src="images/blog/timesclip/fig8.png" alt="Ablation Study Results" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 8: Ablation study results showing the impact of different components*
 
-![Backbone Comparison](images/blog/timesclip/fig9.png)
+<img src="images/blog/timesclip/fig9.png" alt="Backbone Comparison" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+
 *Figure 9: Comparison of different vision and language backbones - CLIP-Text shows superior performance*
 
 ---

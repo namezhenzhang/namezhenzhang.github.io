@@ -67,6 +67,11 @@
   },
   "news": [
     {
+      "date": "Aug 7, 2024",
+      "content": "Published comprehensive blog post about <strong>TimesCLIP</strong> - our multimodal approach to time series forecasting with CLIP",
+      "category": "papers"
+    },
+    {
       "date": "May 2025",
       "content": "Started GenAI Research Internship at <strong>Zoom Inc.</strong> focusing on efficient vision-language modeling",
       "category": "career"
@@ -259,15 +264,30 @@
           "Teresa Wu",
           "Yanjie Fu"
         ],
-        "venue": "Under Review",
+        "venue": "arXiv'2506",
         "venue_type": "under-review",
-        "image": "teaser/underreview.jpg",
+        "image": "images/blog/timesclip/fig3.png",
         "featured": true,
         "links": [
           {
             "name": "Paper",
             "url": "https://arxiv.org/abs/2506.24124",
             "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/Ironieser/TimesCLIP",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Blog",
+            "url": "https://cv.ironieser.cc/blog.html#timesclip-time-series-forecasting",
+            "icon": "fas fa-blog"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/1936813469446940130",
+            "icon": "fas fa-book-open"
           }
         ]
       },
