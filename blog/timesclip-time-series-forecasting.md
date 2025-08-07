@@ -49,11 +49,12 @@ All existing forecasting is based *purely* on numerical input. In reality, profe
 
 <img src="images/blog/timesclip/fig1.png" alt="TimesCLIP Motivation" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 1: Core motivation - existing transformer models suffer from hyperparameter over-tuning and single modality limitations*
+<em>Figure 1: Core motivation - existing transformer models suffer from hyperparameter over-tuning and single modality limitations</em>
 
 <img src="images/blog/timesclip/fig2.png" alt="Visual Pattern Recognition" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 2: Comparison of existing methods vs. our multimodal approach - bridging numerical and visual understanding*
+<em>Figure 2: Comparison of existing methods vs. our multimodal approach - bridging numerical and visual understanding</em>
+
 ---
 
 ## 2. The Proposed Model: TimesCLIP
@@ -73,7 +74,7 @@ But two issues still need to be resolved:
 
 <img src="images/blog/timesclip/fig3.png" alt="TimesCLIP Architecture" style="width: 80%; max-width: 800px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 3: Our proposed TimesCLIP framework - multimodal contrastive learning for time series forecasting*
+<em>Figure 3: Our proposed TimesCLIP framework - multimodal contrastive learning for time series forecasting</em>
 
 ---
 
@@ -89,7 +90,7 @@ Furthermore, since numerical differences between different variables are large, 
 
 <img src="images/blog/timesclip/fig4.png" alt="Time Series Visualization" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 4: Visualization of time series to image conversion with different colors for each variable*
+<em>Figure 4: Visualization of time series to image conversion with different colors for each variable</em>
 
 At this point, our method design is complete.
 
@@ -109,7 +110,7 @@ Additionally, our method has significantly better performance than Time-VLM[2] (
 
 <img src="images/blog/timesclip/fig6.png" alt="Training Configuration" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 6: Training configuration details - EarlyStop and Train Epochs are casually set, LR uses empirical parameters, batch size is limited by GPU memory*
+<em>Figure 6: Training configuration details - EarlyStop and Train Epochs are casually set, LR uses empirical parameters, batch size is limited by GPU memory</em>
 
 
 
@@ -144,11 +145,11 @@ Also, pure vision doesn't work, which should be easy to know from experience. Bu
 
 <img src="images/blog/timesclip/fig8.png" alt="Ablation Study Results" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 8: Ablation study results showing the impact of different components*
+<em>Figure 8: Ablation study results showing the impact of different components</em>
 
 <img src="images/blog/timesclip/fig9.png" alt="Backbone Comparison" style="width: 60%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
 
-*Figure 9: Comparison of different vision and language backbones - CLIP-Text shows superior performance*
+<em>Figure 9: Comparison of different vision and language backbones - CLIP-Text shows superior performance</em>
 
 ---
 
