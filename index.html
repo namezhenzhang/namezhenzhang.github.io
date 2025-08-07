@@ -10,6 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sixun Dong - Academic Homepage</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -367,26 +374,26 @@
                     data = await response.json();
                     
                     if (data.city && data.country) {
-                        const location = `${data.city}, ${data.country}`;
+                        const location = `${data.city}, ${data.country}`
                         document.getElementById('owner-location').textContent = location;
                         return;
                     }
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                document.getElementById('owner-location').textContent = 'Remote Server';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
-                // For local builds, show a more appropriate message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                // For GitHub Actions builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
             }
         }
         
-        // Set last updated time (when site was built)
+        // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
             const buildDate = '2025-08-07';
-            const date = new Date(buildDate);
+            const date = new Date(buildDate + 'T12:00:00'); // Add noon time to avoid timezone issues
             const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
