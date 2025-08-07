@@ -139,6 +139,54 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* Pinned Tags Styles */
+        .pinned-tags {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            max-width: 800px;
+        }
+
+        .tag-item {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tag-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .tag-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .tag-text {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .pinned-tags {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .tag-item {
+                font-size: 0.85em;
+                padding: 10px 16px;
+            }
+        }
+
         /* Section Styles */
         .section {
             padding: 6rem 0;
@@ -427,6 +475,27 @@
             <h1>TimesCLIP</h1>
             <p class="subtitle">Teaching Time Series to See and Speak</p>
             <p class="tagline">🚀 CLIP is ALL you NEED for Time Series Forecasting</p>
+            
+            <!-- Pinned Tags -->
+            <div class="pinned-tags">
+                <div class="tag-item">
+                    <span class="tag-icon">🔥</span>
+                    <span class="tag-text">First CLIP-based Time Series Forecasting</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">⚡</span>
+                    <span class="tag-text">Zero Hyperparameter Tuning</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">📈</span>
+                    <span class="tag-text">+15% Average Performance Gain</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">🏆</span>
+                    <span class="tag-text">16/16 Short-term Benchmarks SoTA</span>
+                </div>
+            </div>
+            
             <div class="hero-buttons">
                 <a href="https://arxiv.org/pdf/2506.24124" class="btn btn-primary" target="_blank">
                     <i class="fas fa-file-pdf"></i> Read Paper
@@ -510,13 +579,13 @@
             <div class="results-grid">
                 <div class="result-card fade-in">
                     <h3>Datasets</h3>
-                    <div class="metric">16</div>
-                    <p>Short-term forecasting benchmarks where we achieve SoTA</p>
+                    <div class="metric">22</div>
+                    <p>16 short-term + 6 long-term forecasting benchmarks evaluated</p>
                 </div>
                 <div class="result-card fade-in">
                     <h3>Performance Gain</h3>
                     <div class="metric">+15%</div>
-                    <p>Average improvement over existing transformer-based methods</p>
+                    <p>Average improvement across 16 benchmarks vs. existing methods</p>
                 </div>
                 <div class="result-card fade-in">
                     <h3>Zero Tuning</h3>
@@ -551,8 +620,8 @@
             <h2 class="section-title fade-in">Detailed Analysis</h2>
             <div class="image-gallery">
                 <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig4.png" alt="Ablation Studies" />
-                    <p class="image-caption">Figure 4: Ablation studies showing the contribution of each component</p>
+                    <img src="../images/blog/timesclip/fig4.png" alt="Time Series Visualization" />
+                    <p class="image-caption">Figure 4: Visualization of time series to image conversion with different colors for each variable</p>
                 </div>
                 <div class="image-item fade-in">
                     <img src="../images/blog/timesclip/fig6.png" alt="Comparison Results" />
@@ -561,8 +630,8 @@
             </div>
             <div class="image-gallery">
                 <div class="image-item fade-in">
-                    <img src="../images/blog/timesclip/fig8.png" alt="Performance Analysis" />
-                    <p class="image-caption">Figure 8: Performance analysis across different forecasting horizons</p>
+                    <img src="../images/blog/timesclip/fig8.png" alt="Ablation Studies" />
+                    <p class="image-caption">Figure 8: Ablation study results showing the impact of different components</p>
                 </div>
                 <div class="image-item fade-in">
                     <img src="../images/blog/timesclip/fig9.png" alt="Visualization Results" />
