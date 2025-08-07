@@ -139,32 +139,33 @@
             box-shadow: var(--shadow-lg);
         }
 
-        /* Pinned Tags Styles */
-        .pinned-tags {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 0 auto;
-            max-width: 1000px;
-            justify-items: center;
+        /* Hero Tags Styles */
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .tag-item {
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 12px 20px;
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 20px;
             color: white;
-            font-weight: 600;
-            font-size: 0.9em;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            font-weight: 500;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .tag-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .tag-icon {
@@ -425,6 +426,17 @@
             .subsection-title {
                 font-size: 1.5rem;
             }
+            
+            .hero-tags {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .tag-item {
+                font-size: 0.8em;
+                padding: 8px 14px;
+            }
         }
 
         /* Links Section */
@@ -559,6 +571,18 @@
                     <i class="fas fa-blog"></i> Blog Post
                 </a>
             </div>
+            
+            <!-- Key Tags -->
+            <div class="hero-tags">
+                <div class="tag-item">
+                    <span class="tag-icon">🔥</span>
+                    <span class="tag-text">First CLIP-based Time Series Forecasting</span>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-icon">🏆</span>
+                    <span class="tag-text">16/16 Short-term Benchmarks SoTA</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -611,30 +635,6 @@
         </div>
     </section>
 
-    <!-- Key Highlights Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Key Highlights</h2>
-            <div class="pinned-tags fade-in">
-                <div class="tag-item">
-                    <span class="tag-icon">🔥</span>
-                    <span class="tag-text">First CLIP-based Time Series Forecasting</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">⚡</span>
-                    <span class="tag-text">Zero Hyperparameter Tuning</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">📈</span>
-                    <span class="tag-text">+15% Average Performance Gain</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">🏆</span>
-                    <span class="tag-text">16/16 Short-term Benchmarks SoTA</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Architecture Section -->
     <section class="section">
