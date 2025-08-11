@@ -10,7 +10,7 @@
     "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
   },
   "_scholar_sync": {
-    "last_sync_date": "2025-07-21",
+    "last_sync_date": "2025-08-11",
     "last_sync_status": "No new publications found (0 existing checked)"
   },
   "personal": {
@@ -146,8 +146,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 77,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_citations": 79,
+        "_scholar_last_updated": "2025-08-11"
       }
     ],
     "2023": [
@@ -192,8 +192,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 19,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_citations": 20,
+        "_scholar_last_updated": "2025-08-11"
       }
     ],
     "2024": [
@@ -224,8 +224,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 31,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_citations": 33,
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
@@ -236,7 +236,7 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV",
+        "venue": "3DV 2024, 2024",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
         "featured": true,
@@ -252,8 +252,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 10,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_citations": 13,
+        "_scholar_last_updated": "2025-08-11"
       }
     ],
     "2025": [
@@ -342,7 +342,7 @@
           }
         ],
         "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
@@ -366,7 +366,7 @@
           }
         ],
         "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
@@ -416,7 +416,7 @@
           }
         ],
         "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
@@ -490,7 +490,7 @@
           }
         ],
         "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
@@ -515,7 +515,7 @@
           }
         ],
         "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       }
     ],
     "survey": [
@@ -545,7 +545,7 @@
           }
         ],
         "_scholar_citations": 9,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       },
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
@@ -572,7 +572,7 @@
           }
         ],
         "_scholar_citations": 8,
-        "_scholar_last_updated": "2025-07-21"
+        "_scholar_last_updated": "2025-08-11"
       }
     ]
   },
