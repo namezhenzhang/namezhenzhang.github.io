@@ -68,6 +68,11 @@
   "news": [
     {
       "date": "Aug 2025",
+      "content": "Paper on <strong>LogicIF</strong> - Complex Logical Instruction Generation released on arXiv",
+      "category": "papers"
+    },
+    {
+      "date": "Aug 2025",
       "content": "Published comprehensive blog post about <strong>TimesCLIP</strong> - our multimodal approach to time series forecasting with CLIP",
       "category": "papers"
     },
@@ -516,6 +521,43 @@
         ],
         "_scholar_citations": 3,
         "_scholar_last_updated": "2025-08-11"
+      },
+      {
+        "title": "Complex Logical Instruction Generation",
+        "authors": [
+          "Mian Zhang",
+          "Shujian Liu",
+          "Sixun Dong",
+          "Ming Yin",
+          "Yebowen Hu",
+          "Xun Wang",
+          "Steven Ma",
+          "Song Wang",
+          "Sathish Reddy Indurthi",
+          "Haoyun Deng",
+          "Zhiyu Zoey Chen",
+          "Kaiqiang Song"
+        ],
+        "venue": "arXiv'2508",
+        "venue_type": "preprint",
+        "image": "teaser/logicif.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2508.09125",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/mianzhang/LogicIF",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Benchmark",
+            "url": "https://github.com/mianzhang/LogicIF",
+            "icon": "fas fa-database"
+          }
+        ]
       }
     ],
     "survey": [
