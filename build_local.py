@@ -443,14 +443,17 @@ def generate_index_page(config):
     for year in sorted_years:
         all_pubs.extend(publications[year])
     
+    # Get max featured publications from config (default to 5 if not specified)
+    max_featured = research.get('max_featured_publications', 5)
+    
     # First, add featured publications
     featured_pubs = [pub for pub in all_pubs if pub.get('featured') == True]
-    selected_pubs.extend(featured_pubs[:5])
+    selected_pubs.extend(featured_pubs[:max_featured])
     
     # If we need more, add recent publications (non-featured)
-    if len(selected_pubs) < 5:
+    if len(selected_pubs) < max_featured:
         recent_pubs = [pub for pub in all_pubs if not pub.get('featured')]
-        needed = 5 - len(selected_pubs)
+        needed = max_featured - len(selected_pubs)
         selected_pubs.extend(recent_pubs[:needed])
     
     # Generate bio HTML

@@ -63,7 +63,8 @@
       "10+ publications",
       "4 top-tier venues (CVPR, WACV, IJCAI)",
       "1 oral presentation"
-    ]
+    ],
+    "max_featured_publications": 8
   },
   "news": [
     {
@@ -337,6 +338,11 @@
             "name": "Benchmark",
             "url": "https://github.com/mianzhang/LogicIF",
             "icon": "fas fa-database"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/1941376510113059206",
+            "icon": "fas fa-book-open"
           }
         ]
       },

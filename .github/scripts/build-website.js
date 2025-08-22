@@ -215,14 +215,17 @@ function generateIndexPage(config) {
     allPubs.push(...publications[year]);
   }
   
+  // Get max featured publications from config (default to 5 if not specified)
+  const maxFeatured = research.max_featured_publications || 5;
+  
   // First, add featured publications
   const featuredPubs = allPubs.filter(pub => pub.featured === true);
-  selectedPubs.push(...featuredPubs.slice(0, 5));
+  selectedPubs.push(...featuredPubs.slice(0, maxFeatured));
   
   // If we need more, add recent publications (non-featured)
-  if (selectedPubs.length < 5) {
+  if (selectedPubs.length < maxFeatured) {
     const recentPubs = allPubs.filter(pub => !pub.featured);
-    const needed = 5 - selectedPubs.length;
+    const needed = maxFeatured - selectedPubs.length;
     selectedPubs.push(...recentPubs.slice(0, needed));
   }
   
