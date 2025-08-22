@@ -249,7 +249,7 @@
         "venue": "3DV",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
-        "featured": true,
+        "featured": false,
         "links": [
           {
             "name": "Paper",
