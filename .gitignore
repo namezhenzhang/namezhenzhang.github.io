@@ -42,4 +42,7 @@ temp_build.js
 # index.html
 # publications.html
 # blog.html
-    
+    MMTok_README.md
+.gitignore
+MMTok_README.md
+
