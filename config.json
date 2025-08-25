@@ -286,7 +286,8 @@
           {
             "name": "Paper (Coming Soon)",
             "url": null,
-            "icon": "ai ai-arxiv"
+            "icon": "ai ai-arxiv",
+            "coming_soon": true
           },
           {
             "name": "Code (Coming Soon)",
@@ -331,7 +332,8 @@
           {
             "name": "Dataset (Coming Soon)",
             "url": null,
-            "icon": "fas fa-database"
+            "icon": "fas fa-database",
+            "coming_soon": true
           }
         ]
       },
@@ -484,6 +486,11 @@
             "name": "Paper",
             "url": "https://arxiv.org/abs/2505.15152",
             "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/NanxuGong/DIFFT",
+            "icon": "fab fa-github"
           }
         ],
         "_scholar_citations": 3,
