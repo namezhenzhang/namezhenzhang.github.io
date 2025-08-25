@@ -69,6 +69,11 @@
   "news": [
     {
       "date": "Aug 2025",
+      "content": "Paper on <strong>MMTok</strong> - Multimodal Coverage Maximization for Efficient VLM Inference, project homepage launched",
+      "category": "papers"
+    },
+    {
+      "date": "Aug 2025",
       "content": "Paper on <strong>LiveMCP-101</strong> - a new benchmark testing AI agents’ real-world tool-use, released on arXiv",
       "category": "papers"
     },
@@ -81,6 +86,11 @@
       "date": "Aug 2025",
       "content": "Published comprehensive blog post about <strong>TimesCLIP</strong> - our multimodal approach to time series forecasting with CLIP",
       "category": "papers"
+    },
+    {
+      "date": "Aug 2025",
+      "content": "Completed GenAI Research Internship at <strong>Zoom Inc.</strong>, focusing on efficient vision–language modeling. Grateful to my mentor <strong>Qi Qian</strong> and the Zoom team for their invaluable support and collaboration.",
+      "category": "career"
     },
     {
       "date": "May 2025",
