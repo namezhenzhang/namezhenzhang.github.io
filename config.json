@@ -285,7 +285,7 @@
         "links": [
           {
             "name": "Paper (Coming Soon)",
-            "url": "#",
+            "url": null,
             "icon": "ai ai-arxiv"
           },
           {
@@ -330,7 +330,7 @@
           },
           {
             "name": "Dataset (Coming Soon)",
-            "url": "#",
+            "url": null,
             "icon": "fas fa-database"
           }
         ]
@@ -436,7 +436,7 @@
         "links": [
           {
             "name": "Paper (Coming Soon)",
-            "url": "#",
+            "url": null,
             "icon": "ai ai-arxiv",
             "coming_soon": true
           }
@@ -504,7 +504,7 @@
         "links": [
           {
             "name": "Paper (Coming Soon)",
-            "url": "#",
+            "url": null,
             "icon": "ai ai-arxiv",
             "coming_soon": true
           }
