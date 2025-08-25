@@ -8,7 +8,7 @@ import os
 
 def generate_favicons():
     # Source image path
-    source_path = "images/pagelogo.png"
+    source_path = "images/pagelogo_round.png"
     
     if not os.path.exists(source_path):
         print(f"Error: {source_path} not found!")
