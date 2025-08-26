@@ -294,10 +294,9 @@
         "featured": true,
         "links": [
           {
-            "name": "Paper (Coming Soon)",
-            "url": null,
-            "icon": "ai ai-arxiv",
-            "coming_soon": true
+            "name": "Paper",
+            "url": "https://arxiv.org/pdf/2508.18264",
+            "icon": "ai ai-arxiv"
           },
           {
             "name": "Code (Coming Soon)",
