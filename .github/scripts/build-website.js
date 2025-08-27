@@ -389,7 +389,7 @@ function generateIndexPage(config) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${personal.name}${personal.nickname ? ` (${personal.nickname})` : ''} - Academic Homepage</title>
+    <title>${personal.name}${personal.aka ? ` (${personal.aka})` : ''} - Academic Homepage</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
@@ -449,7 +449,7 @@ function generateIndexPage(config) {
                     
                     <!-- Right: Introduction -->
                     <div class="hero-info">
-                        <h1 class="hero-title">${personal.name}${personal.nickname ? `<span class="nickname"> (${personal.nickname})</span>` : ''}</h1>
+                        <h1 class="hero-title">${personal.name}${personal.aka ? `<span class="aka"> (${personal.aka})</span>` : ''}</h1>
                         <p class="hero-subtitle">${personal.title}</p>
                         <p class="hero-affiliation">${personal.affiliation}</p>
                         
@@ -727,7 +727,7 @@ function generatePublicationsPage(config) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - ${personal.name}${personal.nickname ? ` (${personal.nickname})` : ''}</title>
+    <title>Publications - ${personal.name}${personal.aka ? ` (${personal.aka})` : ''}</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}. Research in ${config.seo?.author?.research_areas?.join(', ') || 'computer vision, multimodal AI, machine learning'}">
