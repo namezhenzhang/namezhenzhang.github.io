@@ -91,6 +91,95 @@ function generateNavigation(personal, activePage) {
   return navItems.join('\n                ');
 }
 
+function generateJsonLd(config) {
+  const { personal, seo, publications } = config;
+  
+  if (!seo || !seo.enable_json_ld) {
+    return '';
+  }
+  
+  // Person schema
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": seo.author.name,
+    "alternateName": seo.author.alternate_name,
+    "email": seo.author.email,
+    "jobTitle": seo.author.job_title,
+    "affiliation": {
+      "@type": "Organization",
+      "name": seo.organization.name,
+      "url": seo.organization.url,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": seo.organization.address.addressCountry,
+        "addressLocality": seo.organization.address.addressLocality,
+        "addressRegion": seo.organization.address.addressRegion
+      }
+    },
+    "url": seo.website_url,
+    "sameAs": [
+      `https://scholar.google.com/citations?user=${seo.author.google_scholar_id}`,
+      `https://github.com/${seo.author.github}`,
+      `https://twitter.com/${seo.author.twitter}`,
+      seo.website_url,
+      seo.github_pages_url
+    ].filter(Boolean),
+    "knowsAbout": seo.author.research_areas,
+    "image": `${seo.website_url}/${personal.profile_image}`
+  };
+  
+  // Website schema
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": seo.website_name,
+    "description": seo.website_description,
+    "url": seo.website_url,
+    "author": {
+      "@type": "Person",
+      "name": seo.author.name
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": seo.organization.name,
+      "url": seo.organization.url
+    }
+  };
+  
+  // Collect all publications for Article schema
+  const allPublications = [];
+  Object.keys(publications).forEach(year => {
+    if (year !== 'survey') {
+      publications[year].forEach(pub => {
+        if (pub.venue_type !== 'preprint' && pub.venue_type !== 'under-review') {
+          allPublications.push({
+            "@type": "ScholarlyArticle",
+            "name": pub.title,
+            "author": pub.authors.map(author => ({
+              "@type": "Person",
+              "name": author
+            })),
+            "datePublished": `${year}-01-01`,
+            "publisher": {
+              "@type": "Organization",
+              "name": pub.venue
+            },
+            "url": pub.links?.find(link => link.name === "Paper")?.url || null
+          });
+        }
+      });
+    }
+  });
+  
+  // Combine all schemas
+  const schemas = [personSchema, websiteSchema, ...allPublications.slice(0, 10)]; // Limit to 10 most recent publications
+  
+  return `<script type="application/ld+json">
+${JSON.stringify(schemas, null, 2)}
+</script>`;
+}
+
 function generateFooter(personal, templateInfo = null) {
   const currentYear = new Date().getFullYear();
   
@@ -301,6 +390,27 @@ function generateIndexPage(config) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${personal.name} - Academic Homepage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta name="keywords" content="${config.seo?.keywords?.join(', ') || 'academic, research, computer science'}">
+    <meta name="author" content="${personal.name}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="${personal.name} - Academic Homepage">
+    <meta property="og:description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${config.seo?.website_url || 'https://ironieser.github.io'}">
+    <meta property="og:image" content="${config.seo?.website_url || 'https://ironieser.github.io'}/${personal.profile_image}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${personal.name} - Academic Homepage">
+    <meta name="twitter:description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta name="twitter:image" content="${config.seo?.website_url || 'https://ironieser.github.io'}/${personal.profile_image}">
+    
+    <!-- JSON-LD Structured Data -->
+    ${generateJsonLd(config)}
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -618,6 +728,27 @@ function generatePublicationsPage(config) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications - ${personal.name}</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}. Research in ${config.seo?.author?.research_areas?.join(', ') || 'computer vision, multimodal AI, machine learning'}">
+    <meta name="keywords" content="${config.seo?.keywords?.join(', ') || 'academic, research, computer science'}, publications, papers, research papers">
+    <meta name="author" content="${personal.name}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Publications - ${personal.name}">
+    <meta property="og:description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${config.seo?.website_url || 'https://cv.ironieser.cc'}/publications.html">
+    <meta property="og:image" content="${config.seo?.website_url || 'https://cv.ironieser.cc'}/${personal.profile_image}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Publications - ${personal.name}">
+    <meta name="twitter:description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}">
+    <meta name="twitter:image" content="${config.seo?.website_url || 'https://cv.ironieser.cc'}/${personal.profile_image}">
+    
+    <!-- JSON-LD Structured Data -->
+    ${generateJsonLd(config)}
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">

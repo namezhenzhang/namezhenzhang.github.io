@@ -767,5 +767,36 @@
       "conferences": "CVPR 2023-2025, ICCV 2023-2025, NeurIPS 2025, ECCV 2024, ACCV 2024, ACM MM 2023-2025, KDD 2024",
       "journals": "TMM, Neural Networks, TKDD"
     }
+  },
+  "seo": {
+    "enable_json_ld": true,
+    "website_url": "https://cv.ironieser.cc",
+    "github_pages_url": "https://ironieser.github.io",
+    "website_name": "Sixun Dong (Ironieser) - Academic Homepage",
+    "website_description": "PhD Student in Computer Science at Arizona State University, focusing on multimodal AI systems, computer vision, and machine learning",
+    "keywords": ["computer vision", "multimodal AI", "machine learning", "deep learning", "artificial intelligence", "academic research", "Sixun Dong", "Ironieser"],
+    "author": {
+      "name": "Sixun Dong",
+      "alternate_name": "Ironieser",
+      "email": "ironieser@gmail.com",
+      "academic_email": "sdong46@asu.edu",
+      "affiliation": "Arizona State University",
+      "job_title": "PhD Student in Computer Science",
+      "research_areas": ["multimodal AI systems", "computer vision", "natural language processing", "machine learning"],
+      "google_scholar_id": "j71Y2-4AAAAJ",
+      "orcid": null,
+      "github": "Ironieser",
+      "twitter": "ironieser"
+    },
+    "organization": {
+      "name": "Arizona State University",
+      "type": "University",
+      "url": "https://www.asu.edu",
+      "address": {
+        "addressCountry": "USA",
+        "addressLocality": "Tempe",
+        "addressRegion": "AZ"
+      }
+    }
   }
 }
