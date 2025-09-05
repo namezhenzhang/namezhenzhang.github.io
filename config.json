@@ -300,7 +300,7 @@
             "icon": "ai ai-arxiv"
           },
           {
-            "name": "Code (Coming Soon)",
+            "name": "Code",
             "url": "https://github.com/Ironieser/MMTok",
             "icon": "fab fa-github"
           },
@@ -308,6 +308,11 @@
             "name": "Homepage",
             "url": "https://project.ironieser.cc/mmtok",
             "icon": "fas fa-home"
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/1944299907109348831",
+            "icon": "fas fa-book-open"
           }
         ]
       },
