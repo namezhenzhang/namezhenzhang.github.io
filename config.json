@@ -18,7 +18,7 @@
     "aka": "Ironieser",
     "title": "PhD Student in Computer Science",
     "affiliation": "Arizona State University",
-    "email": "sdong46@asu.edu",
+    "email": "sixundong.ai@gmail.com",
     "profile_image": "images/logo.jpg",
     "cv_link": "#",
     "bio": [
@@ -28,7 +28,7 @@
     "links": [
       {
         "name": "Email",
-        "url": "mailto:sdong46@asu.edu",
+        "url": "mailto:sixundong.ai@gmail.com",
         "icon": "fas fa-envelope",
         "color": "#dc3545"
       },
@@ -785,7 +785,7 @@
       "name": "Sixun Dong",
       "alternate_name": "Ironieser",
       "email": "ironieser@gmail.com",
-      "academic_email": "sdong46@asu.edu",
+      "academic_email": "sixundong.ai@gmail.com",
       "affiliation": "Arizona State University",
       "job_title": "PhD Student in Computer Science",
       "research_areas": ["multimodal AI systems", "computer vision", "natural language processing", "machine learning"],
