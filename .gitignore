@@ -39,10 +39,10 @@ __pycache__/
 temp_build.js
 
 # Generated HTML files (auto-built by GitHub Actions)
-# index.html
-# publications.html
-# blog.html
-    MMTok_README.md
+index.html
+publications.html
+blog.html
+# MMTok_README.md
 .gitignore
 MMTok_README.md
 
