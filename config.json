@@ -16,7 +16,7 @@
   "personal": {
     "name": "Sixun Dong",
     "aka": "Ironieser",
-    "title": "PhD Student in Computer Science",
+    "title": "Multimodal Learning, VLM, LLM Agent",
     "affiliation": "Arizona State University",
     "email": "sixundong.ai@gmail.com",
     "profile_image": "images/logo.jpg",
@@ -345,10 +345,21 @@
             "icon": "ai ai-arxiv"
           },
           {
-            "name": "Dataset (Coming Soon)",
+            "name": "Code",
+            "url": null,
+            "icon": "fab fa-github",
+            "coming_soon": true
+          },
+          {
+            "name": "Benchmark",
             "url": null,
             "icon": "fas fa-database",
             "coming_soon": true
+          },
+          {
+            "name": "知乎",
+            "url": "https://zhuanlan.zhihu.com/p/1949009535743264421",
+            "icon": "fas fa-book-open"
           }
         ]
       },
