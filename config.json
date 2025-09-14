@@ -51,6 +51,12 @@
         "color": "#1da1f2"
       },
       {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sixun-dong-789069330/",
+        "icon": "fab fa-linkedin",
+        "color": "#1666C5"
+      },
+      {
         "name": "Zhihu",
         "url": "https://zhihu.com/people/ironieser",
         "icon": "fas fa-book",
