@@ -10,7 +10,7 @@
     "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
   },
   "_scholar_sync": {
-    "last_sync_date": "2025-08-11",
+    "last_sync_date": "2025-09-15",
     "last_sync_status": "No new publications found (0 existing checked)"
   },
   "personal": {
@@ -174,8 +174,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 79,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 81,
+        "_scholar_last_updated": "2025-09-15"
       }
     ],
     "2023": [
@@ -220,8 +220,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 20,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 21,
+        "_scholar_last_updated": "2025-09-15"
       }
     ],
     "2024": [
@@ -252,8 +252,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 33,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 37,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
@@ -264,10 +264,10 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV",
+        "venue": "3DV 2024, 2024",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
-        "featured": false,
+        "featured": true,
         "links": [
           {
             "name": "Paper",
@@ -280,8 +280,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 13,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 15,
+        "_scholar_last_updated": "2025-09-15"
       }
     ],
     "2025": [
@@ -410,7 +410,9 @@
             "url": "https://zhuanlan.zhihu.com/p/1941376510113059206",
             "icon": "fas fa-book-open"
           }
-        ]
+        ],
+        "_scholar_citations": 1,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
@@ -496,8 +498,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 4,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
@@ -525,8 +527,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 4,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
@@ -575,8 +577,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 5,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
@@ -599,7 +601,9 @@
             "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:_FxGoFyzp5QC",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 1,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "Efficient Post-Training Refinement of Latent Reasoning in Large Language Models",
@@ -623,7 +627,9 @@
             "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:ufrVoPGSRksC",
             "icon": "ai ai-arxiv"
           }
-        ]
+        ],
+        "_scholar_citations": 1,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO Storage",
@@ -649,8 +655,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 5,
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
@@ -674,8 +680,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 4,
+        "_scholar_last_updated": "2025-09-15"
       }
     ],
     "survey": [
@@ -705,7 +711,7 @@
           }
         ],
         "_scholar_citations": 9,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_last_updated": "2025-09-15"
       },
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
@@ -731,8 +737,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 8,
-        "_scholar_last_updated": "2025-08-11"
+        "_scholar_citations": 10,
+        "_scholar_last_updated": "2025-09-15"
       }
     ]
   },
@@ -797,7 +803,16 @@
     "github_pages_url": "https://ironieser.github.io",
     "website_name": "Sixun Dong (Ironieser) - Academic Homepage",
     "website_description": "PhD Student in Computer Science at Arizona State University, focusing on multimodal AI systems, computer vision, and machine learning",
-    "keywords": ["computer vision", "multimodal AI", "machine learning", "deep learning", "artificial intelligence", "academic research", "Sixun Dong", "Ironieser"],
+    "keywords": [
+      "computer vision",
+      "multimodal AI",
+      "machine learning",
+      "deep learning",
+      "artificial intelligence",
+      "academic research",
+      "Sixun Dong",
+      "Ironieser"
+    ],
     "author": {
       "name": "Sixun Dong",
       "alternate_name": "Ironieser",
@@ -805,7 +820,12 @@
       "academic_email": "sixundong.ai@gmail.com",
       "affiliation": "Arizona State University",
       "job_title": "PhD Student in Computer Science",
-      "research_areas": ["multimodal AI systems", "computer vision", "natural language processing", "machine learning"],
+      "research_areas": [
+        "multimodal AI systems",
+        "computer vision",
+        "natural language processing",
+        "machine learning"
+      ],
       "google_scholar_id": "j71Y2-4AAAAJ",
       "orcid": null,
       "github": "Ironieser",
