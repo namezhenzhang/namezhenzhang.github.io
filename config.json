@@ -71,7 +71,7 @@
       "4 top-tier venues (CVPR, WACV, IJCAI)",
       "1 oral presentation"
     ],
-    "max_featured_publications": 7
+    "max_featured_publications": 8
   },
   "news": [
     {
@@ -137,7 +137,7 @@
           "Zhengxin Li",
           "Shenghua Gao"
         ],
-        "venue": "CVPR",
+        "venue": "CVPR'22",
         "venue_type": "conference",
         "image": "teaser/transrac.jpg",
         "is_oral": true,
@@ -189,7 +189,7 @@
           "Yicheng Qian",
           "Shenghua Gao"
         ],
-        "venue": "CVPR",
+        "venue": "CVPR'23",
         "venue_type": "conference",
         "image": "teaser/weaksvr.jpg",
         "featured": true,
@@ -236,7 +236,7 @@
           "Lin Ma",
           "Shenghua Gao"
         ],
-        "venue": "WACV",
+        "venue": "WACV'25",
         "venue_type": "conference",
         "image": "teaser/mmtool.jpg",
         "featured": true,
@@ -264,7 +264,7 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV",
+        "venue": "3DV'24",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
         "featured": false,
@@ -512,9 +512,10 @@
           "Xinyuan Wang",
           "Yanjie Fu"
         ],
-        "venue": "NeurIPS 2026",
+        "venue": "NeurIPS'26",
         "venue_type": "conference",
         "image": "teaser/sculp.jpg",
+        "featured": true,
         "links": [
           {
             "name": "Paper",
@@ -562,7 +563,7 @@
           "Haifeng Chen",
           "Yanjie Fu"
         ],
-        "venue": "IJCAI",
+        "venue": "IJCAI'25",
         "venue_type": "conference",
         "image": "teaser/agentFt.jpg",
         "links": [
