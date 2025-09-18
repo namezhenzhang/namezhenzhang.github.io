@@ -504,8 +504,8 @@
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
         "authors": [
-          "Nanxu Gong",
-          "Zijun Li",
+          "Nanxu Gong*",
+          "Zijun Li*",
           "Sixun Dong",
           "Haoyue Bai",
           "Wangyang Ying",
