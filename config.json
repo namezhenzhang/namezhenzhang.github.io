@@ -75,6 +75,11 @@
   },
   "news": [
     {
+      "date": "Sep 2025",
+      "content": "Paper on <strong>Feature Transformation</strong> by Semi-AR and reward-guided diffusion, accepted to NeurIPS'25, congratulations to Nanxu Gong!",
+      "category": "papers"
+    },
+    {
       "date": "Aug 2025",
       "content": "Completed GenAI Research Internship at <strong>Zoom Inc.</strong>, focusing on efficient vision–language modeling. Grateful to my mentor <strong>Qi Qian</strong> and the Zoom team for their invaluable support and collaboration.",
       "category": "career"
