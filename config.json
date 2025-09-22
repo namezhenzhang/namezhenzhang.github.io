@@ -57,8 +57,8 @@
         "color": "#1666C5"
       },
       {
-        "name": "Zhihu",
-        "url": "https://zhihu.com/people/ironieser",
+        "name": "知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1952615273212384694",
         "icon": "fas fa-book",
         "color": "#0084ff"
       }
@@ -531,6 +531,11 @@
             "name": "Code",
             "url": "https://github.com/NanxuGong/DIFFT",
             "icon": "fab fa-github"
+          },
+          {
+            "name": "Zhihu",
+            "url": "https://zhuanlan.zhihu.com/p/1933301751826429982",
+            "icon": "fas fa-book-open"
           }
         ],
         "_scholar_citations": 4,
