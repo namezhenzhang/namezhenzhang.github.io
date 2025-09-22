@@ -10,7 +10,7 @@
     "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
   },
   "_scholar_sync": {
-    "last_sync_date": "2025-09-15",
+    "last_sync_date": "2025-09-22",
     "last_sync_status": "No new publications found (0 existing checked)"
   },
   "personal": {
@@ -142,7 +142,7 @@
           "Zhengxin Li",
           "Shenghua Gao"
         ],
-        "venue": "CVPR'22",
+        "venue": "CVPR",
         "venue_type": "conference",
         "image": "teaser/transrac.jpg",
         "is_oral": true,
@@ -179,8 +179,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 81,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_citations": 80,
+        "_scholar_last_updated": "2025-09-22"
       }
     ],
     "2023": [
@@ -194,7 +194,7 @@
           "Yicheng Qian",
           "Shenghua Gao"
         ],
-        "venue": "CVPR'23",
+        "venue": "CVPR",
         "venue_type": "conference",
         "image": "teaser/weaksvr.jpg",
         "featured": true,
@@ -226,7 +226,7 @@
           }
         ],
         "_scholar_citations": 21,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       }
     ],
     "2024": [
@@ -241,7 +241,7 @@
           "Lin Ma",
           "Shenghua Gao"
         ],
-        "venue": "WACV'25",
+        "venue": "WACV",
         "venue_type": "conference",
         "image": "teaser/mmtool.jpg",
         "featured": true,
@@ -258,7 +258,7 @@
           }
         ],
         "_scholar_citations": 37,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
@@ -269,10 +269,10 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV'24",
+        "venue": "3DV 2024, 2024",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
-        "featured": false,
+        "featured": true,
         "links": [
           {
             "name": "Paper",
@@ -286,7 +286,7 @@
           }
         ],
         "_scholar_citations": 15,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       }
     ],
     "2025": [
@@ -417,7 +417,7 @@
           }
         ],
         "_scholar_citations": 1,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
@@ -504,7 +504,7 @@
           }
         ],
         "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
@@ -517,7 +517,7 @@
           "Xinyuan Wang",
           "Yanjie Fu"
         ],
-        "venue": "NeurIPS'25",
+        "venue": "NeurIPS",
         "venue_type": "conference",
         "image": "teaser/sculp.jpg",
         "featured": true,
@@ -539,7 +539,7 @@
           }
         ],
         "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
@@ -573,7 +573,7 @@
           "Haifeng Chen",
           "Yanjie Fu"
         ],
-        "venue": "IJCAI'25",
+        "venue": "IJCAI",
         "venue_type": "conference",
         "image": "teaser/agentFt.jpg",
         "links": [
@@ -589,7 +589,7 @@
           }
         ],
         "_scholar_citations": 5,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
@@ -722,7 +722,7 @@
           }
         ],
         "_scholar_citations": 9,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       },
       {
         "title": "A Survey on Data-Centric AI: Tabular Learning from Reinforcement Learning and Generative AI Perspective",
@@ -749,7 +749,7 @@
           }
         ],
         "_scholar_citations": 10,
-        "_scholar_last_updated": "2025-09-15"
+        "_scholar_last_updated": "2025-09-22"
       }
     ]
   },
