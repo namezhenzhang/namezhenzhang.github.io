@@ -142,7 +142,7 @@
           "Zhengxin Li",
           "Shenghua Gao"
         ],
-        "venue": "CVPR",
+        "venue": "CVPR'22",
         "venue_type": "conference",
         "image": "teaser/transrac.jpg",
         "is_oral": true,
@@ -194,7 +194,7 @@
           "Yicheng Qian",
           "Shenghua Gao"
         ],
-        "venue": "CVPR",
+        "venue": "CVPR'23",
         "venue_type": "conference",
         "image": "teaser/weaksvr.jpg",
         "featured": true,
@@ -241,7 +241,7 @@
           "Lin Ma",
           "Shenghua Gao"
         ],
-        "venue": "WACV",
+        "venue": "WACV‘25",
         "venue_type": "conference",
         "image": "teaser/mmtool.jpg",
         "featured": true,
@@ -269,7 +269,7 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV 2024, 2024",
+        "venue": "3DV’24",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
         "featured": true,
@@ -517,7 +517,7 @@
           "Xinyuan Wang",
           "Yanjie Fu"
         ],
-        "venue": "NeurIPS",
+        "venue": "NeurIPS’25",
         "venue_type": "conference",
         "image": "teaser/sculp.jpg",
         "featured": true,
@@ -573,7 +573,7 @@
           "Haifeng Chen",
           "Yanjie Fu"
         ],
-        "venue": "IJCAI",
+        "venue": "IJCAI’25",
         "venue_type": "conference",
         "image": "teaser/agentFt.jpg",
         "links": [
