@@ -207,6 +207,39 @@ function checkDuplicateAcrossAllYears(newPub, existingConfig) {
   return null;
 }
 
+function isVenueUserCustomized(venue) {
+  // 检测venue是否是用户手动设置的格式
+  if (!venue) return false;
+  
+  // 1. 包含年份的格式（如 CVPR'22, WACV'25, NeurIPS'25, 3DV'24）
+  if (venue.match(/^[A-Za-z0-9]+'[0-9]{2}$/)) {
+    return true;
+  }
+  
+  // 2. 包含完整年份的格式（如 CVPR 2022, WACV 2025）
+  if (venue.match(/^[A-Za-z]+\s+20[0-9]{2}$/)) {
+    return true;
+  }
+  
+  // 3. 包含特殊格式的arXiv（如 arXiv'2508）
+  if (venue.match(/^arXiv'[0-9]{4}$/)) {
+    return true;
+  }
+  
+  // 4. 包含特殊标识的venue（如 Under Review, Journal等）
+  const specialVenues = ['Under Review', 'Journal', 'Conference'];
+  if (specialVenues.includes(venue)) {
+    return true;
+  }
+  
+  // 5. 包含特殊字符或格式的venue
+  if (venue.includes('(') || venue.includes(')') || venue.includes('&') || venue.includes('and')) {
+    return true;
+  }
+  
+  return false;
+}
+
 function updateExistingPublication(existing, scholarData) {
   // 只更新非手动编辑的基础信息，保护用户的手动修改
   let updated = false;
@@ -218,15 +251,21 @@ function updateExistingPublication(existing, scholarData) {
     updated = true;
   }
   
-  // 2. 只在明显是默认值时更新venue信息
-  if (existing.venue === 'Conference' || existing.venue === 'Journal' || 
-      existing.venue === 'arXiv' || existing.venue_type === 'conference') {
-    const venueInfo = parseVenueInfo(scholarData.venue);
-    if (existing.venue !== venueInfo.fullName) {
-      existing.venue = venueInfo.fullName;
-      existing.venue_type = venueInfo.type;
-      updated = true;
+  // 2. 保护用户手动设置的venue信息
+  const isUserCustomizedVenue = isVenueUserCustomized(existing.venue);
+  if (!isUserCustomizedVenue) {
+    // 只在明显是默认值时更新venue信息
+    if (existing.venue === 'Conference' || existing.venue === 'Journal' || 
+        existing.venue === 'arXiv' || existing.venue_type === 'conference') {
+      const venueInfo = parseVenueInfo(scholarData.venue);
+      if (existing.venue !== venueInfo.fullName) {
+        existing.venue = venueInfo.fullName;
+        existing.venue_type = venueInfo.type;
+        updated = true;
+      }
     }
+  } else {
+    console.log(`🔒 Protected user-customized venue: "${existing.venue}"`);
   }
   
   // 3. 只在链接是默认占位符时更新

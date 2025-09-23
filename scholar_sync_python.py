@@ -280,6 +280,36 @@ class ScholarSync:
         
         return None
     
+    def is_venue_user_customized(self, venue):
+        """检测venue是否是用户手动设置的格式"""
+        if not venue:
+            return False
+        
+        import re
+        
+        # 1. 包含年份的格式（如 CVPR'22, WACV'25, NeurIPS'25, 3DV'24）
+        if re.match(r"^[A-Za-z0-9]+'[0-9]{2}$", venue):
+            return True
+        
+        # 2. 包含完整年份的格式（如 CVPR 2022, WACV 2025）
+        if re.match(r"^[A-Za-z]+\s+20[0-9]{2}$", venue):
+            return True
+        
+        # 3. 包含特殊格式的arXiv（如 arXiv'2508）
+        if re.match(r"^arXiv'[0-9]{4}$", venue):
+            return True
+        
+        # 4. 包含特殊标识的venue（如 Under Review, Journal等）
+        special_venues = ['Under Review', 'Journal', 'Conference']
+        if venue in special_venues:
+            return True
+        
+        # 5. 包含特殊字符或格式的venue
+        if any(char in venue for char in ['(', ')', '&', 'and']):
+            return True
+        
+        return False
+
     def update_existing_publication(self, existing, scholar_data, formatted_venue=None):
         """更新已存在的论文信息"""
         updated = False
@@ -297,14 +327,19 @@ class ScholarSync:
             updated = True
             print(f"  📊 Added citations count: {scholar_data['citations']}")
         
-        # 3. 更新venue格式（如果提供了新的格式化venue且当前是简单的arXiv格式）
-        if (formatted_venue and 
-            existing.get('venue') == 'arXiv' and 
-            formatted_venue.startswith("arXiv'") and
-            existing.get('auto_sync') is not False):
-            existing['venue'] = formatted_venue
-            updated = True
-            print(f"  📝 Updated venue format: {formatted_venue}")
+        # 3. 保护用户手动设置的venue信息
+        is_user_customized_venue = self.is_venue_user_customized(existing.get('venue', ''))
+        if not is_user_customized_venue:
+            # 更新venue格式（如果提供了新的格式化venue且当前是简单的arXiv格式）
+            if (formatted_venue and 
+                existing.get('venue') == 'arXiv' and 
+                formatted_venue.startswith("arXiv'") and
+                existing.get('auto_sync') is not False):
+                existing['venue'] = formatted_venue
+                updated = True
+                print(f"  📝 Updated venue format: {formatted_venue}")
+        else:
+            print(f"  🔒 Protected user-customized venue: \"{existing.get('venue')}\"")
         
         return updated
     
