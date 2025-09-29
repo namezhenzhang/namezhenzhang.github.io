@@ -272,7 +272,7 @@
         "venue": "3DV’24",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
-        "featured": true,
+        "featured": false,
         "links": [
           {
             "name": "Paper",
