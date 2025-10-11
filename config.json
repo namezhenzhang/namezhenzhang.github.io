@@ -68,7 +68,7 @@
     "description": "Currently, my research focuses on <strong>multimodal AI systems</strong> that bridge computer vision, natural language processing, and machine learning. I work on developing intelligent agents that can understand and generate content across multiple modalities, with applications in video analysis, time series forecasting, and feature transformation.",
     "stats": [
       "10+ publications",
-      "4 top-tier venues (CVPR, WACV, IJCAI)",
+      "5 top-tier venues (CVPR, NeurIPS, WACV, IJCAI, 3DV)",
       "1 oral presentation"
     ],
     "max_featured_publications": 8
@@ -241,7 +241,7 @@
           "Lin Ma",
           "Shenghua Gao"
         ],
-        "venue": "WACV",
+        "venue": "WACV'25",
         "venue_type": "conference",
         "image": "teaser/mmtool.jpg",
         "featured": true,
@@ -269,7 +269,7 @@
           "Sixun Dong",
           "Shenghua Gao"
         ],
-        "venue": "3DV 2024, 2024",
+        "venue": "3DV'24",
         "venue_type": "conference",
         "image": "teaser/room.jpg",
         "featured": true,
@@ -519,7 +519,7 @@
           "Xinyuan Wang",
           "Yanjie Fu"
         ],
-        "venue": "NeurIPS",
+        "venue": "NeurIPS'25",
         "venue_type": "conference",
         "image": "teaser/sculp.jpg",
         "featured": true,
@@ -575,7 +575,7 @@
           "Haifeng Chen",
           "Yanjie Fu"
         ],
-        "venue": "IJCAI",
+        "venue": "IJCAI'25",
         "venue_type": "conference",
         "image": "teaser/agentFt.jpg",
         "links": [
@@ -806,7 +806,7 @@
   ],
   "service": {
     "reviewer": {
-      "conferences": "CVPR 2023-2025, ICCV 2023-2025, NeurIPS 2025, ECCV 2024, ACCV 2024, ACM MM 2023-2025, KDD 2024",
+      "conferences": "CVPR 2023+, ICCV 2023+, ECCV 2024+, NeurIPS 2025+, ICLR 2026+, ACCV 2024, ACM MM 2023-2025, KDD 2024",
       "journals": "TMM, Neural Networks, TKDD"
     }
   },

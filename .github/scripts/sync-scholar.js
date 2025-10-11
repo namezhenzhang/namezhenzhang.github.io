@@ -216,8 +216,8 @@ function isVenueUserCustomized(venue) {
     return true;
   }
   
-  // 2. 包含完整年份的格式（如 CVPR 2022, WACV 2025）
-  if (venue.match(/^[A-Za-z]+\s+20[0-9]{2}$/)) {
+  // 2. 包含完整年份的格式（如 CVPR 2022, WACV 2025, 3DV 2024）
+  if (venue.match(/^[A-Za-z0-9]+\s+20[0-9]{2}$/)) {
     return true;
   }
   
