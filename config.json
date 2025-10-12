@@ -17,12 +17,12 @@
     "name": "Sixun Dong",
     "aka": "Ironieser",
     "title": "Multimodal Learning, VLM, LLM Agent",
-    "affiliation": "Arizona State University",
+    "affiliation": "Independent Researcher",
     "email": "sixundong.ai@gmail.com",
     "profile_image": "images/logo.jpg",
     "cv_link": "#",
     "bio": [
-      "I am studying at Arizona State University. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
+      "Currently, I am an independent researcher. I completed my Master's at ShanghaiTech University under Professor <a href=\"https://scholar.google.com/citations?hl=zh-CN&user=fe-1v0MAAAAJ\" class=\"link\">Shenghua Gao</a>.",
       "My research focuses on <em class=\"research-keywords\">multimodal AI systems</em> that bridge computer vision, natural language processing, and machine learning, with different applications."
     ],
     "links": [
@@ -75,6 +75,11 @@
   },
   "news": [
     {
+      "date": "Oct 2025",
+      "content": "Finished my RA experience at Arizona State University",
+      "category": "career"
+    },
+    {
       "date": "Sep 2025",
       "content": "Paper on <strong>Feature Transformation</strong> by Semi-AR and reward-guided diffusion, accepted to NeurIPS 2025, congratulations to Nanxu Gong and Zijun Li!",
       "category": "papers"
@@ -111,7 +116,7 @@
     },
     {
       "date": "Aug 2024",
-      "content": "Started PhD program at Arizona State University",
+      "content": "Started Research Assistant at Arizona State University",
       "category": "career"
     },
     {
