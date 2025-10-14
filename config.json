@@ -804,7 +804,7 @@
     "website_url": "https://cv.ironieser.cc",
     "github_pages_url": "https://ironieser.github.io",
     "website_name": "Sixun Dong (Ironieser) - Academic Homepage",
-    "website_description": "PhD Student in Computer Science at Arizona State University, focusing on multimodal AI systems, computer vision, and machine learning",
+    "website_description": "A researcher in the field of multimodal AI systems, computer vision, and machine learning",
     "keywords": [
       "computer vision",
       "multimodal AI",
@@ -820,8 +820,8 @@
       "alternate_name": "Ironieser",
       "email": "ironieser@gmail.com",
       "academic_email": "sixundong.ai@gmail.com",
-      "affiliation": "Arizona State University",
-      "job_title": "PhD Student in Computer Science",
+      "affiliation": "Independent Researcher, AZ, USA",
+      "job_title": "Researcher",
       "research_areas": [
         "multimodal AI systems",
         "computer vision",
@@ -834,9 +834,9 @@
       "twitter": "ironieser"
     },
     "organization": {
-      "name": "Arizona State University",
-      "type": "University",
-      "url": "https://www.asu.edu",
+      "name": "Independent Researcher, AZ, USA",
+      "type": "Independent Researcher",
+      "url": "https://cv.ironieser.cc",
       "address": {
         "addressCountry": "USA",
         "addressLocality": "Tempe",
