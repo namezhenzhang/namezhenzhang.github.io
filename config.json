@@ -68,7 +68,7 @@
     "description": "Currently, my research focuses on <strong>multimodal AI systems</strong> that bridge computer vision, natural language processing, and machine learning. I work on developing intelligent agents that can understand and generate content across multiple modalities, with applications in video analysis, time series forecasting, and feature transformation.",
     "stats": [
       "10+ publications",
-      "5 top-tier venues (CVPR, NeurIPS, WACV, IJCAI, 3DV)",
+      "6 top-tier venues (CVPR, NeurIPS, WACV, 3DV, IJCAI,AAAI)",
       "1 oral presentation"
     ],
     "max_featured_publications": 8
@@ -559,35 +559,7 @@
           }
         ]
       },
-      {
-        "title": "Unsupervised feature transformation via in-context generation, generator-critic llm agents, and duet-play teaming",
-        "authors": [
-          "Nanxu Gong",
-          "Xinyuan Wang",
-          "Wangyang Ying",
-          "Haoyue Bai",
-          "Sixun Dong",
-          "Haifeng Chen",
-          "Yanjie Fu"
-        ],
-        "venue": "IJCAI'25",
-        "venue_type": "conference",
-        "image": "teaser/agentFt.jpg",
-        "links": [
-          {
-            "name": "Paper",
-            "url": "https://arxiv.org/abs/2504.21304",
-            "icon": "ai ai-arxiv"
-          },
-          {
-            "name": "Code",
-            "url": "https://github.com/NanxuGong/LPFG",
-            "icon": "fab fa-github"
-          }
-        ],
-        "_scholar_citations": 6,
-        "_scholar_last_updated": "2025-10-06"
-      },
+
       {
         "title": "LLM-ML Teaming: Integrated Symbolic Decoding and Gradient Search for Valid and Stable Generative Feature Transformation",
         "authors": [
@@ -664,6 +636,35 @@
         ],
         "_scholar_citations": 5,
         "_scholar_last_updated": "2025-09-15"
+      },
+      {
+        "title": "Unsupervised feature transformation via in-context generation, generator-critic llm agents, and duet-play teaming",
+        "authors": [
+          "Nanxu Gong",
+          "Xinyuan Wang",
+          "Wangyang Ying",
+          "Haoyue Bai",
+          "Sixun Dong",
+          "Haifeng Chen",
+          "Yanjie Fu"
+        ],
+        "venue": "IJCAI'25",
+        "venue_type": "conference",
+        "image": "teaser/agentFt.jpg",
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2504.21304",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/NanxuGong/LPFG",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 6,
+        "_scholar_last_updated": "2025-10-06"
       },
       {
         "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
