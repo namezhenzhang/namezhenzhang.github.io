@@ -625,14 +625,13 @@
           "Kunpeng Liu",
           "Yanjie Fu"
         ],
-        "venue": "arXiv'2506",
-        "venue_type": "preprint",
-        "image": "teaser/preprint.jpg",
-        "auto_sync": true,
+        "venue": "AAAI'26",
+        "venue_type": "conference",
+        "image": "teaser/efficientreasoning.jpg",
         "links": [
           {
             "name": "Paper",
-            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:ufrVoPGSRksC",
+            "url": "https://arxiv.org/abs/2506.08552",
             "icon": "ai ai-arxiv"
           }
         ],
@@ -640,26 +639,26 @@
         "_scholar_last_updated": "2025-09-15"
       },
       {
-        "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO Storage",
+        "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO2 Storage",
         "authors": [
           "Haoyue Bai",
-          "G Chen",
+          "Guodong Chen",
           "Wangyang Ying",
           "Xinyuan Wang",
           "Nanxu Gong",
           "Sixun Dong",
-          "G Pedrielli",
-          "H Wang",
-          "..."
+          "Giulia Pedrielli",
+          "Haoyu Wang",
+          "Haifeng Chen",
+          "Yanjie Fu"
         ],
-        "venue": "arXiv'2505",
-        "venue_type": "preprint",
-        "image": "teaser/preprint.jpg",
-        "auto_sync": true,
+        "venue": "AAAI'26",
+        "venue_type": "conference",
+        "image": "teaser/bridge.jpg",
         "links": [
           {
             "name": "Paper",
-            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=j71Y2-4AAAAJ&sortby=pubdate&citation_for_view=j71Y2-4AAAAJ:WF5omc3nYNoC",
+            "url": "https://arxiv.org/abs/2505.18204",
             "icon": "ai ai-arxiv"
           }
         ],
