@@ -10,7 +10,7 @@
     "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
   },
   "_scholar_sync": {
-    "last_sync_date": "2025-12-01",
+    "last_sync_date": "2025-12-29",
     "last_sync_status": "No new publications found (0 existing checked)"
   },
   "personal": {
@@ -174,8 +174,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 88,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_citations": 87,
+        "_scholar_last_updated": "2025-12-29"
       }
     ],
     "2023": [
@@ -221,7 +221,7 @@
           }
         ],
         "_scholar_citations": 21,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       }
     ],
     "2024": [
@@ -252,8 +252,8 @@
             "icon": "fab fa-github"
           }
         ],
-        "_scholar_citations": 53,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_citations": 58,
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "RoomDesigner: Encoding Anchor-latents for Style-consistent and Shape-compatible Indoor Scene Generation",
@@ -281,7 +281,7 @@
           }
         ],
         "_scholar_citations": 16,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       }
     ],
     "2025": [
@@ -322,7 +322,7 @@
           }
         ],
         "_scholar_citations": 2,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "LiveMCP-101: Stress Testing and Diagnosing MCP-enabled Agents on Challenging Queries",
@@ -371,7 +371,7 @@
           }
         ],
         "_scholar_citations": 4,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Complex Logical Instruction Generation",
@@ -415,8 +415,8 @@
             "icon": "fas fa-book-open"
           }
         ],
-        "_scholar_citations": 1,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_citations": 2,
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Teaching Time Series to See and Speak: Forecasting with Aligned Visual and Textual Perspectives",
@@ -503,7 +503,7 @@
           }
         ],
         "_scholar_citations": 8,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Sculpting Features from Noise: Reward-Guided Hierarchical Diffusion for Task-Optimal Feature Transformation",
@@ -538,7 +538,7 @@
           }
         ],
         "_scholar_citations": 5,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "MECT: From Multimodal Knowledge Acquisition To Contrastive Embedding Construction For Generative Feature Transformation",
@@ -609,7 +609,7 @@
           }
         ],
         "_scholar_citations": 3,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Brownian Bridge Augmented Surrogate Simulation and Injection Planning for Geological CO2 Storage",
@@ -636,7 +636,7 @@
           }
         ],
         "_scholar_citations": 5,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Unsupervised feature transformation via in-context generation, generator-critic llm agents, and duet-play teaming",
@@ -665,7 +665,7 @@
           }
         ],
         "_scholar_citations": 9,
-        "_scholar_last_updated": "2025-12-01"
+        "_scholar_last_updated": "2025-12-29"
       },
       {
         "title": "Bridging the domain gap in equation distillation with reinforcement feedback",
@@ -719,8 +719,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 12,
-        "_scholar_last_updated": "2025-12-01",
+        "_scholar_citations": 13,
+        "_scholar_last_updated": "2025-12-29",
         "featured": true
       },
       {
@@ -747,8 +747,8 @@
             "icon": "ai ai-arxiv"
           }
         ],
-        "_scholar_citations": 11,
-        "_scholar_last_updated": "2025-12-01",
+        "_scholar_citations": 12,
+        "_scholar_last_updated": "2025-12-29",
         "featured": true
       }
     ]
