@@ -46,9 +46,20 @@ function generateNavigation(personal, activePage) {
   return navItems.join('\n                ');
 }
 
-function generateFooter(personal, templateInfo = null) {
+function generateFooter(config, personal, templateInfo = null) {
   const currentYear = new Date().getFullYear();
   
+  // ClustrMaps widget (optional, configurable via config.json -> analytics.clustrmaps)
+  const analytics = config.analytics || {};
+  const clustrmaps = analytics.clustrmaps || {};
+  const clustrmaps_enabled = clustrmaps.enabled !== false;
+  const clustrmaps_d = clustrmaps.d || 'r_cMMykDPAdqK2GTahWbR__mtnzcj9svUgejZ86OXnU';
+  
+  let clustrmaps_html = '';
+  if (clustrmaps_enabled) {
+      clustrmaps_html = `<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=${clustrmaps_d}"></script>`;
+  }
+
   // Generate template credit if enabled
   const templateCredit = templateInfo && templateInfo.show_template_credit ? `
             <div class="template-credit">
@@ -65,7 +76,7 @@ function generateFooter(personal, templateInfo = null) {
                     <!-- Visitor Map Widget -->
                     <div class="visitor-map">
                         <!-- ClustrMaps Widget -->
-                        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=r_cMMykDPAdqK2GTahWbR__mtnzcj9svUgejZ86OXnU&cl=ffffff&w=a"></script>
+                        ${clustrmaps_html}
                     </div>
                 </div>
             </div>
@@ -261,7 +272,7 @@ function generateBlogPage(config) {
         </div>
     </main>
 
-    ${generateFooter(personal, _template_info)}
+    ${generateFooter(config, personal, _template_info)}
     
     <script>
         // Blog functionality
