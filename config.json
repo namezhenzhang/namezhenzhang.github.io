@@ -1,14 +1,4 @@
 {
-  "_template_info": {
-    "name": "Config-Driven Academic Website Template",
-    "version": "1.0.1",
-    "author": "Sixun Dong (ironieser)",
-    "repository": "https://github.com/Ironieser/ironieser.github.io",
-    "license": "MIT",
-    "description": "A GitHub Actions-powered template for easy academic website management",
-    "show_template_credit": true,
-    "acknowledgments": "Built with the help of Cursor IDE, Claude AI, and GPT - enabling non-experts to create personalized academic websites through modern AI tools"
-  },
   "_scholar_sync": {
     "last_sync_date": "2026-01-05",
     "last_sync_status": "No new publications found (0 existing checked)"
@@ -19,8 +9,8 @@
     "title": "LLM, Agent, Reasoning, RL, Efficiency",
     "affiliation": "UC, Santa Barbara",
     "email": "zhen_zhang@ucsb.edu",
-    "profile_image": "images/logo.jpg",
-    "cv_link": "#",
+    "profile_image": "images/profile.jpg",
+    "cv_link": "files/cv.pdf",
     "bio": [
       "I am a second-year Ph.D. student in the Department of Computer Science at UC Santa Barbara, fortunate to be advised by Professor <a href=\"https://eric-xw.github.io/\" class=\"link\">Xin Eric Wang</a>.",
       "Previously, I was a member of THUNLP supervised by Professor <a href=\"https://nlp.csai.tsinghua.edu.cn/~lzy/\" class=\"link\">Zhiyuan Liu</a>. In the summer of 2022, I conducted research under Professor <a href=\"https://eric-xw.github.io/\" class=\"link\">Xin Eric Wang</a> at UCSC.",
@@ -87,7 +77,7 @@
       "company": "Microsoft STCA, WebXT — Search & Distribution",
       "period": "Apr 2024 - Sep 2024",
       "description": "Advised by Gong Ming and Wenbiao Ding. Optimized Bing Search models for TL;DR generation in RAG scenarios; designed and implemented pipelines for high-quality training data generation; applied DPO to empower LLMs to reject inappropriate or unanswerable user queries when search results were insufficient, improving response reliability and reducing hallucination risks.",
-      "logo": "images/microsoft.jpg"
+      "logo": "images/microsoft.png"
     }
   ],
   "education": [
@@ -106,8 +96,7 @@
   ],
   "service": {
     "reviewer": {
-      "conferences": "NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+",
-      "journals": ""
+      "conferences": "NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+"
     }
   },
   "seo": {

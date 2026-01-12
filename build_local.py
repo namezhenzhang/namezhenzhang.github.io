@@ -494,6 +494,23 @@ def generate_index_page(config):
                 </div>
             </div>''')
     
+    # Generate publications section (only if there are publications)
+    pubs_section_html = ''
+    if pubs_html:
+        pubs_section_html = f'''
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-list">
+                    {''.join(pubs_html)}
+                </div>
+                
+                <div class="section-footer">
+                    <a href="publications.html" class="btn btn-more">View All Publications</a>
+                </div>
+            </div>
+        </section>'''
+    
     # Generate experience items
     exp_html = []
     for exp in experience:
@@ -603,18 +620,7 @@ def generate_index_page(config):
         </section>
 
         <!-- Selected Publications -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Selected Publications</h2>
-                <div class="publications-list">
-                    {''.join(pubs_html)}
-                </div>
-                
-                <div class="section-footer">
-                    <a href="publications.html" class="btn btn-more">View All Publications</a>
-                </div>
-            </div>
-        </section>
+        {pubs_section_html}
 
         <!-- Experience -->
         <section class="section section-alt">
@@ -633,12 +639,8 @@ def generate_index_page(config):
                 <div class="service-content">
                     <div class="service-summary">
                         <h3 class="service-title">Reviewer</h3>
-                        <p class="service-description">
-                            <strong>Conferences:</strong> {service['reviewer']['conferences']}
-                        </p>
-                        <p class="service-description">
-                            <strong>Journals:</strong> {service['reviewer']['journals']}
-                        </p>
+                        {f'<p class="service-description"><strong>Conferences:</strong> {service["reviewer"].get("conferences", "")}</p>' if service.get("reviewer", {}).get("conferences") else ""}
+                        {f'<p class="service-description"><strong>Journals:</strong> {service["reviewer"].get("journals", "")}</p>' if service.get("reviewer", {}).get("journals") else ""}
                     </div>
                 </div>
             </div>
@@ -823,8 +825,10 @@ def generate_publications_page(config):
                 </div>
             </div>''')
     
-    # Generate stats
-    stats_html = ' <span class="stat-divider">•</span> '.join([f'<span class="stat-item">{stat}</span>' for stat in research['stats']])
+    # Generate stats (only if stats exist)
+    stats_html = ''
+    if research.get('stats'):
+        stats_html = ' <span class="stat-divider">•</span> '.join([f'<span class="stat-item">{stat}</span>' for stat in research['stats']])
     
     return f'''<!DOCTYPE html>
 <!-- 
@@ -867,9 +871,7 @@ def generate_publications_page(config):
                     </div>
                     
                     <!-- Summary Stats Bar -->
-                    <div class="publication-stats-bar">
-                        {stats_html}
-                    </div>
+                    {f'<div class="publication-stats-bar">{stats_html}</div>' if stats_html else ''}
                 </div>
             </div>
         </section>
