@@ -338,7 +338,7 @@ def generate_footer(personal, template_info=None, analytics=None):
             # Default: JavaScript embed (recommended)
             clustrmaps_html = (
                 f'<script type="text/javascript" id="clustrmaps" '
-                f'src="//clustrmaps.com/map_v2.js?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}"></script>'
+                f'src="//clustrmaps.com/map_v2.js?d={clustrmaps_d}"></script>'
             )
     
     # Generate template credit if enabled
