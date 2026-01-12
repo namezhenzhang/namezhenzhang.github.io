@@ -9,7 +9,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhen Zhang - Academic Homepage</title>
+    <title>Zhen Zhang (Jason) - Academic Homepage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A researcher in the field of LLM, Agent, Reasoning, RL, Efficiency">
+    <meta name="keywords" content="LLM, Agent, Reasoning, RL, Efficiency">
+    <meta name="author" content="Zhen Zhang">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Zhen Zhang - Academic Homepage">
+    <meta property="og:description" content="A researcher in the field of LLM, Agent, Reasoning, RL, Efficiency">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://namezhenzhang.github.io">
+    <meta property="og:image" content="https://namezhenzhang.github.io/images/profile.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zhen Zhang - Academic Homepage">
+    <meta name="twitter:description" content="A researcher in the field of LLM, Agent, Reasoning, RL, Efficiency">
+    <meta name="twitter:image" content="https://namezhenzhang.github.io/images/profile.jpg">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zhen Zhang",
+    "alternateName": "Jason",
+    "email": "zhen_zhang@ucsb.edu",
+    "jobTitle": "Ph.D. Student",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "UC Santa Barbara, USA",
+      "url": "https://namezhenzhang.github.io",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "USA",
+        "addressLocality": "Santa Barbara",
+        "addressRegion": "CA"
+      }
+    },
+    "url": "https://namezhenzhang.github.io",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=MzTxKGkAAAAJ",
+      "https://github.com/namezhenzhang",
+      "https://twitter.com/@zhenzhangzz",
+      "https://namezhenzhang.github.io",
+      "https://namezhenzhang.github.io"
+    ],
+    "knowsAbout": [
+      "LLM",
+      "Agent",
+      "Reasoning",
+      "RL",
+      "Efficiency"
+    ],
+    "image": "https://namezhenzhang.github.io/images/profile.jpg"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Zhen Zhang (Jason) - Academic Homepage",
+    "description": "A researcher in the field of LLM, Agent, Reasoning, RL, Efficiency",
+    "url": "https://namezhenzhang.github.io",
+    "author": {
+      "@type": "Person",
+      "name": "Zhen Zhang"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "UC Santa Barbara, USA",
+      "url": "https://namezhenzhang.github.io"
+    }
+  }
+]
+</script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +126,7 @@
                     
                     <!-- Right: Introduction -->
                     <div class="hero-info">
-                        <h1 class="hero-title">Zhen Zhang</h1>
+                        <h1 class="hero-title">Zhen Zhang<span class="aka"> (Jason)</span></h1>
                         <p class="hero-subtitle">LLM, Agent, Reasoning, RL, Efficiency</p>
                         <p class="hero-affiliation">UC, Santa Barbara</p>
                         
@@ -102,7 +184,18 @@
         </section>
 
         <!-- Selected Publications -->
-        
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-list">
+                    
+                </div>
+                
+                <div class="section-footer">
+                    <a href="publications.html" class="btn btn-more">View All Publications</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Experience -->
         <section class="section section-alt">
@@ -139,8 +232,12 @@
                 <div class="service-content">
                     <div class="service-summary">
                         <h3 class="service-title">Reviewer</h3>
-                        <p class="service-description"><strong>Conferences:</strong> NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+</p>
-                        
+                        <p class="service-description">
+                            <strong>Conferences:</strong> NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+
+                        </p>
+                        <p class="service-description">
+                            <strong>Journals:</strong> undefined
+                        </p>
                     </div>
                 </div>
             </div>
@@ -268,26 +365,26 @@
                     data = await response.json();
                     
                     if (data.city && data.country) {
-                        const location = `${data.city}, ${data.country}`;
+                        const location = `${data.city}, ${data.country}`
                         document.getElementById('owner-location').textContent = location;
                         return;
                     }
                 }
                 
                 // If all APIs fail, show a default message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                document.getElementById('owner-location').textContent = 'Remote Server';
                 
             } catch (error) {
                 console.log('Location detection failed:', error);
-                // For local builds, show a more appropriate message
-                document.getElementById('owner-location').textContent = 'Local Build';
+                // For GitHub Actions builds, show a more appropriate message
+                document.getElementById('owner-location').textContent = 'GitHub Actions';
             }
         }
         
-        // Set last updated time (when site was built)
+        // Set last updated time (when GitHub Actions built the site)
         function setLastUpdated() {
             const buildDate = '2026-01-12';
-            const date = new Date(buildDate);
+            const date = new Date(buildDate + 'T12:00:00'); // Add noon time to avoid timezone issues
             const formatted = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'short', 
