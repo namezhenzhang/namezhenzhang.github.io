@@ -549,6 +549,27 @@ def generate_index_page(config):
                 </div>
             </div>''')
     
+    # Generate academic service section
+    service_section_html = ''
+    if service and service.get('reviewer') and (service['reviewer'].get('conferences') or service['reviewer'].get('journals')):
+        conferences_line = f'<p class="service-description"><strong>Conferences:</strong> {service["reviewer"].get("conferences")}</p>' if service["reviewer"].get("conferences") else ""
+        journals_line = f'<p class="service-description"><strong>Journals:</strong> {service["reviewer"].get("journals")}</p>' if service["reviewer"].get("journals") else ""
+        
+        service_section_html = f'''
+        <!-- Academic Service -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Academic Service</h2>
+                <div class="service-content">
+                    <div class="service-summary">
+                        <h3 class="service-title">Reviewer</h3>
+                        {conferences_line}
+                        {journals_line}
+                    </div>
+                </div>
+            </div>
+        </section>'''
+
     # Generate education items
     edu_html = []
     for edu in education:
@@ -656,19 +677,7 @@ def generate_index_page(config):
             </div>
         </section>
 
-        <!-- Academic Service -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Academic Service</h2>
-                <div class="service-content">
-                    <div class="service-summary">
-                        <h3 class="service-title">Reviewer</h3>
-                        {f'<p class="service-description"><strong>Conferences:</strong> {service["reviewer"].get("conferences", "")}</p>' if service.get("reviewer", {}).get("conferences") else ""}
-                        {f'<p class="service-description"><strong>Journals:</strong> {service["reviewer"].get("journals", "")}</p>' if service.get("reviewer", {}).get("journals") else ""}
-                    </div>
-                </div>
-            </div>
-        </section>
+        {service_section_html}
 
         <!-- Education -->
         <section class="section section-alt">

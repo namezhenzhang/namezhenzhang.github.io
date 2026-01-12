@@ -363,6 +363,25 @@ function generateIndexPage(config) {
             </div>`;
   }).join('');
   
+  // Generate publications section
+  let publicationsHtmlSection = '';
+  if (selectedPubs.length > 0) {
+    publicationsHtmlSection = `
+        <!-- Selected Publications -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-list">
+                    ${pubsHtml}
+                </div>
+                
+                <div class="section-footer">
+                    <a href="publications.html" class="btn btn-more">View All Publications</a>
+                </div>
+            </div>
+        </section>`;
+  }
+
   // Generate experience items
   const expHtml = experience.map(exp => `
             <div class="experience-item">
@@ -375,6 +394,34 @@ function generateIndexPage(config) {
                 </div>
             </div>`).join('');
   
+  // Generate academic service section
+  let serviceHtml = '';
+  if (service && service.reviewer && (service.reviewer.conferences || service.reviewer.journals)) {
+    const conferencesLine = service.reviewer.conferences ? `
+                        <p class="service-description">
+                            <strong>Conferences:</strong> ${service.reviewer.conferences}
+                        </p>` : '';
+    const journalsLine = service.reviewer.journals ? `
+                        <p class="service-description">
+                            <strong>Journals:</strong> ${service.reviewer.journals}
+                        </p>` : '';
+    
+    serviceHtml = `
+        <!-- Academic Service -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Academic Service</h2>
+                <div class="service-content">
+                    <div class="service-summary">
+                        <h3 class="service-title">Reviewer</h3>
+                        ${conferencesLine}
+                        ${journalsLine}
+                    </div>
+                </div>
+            </div>
+        </section>`;
+  }
+
   // Generate education items
   const eduHtml = education.map(edu => {
     const details = edu.details ? `<p class="education-details">${edu.details}</p>` : '';
@@ -496,19 +543,7 @@ function generateIndexPage(config) {
             </div>
         </section>
 
-        <!-- Selected Publications -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Selected Publications</h2>
-                <div class="publications-list">
-                    ${pubsHtml}
-                </div>
-                
-                <div class="section-footer">
-                    <a href="publications.html" class="btn btn-more">View All Publications</a>
-                </div>
-            </div>
-        </section>
+        ${publicationsHtmlSection}
 
         <!-- Experience -->
         <section class="section section-alt">
@@ -520,23 +555,7 @@ function generateIndexPage(config) {
             </div>
         </section>
 
-        <!-- Academic Service -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Academic Service</h2>
-                <div class="service-content">
-                    <div class="service-summary">
-                        <h3 class="service-title">Reviewer</h3>
-                        <p class="service-description">
-                            <strong>Conferences:</strong> ${service.reviewer.conferences}
-                        </p>
-                        <p class="service-description">
-                            <strong>Journals:</strong> ${service.reviewer.journals}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        ${serviceHtml}
 
         <!-- Education -->
         <section class="section section-alt">
@@ -724,8 +743,12 @@ function generatePublicationsPage(config) {
             </div>`);
   }
   
-  // Generate stats
-  const statsHtml = research.stats.map(stat => `<span class="stat-item">${stat}</span>`).join(' <span class="stat-divider">•</span> ');
+  // Generate stats bar
+  const statsHtmlBar = research.stats && research.stats.length > 0 ? `
+                    <!-- Summary Stats Bar -->
+                    <div class="publication-stats-bar">
+                        ${research.stats.map(stat => `<span class="stat-item">${stat}</span>`).join(' <span class="stat-divider">•</span> ')}
+                    </div>` : '';
   
   return `<!DOCTYPE html>
 <!-- 
@@ -795,10 +818,7 @@ function generatePublicationsPage(config) {
                         <p>${research.description}</p>
                     </div>
                     
-                    <!-- Summary Stats Bar -->
-                    <div class="publication-stats-bar">
-                        ${statsHtml}
-                    </div>
+                    ${statsHtmlBar}
                 </div>
             </div>
         </section>

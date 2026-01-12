@@ -106,7 +106,8 @@
   ],
   "service": {
     "reviewer": {
-      "conferences": "NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+"
+      "conferences": "NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+",
+      "journals": ""
     }
   },
   "seo": {
