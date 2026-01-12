@@ -3,6 +3,16 @@
     "last_sync_date": "2026-01-05",
     "last_sync_status": "No new publications found (0 existing checked)"
   },
+  "analytics": {
+    "clustrmaps": {
+      "enabled": true,
+      "mode": "script",
+      "d": "MHRNgTjTnR1LrKYEoTFnSWBD7EXE7GgDo2Hc_sSJu1U",
+      "cl": "ffffff",
+      "w": "a",
+      "site": "1c8yx"
+    }
+  },
   "personal": {
     "name": "Zhen Zhang",
     "aka": "Jason",

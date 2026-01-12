@@ -313,9 +313,33 @@ def generate_navigation(personal, active_page):
     return '\n                '.join(nav_items)
 
 
-def generate_footer(personal, template_info=None):
+def generate_footer(personal, template_info=None, analytics=None):
     """Generate footer HTML"""
     current_year = datetime.now().year
+
+    # ClustrMaps widget (optional, configurable via config.json -> analytics.clustrmaps)
+    analytics = analytics or {}
+    clustrmaps = analytics.get('clustrmaps', {}) if isinstance(analytics, dict) else {}
+    clustrmaps_enabled = clustrmaps.get('enabled', True)
+    clustrmaps_mode = clustrmaps.get('mode', 'script')  # 'script' (recommended) or 'image'
+    clustrmaps_d = clustrmaps.get('d', 'r_cMMykDPAdqK2GTahWbR__mtnzcj9svUgejZ86OXnU')
+    clustrmaps_cl = clustrmaps.get('cl', 'ffffff')
+    clustrmaps_w = clustrmaps.get('w', 'a')
+    clustrmaps_site = clustrmaps.get('site', '1c8yx')
+
+    clustrmaps_html = ''
+    if clustrmaps_enabled:
+        if clustrmaps_mode == 'image':
+            clustrmaps_html = (
+                f'<a href="https://clustrmaps.com/site/{clustrmaps_site}" title="ClustrMaps">'
+                f'<img src="//www.clustrmaps.com/map_v2.png?d={clustrmaps_d}&cl={clustrmaps_cl}"></a>'
+            )
+        else:
+            # Default: JavaScript embed (recommended)
+            clustrmaps_html = (
+                f'<script type="text/javascript" id="clustrmaps" '
+                f'src="//clustrmaps.com/map_v2.js?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}"></script>'
+            )
     
     # Generate template credit if enabled
     template_credit = ""
@@ -336,7 +360,7 @@ def generate_footer(personal, template_info=None):
                     <!-- Visitor Map Widget -->
                     <div class="visitor-map">
                         <!-- ClustrMaps Widget -->
-                        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=r_cMMykDPAdqK2GTahWbR__mtnzcj9svUgejZ86OXnU&cl=ffffff&w=a"></script>
+                        {clustrmaps_html}
                     </div>
                 </div>
             </div>
@@ -657,7 +681,7 @@ def generate_index_page(config):
         </section>
     </main>
 
-    {generate_footer(personal, template_info)}
+    {generate_footer(personal, template_info, config.get('analytics'))}
     
     <script>
         // News filter functionality
@@ -884,7 +908,7 @@ def generate_publications_page(config):
         </section>
     </main>
 
-    {generate_footer(personal, template_info)}
+    {generate_footer(personal, template_info, config.get('analytics'))}
     
     {generate_common_scripts()}
 </body>
@@ -990,7 +1014,7 @@ def generate_blog_page(config):
         </div>
     </main>
 
-    {generate_footer(personal, template_info)}
+    {generate_footer(personal, template_info, config.get('analytics'))}
     
     <script>
         // Blog functionality
