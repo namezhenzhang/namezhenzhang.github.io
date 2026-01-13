@@ -1,5 +1,5 @@
 // Auto-generated blog data
-// This file is automatically updated by build scripts
+// This file is automatically updated by GitHub Actions
 // Do not edit manually
 
 window.BLOG_DATA = [];
