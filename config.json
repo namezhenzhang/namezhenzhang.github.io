@@ -13,6 +13,12 @@
       "site": "1c8yx"
     }
   },
+  "comments": {
+    "waline": {
+      "enabled": false,
+      "serverURL": ""
+    }
+  },
   "personal": {
     "name": "Zhen Zhang",
     "aka": "Jason",
