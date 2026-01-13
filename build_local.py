@@ -1286,7 +1286,7 @@ def generate_blog_page(config):
         // Initialize Waline comments
         function initWalineComments(postTitle) {{
             // Check if comments are enabled in config
-            const commentsConfig = {json.dumps(config.get('comments', {{ 'waline': {{ 'enabled': False }} }}))};
+            const commentsConfig = {json.dumps(config.get('comments', { 'waline': { 'enabled': False } }))};
             const walineConfig = commentsConfig.waline || {{}};
             
             if (!walineConfig.enabled || !walineConfig.serverURL) {{

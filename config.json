@@ -79,6 +79,36 @@
     }
   ],
   "publications": {
+    "2025": [
+      {
+        "title": "Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space",
+        "authors": ["Zhen Zhang", "Xuehai He", "Weixiang Yan", "Ao Shen", "Chenyang Zhao", "Shuohang Wang", "Yelong Shen", "Xin Eric Wang"],
+        "venue": "NeurIPS'25",
+        "venue_type": "conference",
+        "image": "teaser/softthinking.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2505.15778",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/eric-ai-lab/Soft-Thinking",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Project",
+            "url": "https://soft-thinking.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 32,
+        "_scholar_last_updated": "2026-01-12"
+      }
+    ]
   },
   "experience": [
     {
