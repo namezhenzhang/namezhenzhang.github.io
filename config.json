@@ -1,7 +1,7 @@
 {
   "_scholar_sync": {
-    "last_sync_date": "2026-01-05",
-    "last_sync_status": "No new publications found (0 existing checked)"
+    "last_sync_date": "2026-07-20",
+    "last_sync_status": "Added 13 missing publications and refreshed existing citation counts"
   },
   "analytics": {
     "clustrmaps": {
@@ -21,16 +21,15 @@
   },
   "personal": {
     "name": "Zhen Zhang",
-    "aka": "Jason",
-    "title": "LLM, Agent, Reasoning, RL, Efficiency",
+    "aka": "张震",
     "affiliation": "UC, Santa Barbara",
     "email": "zhen_zhang@ucsb.edu",
     "profile_image": "images/profile.jpg",
     "cv_link": "files/cv.pdf",
     "bio": [
-      "I am a second-year Ph.D. student in the Department of Computer Science at UC Santa Barbara, fortunate to be advised by Professor <a href=\"https://eric-xw.github.io/\" class=\"link\">Xin Eric Wang</a>.",
+      "I am a Fourth year Ph.D. student in the Department of Computer Science at UC Santa Barbara, fortunate to be advised by Professor <a href=\"https://eric-xw.github.io/\" class=\"link\">Xin Eric Wang</a>.",
       "Previously, I was a member of THUNLP supervised by Professor <a href=\"https://nlp.csai.tsinghua.edu.cn/~lzy/\" class=\"link\">Zhiyuan Liu</a>. In the summer of 2022, I conducted research under Professor <a href=\"https://eric-xw.github.io/\" class=\"link\">Xin Eric Wang</a> at UCSC.",
-      "My research focuses on <em class=\"research-keywords\">LLM, Agent, Reasoning, RL, Efficiency</em>."
+      "My research focuses on <em class=\"research-keywords\">LLM, Agent, Reasoning, RL and Efficiency</em>."
     ],
     "links": [
       {
@@ -52,9 +51,9 @@
         "color": "#333"
       },
       {
-        "name": "Twitter",
+        "name": "X",
         "url": "https://x.com/zhenzhangzz",
-        "icon": "fab fa-twitter",
+        "icon": "fab fa-x-twitter",
         "color": "#1da1f2"
       },
       {
@@ -66,20 +65,246 @@
     ]
   },
   "research": {
-    "description": "Currently, my research focuses on <strong>LLM, Reasoning, Agent, RL, Efficiency</strong>.",
+    "description": "Currently, my research focuses on <strong>LLM, Reasoning, Agent, RL and Efficiency</strong>.",
     "stats": [
     ],
     "max_featured_publications": 8
   },
   "news": [
     {
-      "date": "2026-01-12",
+      "date": "2026-07",
+      "content": "<a href=\"https://length-value-model.github.io/\" class=\"link\">Length Value Model</a> and <a href=\"https://group-evolving-agents.github.io/\" class=\"link\">Group-Evolving Agents</a> were accepted to COLM 2026!",
+      "category": "publications"
+    },
+    {
+      "date": "2026-06",
+      "content": "Started internship at ByteDance Seed.",
+      "category": "experience"
+    },
+    {
+      "date": "2026-01",
       "content": "New Homepage is online!",
       "category": "projects"
     }
   ],
   "publications": {
+    "2026": [
+      {
+        "title": "Length Value Model: Scalable Value Pretraining for Token-Level Length Modeling",
+        "authors": ["Zhen Zhang", "Changyi Yang", "Zijie Xia", "Zhen Yang", "Chengzhi Liu", "Zhaotian Weng", "Yepeng Liu", "Haobo Chen", "Jin Pan", "Chenyang Zhao", "Yuheng Bu", "Alkesh Patel", "Zhe Gan", "Xin Eric Wang"],
+        "venue": "COLM'26",
+        "venue_type": "conference",
+        "image": "teaser/length_value_model.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2604.27039",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/UCSB-AI/Length-Value-Model",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "HuggingFace",
+            "url": "https://huggingface.co/collections/namezz/length-value-model",
+            "icon": "hf-icon"
+          },
+          {
+            "name": "Project",
+            "url": "https://length-value-model.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 0,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "MathGen: Revealing the Illusion of Mathematical Competence through Text-to-Image Generation",
+        "authors": ["Ruiyao Liu", "Hui Shen", "Ping Zhang", "Yunta Hsieh", "Yifan Zhang", "Jing Xu", "Sicheng Chen", "Junchen Li", "Jiawei Lu", "Jianing Ma", "Jiaqi Mo", "Qi Han", "Zhen Zhang", "Zhongwei Wan", "Jing Xiong", "Xin Wang", "Ziyuan Liu", "Hangrui Cao", "Ngai Wong"],
+        "venue": "arXiv",
+        "venue_type": "preprint",
+        "image": "teaser/mathgen.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2603.27959",
+            "icon": "ai ai-arxiv"
+          }
+        ],
+        "_scholar_citations": 0,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use",
+        "authors": ["Zhen Zhang", "Kaiqiang Song", "Xun Wang", "Yebowen Hu", "Weixiang Yan", "Chenyang Zhao", "Henry Peng Zou", "Haoyun Deng", "Sathish Reddy Indurthi", "Shujian Liu", "Simin Ma", "Xiaoyang Wang", "Xin Eric Wang", "Song Wang"],
+        "venue": "arXiv",
+        "venue_type": "preprint",
+        "image": "teaser/cm2.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2602.12268",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/namezhenzhang/CM2-RLCR-Tool-Agent",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "HuggingFace",
+            "url": "https://huggingface.co/collections/namezz/checklist",
+            "icon": "hf-icon"
+          }
+        ],
+        "_scholar_citations": 5,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "Group-Evolving Agents: Open-Ended Self-Improvement via Experience Sharing",
+        "authors": ["Zhaotian Weng", "Antonis Antoniades", "Deepak Nathani", "Zhen Zhang", "Xiao Pu", "Xin Eric Wang"],
+        "venue": "COLM'26",
+        "venue_type": "conference",
+        "image": "teaser/group_evolve_agent.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2602.04837",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/UCSB-AI/GEA",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Project",
+            "url": "https://group-evolving-agents.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 15,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "MMFormalizer: Multimodal Autoformalization in the Wild",
+        "authors": ["Jing Xiong", "Qi Han", "Yunta Hsieh", "Hui Shen", "Huajian Xin", "Chaofan Tao", "Chenyang Zhao", "Hengyuan Zhang", "Taiqiang Wu", "Zhen Zhang", "Haochen Wang", "Zhongwei Wan", "Lingpeng Kong", "Ngai Wong"],
+        "venue": "arXiv",
+        "venue_type": "preprint",
+        "image": "teaser/mmformalizer.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2601.03017",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "HuggingFace",
+            "url": "https://huggingface.co/datasets/menik1126/PhyX-AF",
+            "icon": "hf-icon"
+          },
+          {
+            "name": "Project",
+            "url": "https://mmformalizer.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 1,
+        "_scholar_last_updated": "2026-07-20"
+      }
+    ],
     "2025": [
+      {
+        "title": "Presenting a Paper is an Art: Self-Improvement Aesthetic Agents for Academic Presentations",
+        "authors": ["Chengzhi Liu", "Yuzhe Yang", "Kaiwen Zhou", "Zhen Zhang", "Yue Fan", "Yanan Xie", "Peng Qi", "Xin Eric Wang"],
+        "venue": "arXiv",
+        "venue_type": "preprint",
+        "image": "teaser/presenting_paper.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2510.05571",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/UCSB-AI/EvoPresent",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "HuggingFace",
+            "url": "https://huggingface.co/datasets/TobyYang7/EvoPresent",
+            "icon": "hf-icon"
+          },
+          {
+            "name": "Project",
+            "url": "https://evopresent.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 9,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "MAZO: Masked Zeroth-Order Optimization for Multi-Task Fine-Tuning of Large Language Models",
+        "authors": ["Zhen Zhang", "Yifan Yang", "Kai Zhen", "Nathan Susanj", "Athanasios Mouchtaris", "Siegfried Kunzmann", "Zheng Zhang"],
+        "venue": "EMNLP'25",
+        "venue_type": "conference",
+        "image": "teaser/mazo.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://aclanthology.org/2025.emnlp-main.935/",
+            "icon": "fas fa-file-alt"
+          }
+        ],
+        "_scholar_citations": 8,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "SharpZO: Hybrid Sharpness-Aware Vision Language Model Prompt Tuning via Forward-Only Passes",
+        "authors": ["Yifan Yang", "Zhen Zhang", "Rupak Vignesh Swaminathan", "Jing Liu", "Nathan Susanj", "Zheng Zhang"],
+        "venue": "NeurIPS'25",
+        "venue_type": "conference",
+        "image": "teaser/sharpzo.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/d38c12d57b456fadbeaaaa541dfcafe4-Abstract-Conference.html",
+            "icon": "fas fa-file-alt"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/yifanycc/sharpzo",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "Project",
+            "url": "https://yifan-yang.net/sharpzo.github.io/",
+            "icon": "fas fa-globe"
+          }
+        ],
+        "_scholar_citations": 3,
+        "_scholar_last_updated": "2026-07-20"
+      },
       {
         "title": "Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space",
         "authors": ["Zhen Zhang", "Xuehai He", "Weixiang Yan", "Ao Shen", "Chenyang Zhao", "Shuohang Wang", "Yelong Shen", "Xin Eric Wang"],
@@ -96,7 +321,7 @@
           },
           {
             "name": "Code",
-            "url": "https://github.com/eric-ai-lab/Soft-Thinking",
+            "url": "https://github.com/UCSB-AI/Soft-Thinking",
             "icon": "fab fa-github"
           },
           {
@@ -105,25 +330,171 @@
             "icon": "fas fa-globe"
           }
         ],
-        "_scholar_citations": 32,
-        "_scholar_last_updated": "2026-01-12"
+        "_scholar_citations": 106,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "APEX: Empowering LLMs with Physics-Based Task Planning for Real-time Insight",
+        "authors": ["Wanjing Huang", "Weixiang Yan", "Zhen Zhang", "Ambuj Singh"],
+        "venue": "arXiv",
+        "venue_type": "preprint",
+        "image": "teaser/apex.png",
+        "is_oral": false,
+        "featured": false,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2505.13921",
+            "icon": "ai ai-arxiv"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/hwj20/APEX_EXP",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 0,
+        "_scholar_last_updated": "2026-07-20"
+      }
+    ],
+    "2024": [
+      {
+        "title": "Tool Learning with Foundation Models",
+        "authors": ["Yujia Qin", "Shengding Hu", "Yankai Lin", "Weize Chen", "Ning Ding", "Ganqu Cui", "Zheni Zeng", "Xuanhe Zhou", "Yufei Huang", "Chaojun Xiao", "Chi Han", "Yi Ren Fung", "Yusheng Su", "Huadong Wang", "Cheng Qian", "Runchu Tian", "Kunlun Zhu", "Shihao Liang", "Xingyu Shen", "Bokai Xu", "Zhen Zhang", "Yining Ye", "Bowen Li", "Ziwei Tang", "Jing Yi", "Yuzhang Zhu", "Zhenning Dai", "Lan Yan", "Xin Cong", "Yaxi Lu", "Weilin Zhao", "Yuxiang Huang", "Junxi Yan", "Xu Han", "Xian Sun", "Dahai Li", "Jason Phang", "Cheng Yang", "Tongshuang Wu", "Heng Ji", "Guoliang Li", "Zhiyuan Liu", "Maosong Sun"],
+        "venue": "ACM CSUR'24",
+        "venue_type": "journal",
+        "image": "teaser/tool_learning.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://dl.acm.org/doi/abs/10.1145/3704435",
+            "icon": "fas fa-file-alt"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/OpenBMB/BMTools",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 730,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "Advancing the Robustness of Large Language Models through Self-Denoised Smoothing",
+        "authors": ["Jiabao Ji*", "Bairu Hou*", "Zhen Zhang*", "Guanhua Zhang*", "Wenqi Fan", "Qing Li", "Yang Zhang", "Gaowen Liu", "Sijia Liu", "Shiyu Chang"],
+        "venue": "NAACL'24 Short",
+        "venue_type": "conference",
+        "image": "teaser/advancing_the_robustness.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://aclanthology.org/2024.naacl-short.23/",
+            "icon": "fas fa-file-alt"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/UCSB-NLP-Chang/SelfDenoise",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 65,
+        "_scholar_last_updated": "2026-07-20"
+      }
+    ],
+    "2023": [
+      {
+        "title": "Parameter-Efficient Cross-Lingual Transfer of Vision and Language Models via Translation-Based Alignment",
+        "authors": ["Zhen Zhang", "Jialu Wang", "Xin Eric Wang"],
+        "venue": "EMNLP'23 Findings",
+        "venue_type": "conference",
+        "image": "teaser/peft_cross_lingual_vlm.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://aclanthology.org/2023.findings-emnlp.483/",
+            "icon": "fas fa-file-alt"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/eric-ai-lab/PECTVLM",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 9,
+        "_scholar_last_updated": "2026-07-20"
+      },
+      {
+        "title": "OpenDelta: A Plug-and-Play Library for Parameter-Efficient Adaptation of Pre-Trained Models",
+        "authors": ["Shengding Hu", "Ning Ding", "Weilin Zhao", "Xingtai Lv", "Zhen Zhang", "Zhiyuan Liu", "Maosong Sun"],
+        "venue": "ACL'23 Demo",
+        "venue_type": "conference",
+        "image": "teaser/opendelta.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://aclanthology.org/2023.acl-demo.26/",
+            "icon": "fas fa-file-alt"
+          },
+          {
+            "name": "Code",
+            "url": "https://github.com/thunlp/OpenDelta",
+            "icon": "fab fa-github"
+          }
+        ],
+        "_scholar_citations": 19,
+        "_scholar_last_updated": "2026-07-20"
+      }
+    ],
+    "2022": [
+      {
+        "title": "Sparse Structure Search for Parameter-Efficient Tuning",
+        "authors": ["Shengding Hu*", "Zhen Zhang*", "Ning Ding", "Yadao Wang", "Yasheng Wang", "Zhiyuan Liu", "Maosong Sun"],
+        "venue": "NeurIPS'22",
+        "venue_type": "conference",
+        "image": "teaser/sparse_structure_search.png",
+        "is_oral": false,
+        "featured": true,
+        "links": [
+          {
+            "name": "Paper",
+            "url": "https://arxiv.org/abs/2206.07382",
+            "icon": "ai ai-arxiv"
+          }
+        ],
+        "_scholar_citations": 53,
+        "_scholar_last_updated": "2026-07-20"
       }
     ]
   },
   "experience": [
     {
+      "position": "Student Researcher",
+      "company": "Bytedance Inc, Seed Team",
+      "period": "June 2026 - Now",
+      "description": "Work on LLM post-training and RL scaling.",
+      "logo": "intern/bytedance_seed.svg"
+    },
+    {
       "position": "GenAI Research Intern",
       "company": "Zoom Inc., GenAI Research Group",
       "period": "June 2025 - September 2025",
       "description": "Worked on Multi-Turn Multi-Step tool Use Agent.",
-      "logo": "images/zoom.jpg"
+      "logo": "intern/zoom.jpg"
     },
     {
       "position": "Machine Learning Engineer (Intern)",
       "company": "Microsoft STCA, WebXT — Search & Distribution",
       "period": "Apr 2024 - Sep 2024",
-      "description": "Advised by Gong Ming and Wenbiao Ding. Optimized Bing Search models for TL;DR generation in RAG scenarios; designed and implemented pipelines for high-quality training data generation; applied DPO to empower LLMs to reject inappropriate or unanswerable user queries when search results were insufficient, improving response reliability and reducing hallucination risks.",
-      "logo": "images/microsoft.png"
+      "description": "Optimized Bing Search models for TL;DR generation in RAG scenarios; data generation pipelines; reducing hallucination risks with DPO.",
+      "logo": "intern/microsoft.png"
     }
   ],
   "education": [
@@ -131,18 +502,20 @@
       "degree": "Ph.D. in Computer Science",
       "institution": "UC Santa Barbara, USA",
       "period": "2023 - Present",
-      "details": "Advisor: Prof. Xin Eric Wang"
+      "details": "Advisor: Prof. Xin Eric Wang",
+      "logo": "education/ucsb.svg"
     },
     {
       "degree": "B.E. in Physics",
       "institution": "Tsinghua University, China",
       "period": "2019 - 2023",
-      "details": ""
+      "details": "",
+      "logo": "education/tsinghua.svg"
     }
   ],
   "service": {
     "reviewer": {
-      "conferences": "NeurIPS 2025, ICLR 2026, ACL 2024+, EMNLP 2024+",
+      "conferences": "ICLR 2026, NeurIPS 2025/2026, ACL 2024/2025/2026, EMNLP 2024/2025/2026",
       "journals": ""
     }
   },
@@ -151,7 +524,7 @@
     "website_url": "https://namezhenzhang.github.io",
     "github_pages_url": "https://namezhenzhang.github.io",
     "website_name": "Zhen Zhang (Jason) - Academic Homepage",
-    "website_description": "A researcher in the field of LLM, Agent, Reasoning, RL, Efficiency",
+    "website_description": "A researcher in the field of LLM, Agent, Reasoning, RL and Efficiency",
     "keywords": [
       "LLM",
       "Agent",

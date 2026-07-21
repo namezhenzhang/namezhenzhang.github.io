@@ -825,9 +825,9 @@ body {
 .publication-venue-preprint {
     display: inline-block;
     padding: 4px 12px;
-    background: #f3f4f6;
-    color: #6b7280;
-    font-weight: 500;
+    background: #b31b1b;
+    color: #ffffff;
+    font-weight: 600;
     font-size: 13px;
     border-radius: 4px;
     margin-right: 8px;
@@ -955,6 +955,12 @@ body {
 
 .publication-links .fa-github {
     color: #333;
+}
+
+.publication-links .hf-icon::before {
+    content: "🤗";
+    font-family: system-ui, sans-serif;
+    font-style: normal;
 }
 
 .publication-links .fa-youtube {
@@ -1099,6 +1105,22 @@ body {
 
 .education-content {
     flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    min-width: 0;
+}
+
+.education-logo {
+    flex-shrink: 0;
+    width: 110px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.education-info {
+    flex: 1;
+    min-width: 0;
 }
 
 .education-degree {

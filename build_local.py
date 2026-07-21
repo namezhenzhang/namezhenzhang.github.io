@@ -254,7 +254,9 @@ def highlight_author_name(authors, target_name):
     """Highlight the target author name in the author list"""
     result = []
     for author in authors:
-        if target_name in author:
+        normalized_author = re.sub(r'[\s*†‡§#✉]+$', '', author).strip().casefold()
+        normalized_target = target_name.strip().casefold()
+        if normalized_author == normalized_target:
             result.append(f'<span class="author-highlight">{author}</span>')
         else:
             result.append(author)
@@ -480,6 +482,8 @@ def generate_index_page(config):
     
     # Generate bio HTML
     bio_html = '\n                            '.join([f'<p>{para}</p>' for para in personal['bio']])
+    aka_text = f" ({personal['aka']})" if personal.get('aka') else ''
+    aka_html = f'<span class="aka">{aka_text}</span>' if aka_text else ''
     
     # Generate social links
     links_html = []
@@ -499,7 +503,7 @@ def generate_index_page(config):
             </div>''')
     
     # Generate selected publications
-    target_name = personal['name'].split()[0]  # Use first name for highlighting
+    target_name = personal['name']
     pubs_html = []
     for pub in selected_pubs:
         venue_badge = format_publication_venue(pub['venue_type'], pub['venue'], pub.get('is_oral', False))
@@ -572,13 +576,17 @@ def generate_index_page(config):
     edu_html = []
     for edu in education:
         details = f'<p class="education-details">{edu["details"]}</p>' if edu['details'] else ''
+        logo = f'<img src="{edu["logo"]}" alt="{edu["institution"]} logo" class="education-logo">' if edu.get('logo') else ''
         edu_html.append(f'''
             <div class="education-item">
                 <span class="education-period">{edu['period']}</span>
                 <div class="education-content">
-                    <p class="education-degree">{edu['degree']}</p>
-                    <p class="education-institution">{edu['institution']}</p>
-                    {details}
+                    {logo}
+                    <div class="education-info">
+                        <p class="education-degree">{edu['degree']}</p>
+                        <p class="education-institution">{edu['institution']}</p>
+                        {details}
+                    </div>
                 </div>
             </div>''')
     
@@ -592,12 +600,12 @@ def generate_index_page(config):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{personal['name']} - Academic Homepage</title>
+    <title>{personal['name']}{aka_text} - Academic Homepage</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script src="script.js" defer></script>
 </head>
@@ -624,8 +632,7 @@ def generate_index_page(config):
                     
                     <!-- Right: Introduction -->
                     <div class="hero-info">
-                        <h1 class="hero-title">{personal['name']}</h1>
-                        <p class="hero-subtitle">{personal['title']}</p>
+                        <h1 class="hero-title">{personal['name']}{aka_html}</h1>
                         <p class="hero-affiliation">{personal['affiliation']}</p>
                         
                         <div class="hero-description">
@@ -741,6 +748,7 @@ def generate_publications_page(config):
     publications = config['publications']
     template_info = config.get('_template_info')
     scholar_sync = config.get('_scholar_sync', {})
+    aka_text = f" ({personal['aka']})" if personal.get('aka') else ''
     
     # Separate auto-synced and manual publications
     manual_pubs = {}
@@ -748,7 +756,7 @@ def generate_publications_page(config):
     
     # Process publications by year, separating auto-synced ones
     sorted_years = sorted([year for year in publications.keys() if year != 'survey'], reverse=True)
-    target_name = personal['name'].split()[0]
+    target_name = personal['name']
     
     for year in sorted_years:
         year_pubs = publications[year]
@@ -870,12 +878,12 @@ def generate_publications_page(config):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - {personal['name']}</title>
+    <title>Publications - {personal['name']}{aka_text}</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 <body>
@@ -943,7 +951,7 @@ def generate_blog_page(config):
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
     <script src="blog-data.js"></script>

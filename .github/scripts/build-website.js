@@ -32,7 +32,9 @@ function loadConfig() {
 
 function highlightAuthorName(authors, targetName) {
   return authors.map(author => {
-    if (author.includes(targetName)) {
+    const normalizedAuthor = author.replace(/[\s*†‡§#✉]+$/u, '').trim().toLowerCase();
+    const normalizedTarget = targetName.trim().toLowerCase();
+    if (normalizedAuthor === normalizedTarget) {
       return `<span class="author-highlight">${author}</span>`;
     }
     return author;
@@ -346,7 +348,7 @@ function generateIndexPage(config) {
             </div>`).join('');
   
   // Generate selected publications
-  const targetName = personal.name.split(' ')[0]; // Use first name for highlighting
+  const targetName = personal.name;
   const pubsHtml = selectedPubs.map(pub => {
     const venueBadge = formatPublicationVenue(pub.venue_type, pub.venue, pub.is_oral);
     const authorsFormatted = highlightAuthorName(pub.authors, targetName);
@@ -425,13 +427,17 @@ function generateIndexPage(config) {
   // Generate education items
   const eduHtml = education.map(edu => {
     const details = edu.details ? `<p class="education-details">${edu.details}</p>` : '';
+    const logo = edu.logo ? `<img src="${edu.logo}" alt="${edu.institution} logo" class="education-logo">` : '';
     return `
             <div class="education-item">
                 <span class="education-period">${edu.period}</span>
                 <div class="education-content">
-                    <p class="education-degree">${edu.degree}</p>
-                    <p class="education-institution">${edu.institution}</p>
-                    ${details}
+                    ${logo}
+                    <div class="education-info">
+                        <p class="education-degree">${edu.degree}</p>
+                        <p class="education-institution">${edu.institution}</p>
+                        ${details}
+                    </div>
                 </div>
             </div>`;
   }).join('');
@@ -448,13 +454,13 @@ function generateIndexPage(config) {
     <title>${personal.name}${personal.aka ? ` (${personal.aka})` : ''} - Academic Homepage</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta name="description" content="${config.seo?.website_description || `${personal.name} at ${personal.affiliation}`}">
     <meta name="keywords" content="${config.seo?.keywords?.join(', ') || 'academic, research, computer science'}">
     <meta name="author" content="${personal.name}">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="${personal.name} - Academic Homepage">
-    <meta property="og:description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta property="og:description" content="${config.seo?.website_description || `${personal.name} at ${personal.affiliation}`}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${config.seo?.website_url || '#'}">
     <meta property="og:image" content="${config.seo?.website_url || '#'}/${personal.profile_image}">
@@ -462,7 +468,7 @@ function generateIndexPage(config) {
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${personal.name} - Academic Homepage">
-    <meta name="twitter:description" content="${config.seo?.website_description || `${personal.name} - ${personal.title} at ${personal.affiliation}`}">
+    <meta name="twitter:description" content="${config.seo?.website_description || `${personal.name} at ${personal.affiliation}`}">
     <meta name="twitter:image" content="${config.seo?.website_url || '#'}/${personal.profile_image}">
     
     <!-- JSON-LD Structured Data -->
@@ -478,7 +484,7 @@ function generateIndexPage(config) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script src="script.js" defer></script>
 </head>
@@ -506,7 +512,6 @@ function generateIndexPage(config) {
                     <!-- Right: Introduction -->
                     <div class="hero-info">
                         <h1 class="hero-title">${personal.name}${personal.aka ? `<span class="aka"> (${personal.aka})</span>` : ''}</h1>
-                        <p class="hero-subtitle">${personal.title}</p>
                         <p class="hero-affiliation">${personal.affiliation}</p>
                         
                         <div class="hero-description">
@@ -618,7 +623,7 @@ function generatePublicationsPage(config) {
   console.log('Generating publications.html...');
   
   const { personal, research, publications, _template_info, _scholar_sync } = config;
-  const targetName = personal.name.split(' ')[0];
+  const targetName = personal.name;
   
   // Separate auto-synced and manual publications
   const manualPubs = {};
@@ -760,13 +765,13 @@ function generatePublicationsPage(config) {
     <title>Publications - ${personal.name}${personal.aka ? ` (${personal.aka})` : ''}</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}. Research in ${config.seo?.author?.research_areas?.join(', ') || 'computer vision, multimodal AI, machine learning'}">
+    <meta name="description" content="Publications by ${personal.name} at ${personal.affiliation}. Research in ${config.seo?.author?.research_areas?.join(', ') || 'computer vision, multimodal AI, machine learning'}">
     <meta name="keywords" content="${config.seo?.keywords?.join(', ') || 'academic, research, computer science'}, publications, papers, research papers">
     <meta name="author" content="${personal.name}">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Publications - ${personal.name}">
-    <meta property="og:description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}">
+    <meta property="og:description" content="Publications by ${personal.name} at ${personal.affiliation}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${config.seo?.website_url || '#'}/publications.html">
     <meta property="og:image" content="${config.seo?.website_url || '#'}/${personal.profile_image}">
@@ -774,7 +779,7 @@ function generatePublicationsPage(config) {
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Publications - ${personal.name}">
-    <meta name="twitter:description" content="Publications by ${personal.name} - ${personal.title} at ${personal.affiliation}">
+    <meta name="twitter:description" content="Publications by ${personal.name} at ${personal.affiliation}">
     <meta name="twitter:image" content="${config.seo?.website_url || '#'}/${personal.profile_image}">
     
     <!-- JSON-LD Structured Data -->
@@ -790,7 +795,7 @@ function generatePublicationsPage(config) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 <body>

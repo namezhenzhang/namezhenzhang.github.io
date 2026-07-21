@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" role="img" aria-labelledby="title description">
+  <title id="title">Paper preview</title>
+  <desc id="description">A neutral academic paper preview image</desc>
+  <rect width="160" height="90" rx="6" fill="#f8fafc"/>
+  <rect x="46" y="14" width="68" height="62" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="57" y="27" width="46" height="5" rx="2.5" fill="#b31b1b"/>
+  <rect x="57" y="40" width="39" height="3" rx="1.5" fill="#94a3b8"/>
+  <rect x="57" y="48" width="46" height="3" rx="1.5" fill="#cbd5e1"/>
+  <rect x="57" y="56" width="32" height="3" rx="1.5" fill="#cbd5e1"/>
+  <circle cx="105" cy="64" r="7" fill="#b31b1b"/>
+  <path d="M102 64h6M105 61v6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
