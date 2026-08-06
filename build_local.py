@@ -331,14 +331,23 @@ def generate_footer(personal, template_info=None, analytics=None):
     if clustrmaps_enabled:
         if clustrmaps_mode == 'image':
             clustrmaps_html = (
-                f'<a href="https://clustrmaps.com/site/{clustrmaps_site}" title="ClustrMaps">'
-                f'<img src="//www.clustrmaps.com/map_v2.png?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}"></a>'
+                f'<a href="https://clustrmaps.com/site/{clustrmaps_site}" title="View visitor map" '
+                f'target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}'
+                f'&cl={clustrmaps_cl}&w={clustrmaps_w}" alt="Visitor map"></a>'
             )
         else:
             # Default: JavaScript embed (recommended)
             clustrmaps_html = (
+                f'<div id="clustrmaps-fallback" hidden><a href="https://clustrmaps.com/site/{clustrmaps_site}" '
+                f'title="View visitor map" target="_blank" rel="noopener"><img '
+                f'src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}&cl={clustrmaps_cl}'
+                f'&w={clustrmaps_w}" alt="Visitor map"></a></div>'
                 f'<script type="text/javascript" id="clustrmaps" '
-                f'src="//clustrmaps.com/map_v2.js?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}"></script>'
+                f'src="https://cdn.clustrmaps.com/map_v2.js?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}" '
+                f'onerror="this.hidden=true; document.getElementById(\'clustrmaps-fallback\').hidden=false;"></script>'
+                f'<noscript><a href="https://clustrmaps.com/site/{clustrmaps_site}" title="View visitor map" '
+                f'target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}'
+                f'&cl={clustrmaps_cl}&w={clustrmaps_w}" alt="Visitor map"></a></noscript>'
             )
     
     # Generate template credit if enabled

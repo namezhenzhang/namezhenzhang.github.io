@@ -187,13 +187,20 @@ function generateFooter(config, personal, templateInfo = null) {
   const analytics = config.analytics || {};
   const clustrmaps = analytics.clustrmaps || {};
   const clustrmaps_enabled = clustrmaps.enabled !== false;
+  const clustrmaps_mode = clustrmaps.mode || 'script';
   const clustrmaps_d = clustrmaps.d || 'MHRNgTjTnR1LrKYEoTFnSWBD7EXE7GgDo2Hc_sSJu1U';
   const clustrmaps_cl = clustrmaps.cl || 'ffffff';
   const clustrmaps_w = clustrmaps.w || 'a';
+  const clustrmaps_site = clustrmaps.site || '1c8yx';
   
   let clustrmaps_html = '';
   if (clustrmaps_enabled) {
-      clustrmaps_html = `<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=${clustrmaps_d}&cl=${clustrmaps_cl}&w=${clustrmaps_w}"></script>`;
+      const imageWidget = `<a href="https://clustrmaps.com/site/${clustrmaps_site}" title="View visitor map" target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d=${clustrmaps_d}&cl=${clustrmaps_cl}&w=${clustrmaps_w}" alt="Visitor map"></a>`;
+      if (clustrmaps_mode === 'image') {
+          clustrmaps_html = imageWidget;
+      } else {
+          clustrmaps_html = `<div id="clustrmaps-fallback" hidden>${imageWidget}</div><script type="text/javascript" id="clustrmaps" src="https://cdn.clustrmaps.com/map_v2.js?d=${clustrmaps_d}&cl=${clustrmaps_cl}&w=${clustrmaps_w}" onerror="this.hidden=true; document.getElementById('clustrmaps-fallback').hidden=false;"></script><noscript>${imageWidget}</noscript>`;
+      }
   }
 
   // Generate template credit if enabled
