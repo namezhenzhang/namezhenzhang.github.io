@@ -17,7 +17,7 @@ const PUBLICATIONS_OUTPUT = path.join(__dirname, '../../publications.html');
 
 function loadConfig() {
   console.log('Loading configuration from config.json...');
-  
+
   if (!fs.existsSync(CONFIG_FILE)) {
     throw new Error('config.json file not found!');
   }
@@ -183,23 +183,23 @@ ${JSON.stringify(schemas, null, 2)}
 function generateFooter(config, personal, templateInfo = null) {
   const currentYear = new Date().getFullYear();
   
-  // ClustrMaps widget (optional, configurable via config.json -> analytics.clustrmaps)
+  // MapMyVisitors widget (optional, configurable via config.json -> analytics.mapmyvisitors)
   const analytics = config.analytics || {};
-  const clustrmaps = analytics.clustrmaps || {};
-  const clustrmaps_enabled = clustrmaps.enabled !== false;
-  const clustrmaps_mode = clustrmaps.mode || 'script';
-  const clustrmaps_d = clustrmaps.d || 'MHRNgTjTnR1LrKYEoTFnSWBD7EXE7GgDo2Hc_sSJu1U';
-  const clustrmaps_cl = clustrmaps.cl || 'ffffff';
-  const clustrmaps_w = clustrmaps.w || 'a';
-  const clustrmaps_site = clustrmaps.site || '1c8yx';
-  
-  let clustrmaps_html = '';
-  if (clustrmaps_enabled) {
-      const imageWidget = `<a href="https://clustrmaps.com/site/${clustrmaps_site}" title="View visitor map" target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d=${clustrmaps_d}&cl=${clustrmaps_cl}&w=${clustrmaps_w}" alt="Visitor map"></a>`;
-      if (clustrmaps_mode === 'image') {
-          clustrmaps_html = imageWidget;
+  const mapmyvisitors = analytics.mapmyvisitors || {};
+  const mapmyvisitors_enabled = mapmyvisitors.enabled === true;
+  const mapmyvisitors_mode = mapmyvisitors.mode || 'script';
+  const mapmyvisitors_d = mapmyvisitors.d || '';
+  const mapmyvisitors_cl = mapmyvisitors.cl || 'ffffff';
+  const mapmyvisitors_w = mapmyvisitors.w || 'a';
+  const mapmyvisitors_site = mapmyvisitors.site || '';
+
+  let mapmyvisitors_html = '';
+  if (mapmyvisitors_enabled && mapmyvisitors_d && mapmyvisitors_site) {
+      const imageWidget = `<a href="https://mapmyvisitors.com/web/${mapmyvisitors_site}" title="Visit tracker" target="_blank" rel="noopener"><img src="https://mapmyvisitors.com/map.png?d=${mapmyvisitors_d}&cl=${mapmyvisitors_cl}" alt="Visitor map"></a>`;
+      if (mapmyvisitors_mode === 'image') {
+          mapmyvisitors_html = imageWidget;
       } else {
-          clustrmaps_html = `<div id="clustrmaps-fallback" hidden>${imageWidget}</div><script type="text/javascript" id="clustrmaps" src="https://cdn.clustrmaps.com/map_v2.js?d=${clustrmaps_d}&cl=${clustrmaps_cl}&w=${clustrmaps_w}" onerror="this.hidden=true; document.getElementById('clustrmaps-fallback').hidden=false;"></script><noscript>${imageWidget}</noscript>`;
+          mapmyvisitors_html = `<div id="mapmyvisitors-fallback" hidden>${imageWidget}</div><script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=${mapmyvisitors_d}&cl=${mapmyvisitors_cl}&w=${mapmyvisitors_w}" onerror="this.hidden=true; document.getElementById('mapmyvisitors-fallback').hidden=false;"></script><noscript>${imageWidget}</noscript>`;
       }
   }
 
@@ -218,8 +218,8 @@ function generateFooter(config, personal, templateInfo = null) {
                 <div class="visitor-map-container">
                     <!-- Visitor Map Widget -->
                     <div class="visitor-map">
-                        <!-- ClustrMaps Widget -->
-                        ${clustrmaps_html}
+                        <!-- MapMyVisitors Widget -->
+                        ${mapmyvisitors_html}
                     </div>
                 </div>
             </div>

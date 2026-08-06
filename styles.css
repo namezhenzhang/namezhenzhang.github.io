@@ -1245,8 +1245,9 @@ body {
     height: auto;
 }
 
-/* Control ClustrMaps widget size */
-.visitor-map #clustrmaps {
+/* Control MapMyVisitors widget size */
+.visitor-map #mapmyvisitors,
+.visitor-map #mapmyvisitors-widget {
     max-width: 380px !important;
     width: 100% !important;
 }

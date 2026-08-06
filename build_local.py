@@ -317,37 +317,36 @@ def generate_footer(personal, template_info=None, analytics=None):
     """Generate footer HTML"""
     current_year = datetime.now().year
 
-    # ClustrMaps widget (optional, configurable via config.json -> analytics.clustrmaps)
+    # MapMyVisitors widget (optional, configurable via config.json -> analytics.mapmyvisitors)
     analytics = analytics or {}
-    clustrmaps = analytics.get('clustrmaps', {}) if isinstance(analytics, dict) else {}
-    clustrmaps_enabled = clustrmaps.get('enabled', True)
-    clustrmaps_mode = clustrmaps.get('mode', 'script')  # 'script' (recommended) or 'image'
-    clustrmaps_d = clustrmaps.get('d', 'MHRNgTjTnR1LrKYEoTFnSWBD7EXE7GgDo2Hc_sSJu1U')
-    clustrmaps_cl = clustrmaps.get('cl', 'ffffff')
-    clustrmaps_w = clustrmaps.get('w', 'a')
-    clustrmaps_site = clustrmaps.get('site', '1c8yx')
+    mapmyvisitors = analytics.get('mapmyvisitors', {}) if isinstance(analytics, dict) else {}
+    mapmyvisitors_enabled = mapmyvisitors.get('enabled') is True
+    mapmyvisitors_mode = mapmyvisitors.get('mode', 'script')
+    mapmyvisitors_d = mapmyvisitors.get('d', '')
+    mapmyvisitors_cl = mapmyvisitors.get('cl', 'ffffff')
+    mapmyvisitors_w = mapmyvisitors.get('w', 'a')
+    mapmyvisitors_site = mapmyvisitors.get('site', '')
 
-    clustrmaps_html = ''
-    if clustrmaps_enabled:
-        if clustrmaps_mode == 'image':
-            clustrmaps_html = (
-                f'<a href="https://clustrmaps.com/site/{clustrmaps_site}" title="View visitor map" '
-                f'target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}'
-                f'&cl={clustrmaps_cl}&w={clustrmaps_w}" alt="Visitor map"></a>'
+    mapmyvisitors_html = ''
+    if mapmyvisitors_enabled and mapmyvisitors_d and mapmyvisitors_site:
+        if mapmyvisitors_mode == 'image':
+            mapmyvisitors_html = (
+                f'<a href="https://mapmyvisitors.com/web/{mapmyvisitors_site}" title="Visit tracker" '
+                f'target="_blank" rel="noopener"><img src="https://mapmyvisitors.com/map.png?d={mapmyvisitors_d}'
+                f'&cl={mapmyvisitors_cl}" alt="Visitor map"></a>'
             )
         else:
-            # Default: JavaScript embed (recommended)
-            clustrmaps_html = (
-                f'<div id="clustrmaps-fallback" hidden><a href="https://clustrmaps.com/site/{clustrmaps_site}" '
-                f'title="View visitor map" target="_blank" rel="noopener"><img '
-                f'src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}&cl={clustrmaps_cl}'
-                f'&w={clustrmaps_w}" alt="Visitor map"></a></div>'
-                f'<script type="text/javascript" id="clustrmaps" '
-                f'src="https://cdn.clustrmaps.com/map_v2.js?d={clustrmaps_d}&cl={clustrmaps_cl}&w={clustrmaps_w}" '
-                f'onerror="this.hidden=true; document.getElementById(\'clustrmaps-fallback\').hidden=false;"></script>'
-                f'<noscript><a href="https://clustrmaps.com/site/{clustrmaps_site}" title="View visitor map" '
-                f'target="_blank" rel="noopener"><img src="https://www.clustrmaps.com/map_v2.png?d={clustrmaps_d}'
-                f'&cl={clustrmaps_cl}&w={clustrmaps_w}" alt="Visitor map"></a></noscript>'
+            image_widget = (
+                f'<a href="https://mapmyvisitors.com/web/{mapmyvisitors_site}" title="Visit tracker" '
+                f'target="_blank" rel="noopener"><img src="https://mapmyvisitors.com/map.png?d={mapmyvisitors_d}'
+                f'&cl={mapmyvisitors_cl}" alt="Visitor map"></a>'
+            )
+            mapmyvisitors_html = (
+                f'<div id="mapmyvisitors-fallback" hidden>{image_widget}</div>'
+                f'<script type="text/javascript" id="mapmyvisitors" '
+                f'src="https://mapmyvisitors.com/map.js?d={mapmyvisitors_d}&cl={mapmyvisitors_cl}&w={mapmyvisitors_w}" '
+                f'onerror="this.hidden=true; document.getElementById(\'mapmyvisitors-fallback\').hidden=false;"></script>'
+                f'<noscript>{image_widget}</noscript>'
             )
     
     # Generate template credit if enabled
@@ -368,8 +367,8 @@ def generate_footer(personal, template_info=None, analytics=None):
                 <div class="visitor-map-container">
                     <!-- Visitor Map Widget -->
                     <div class="visitor-map">
-                        <!-- ClustrMaps Widget -->
-                        {clustrmaps_html}
+                        <!-- MapMyVisitors Widget -->
+                        {mapmyvisitors_html}
                     </div>
                 </div>
             </div>
